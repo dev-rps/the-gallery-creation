@@ -3,25 +3,66 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #1a1a1a;
+  --foreground: #F9F7F3;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: #1a1a1a;
+  color: #F9F7F3;
+  scrollbar-width: thin;
+  scrollbar-color: #C9A96E #1a1a1a;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1a1a1a;
+  color: #F9F7F3;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Custom Scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A96E;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b59459;
+}
+
+/* Selection highlight styling */
+::selection {
+  background: #C9A96E;
+  color: #1a1a1a;
+}
+
+/* CSS columns masonry layout */
+.masonry {
+  columns: 3;
+  column-gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .masonry {
+    columns: 2;
   }
+}
+
+@media (max-width: 640px) {
+  .masonry {
+    columns: 1;
+  }
+}
+
+/* Masonry item spacer utility */
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  display: block;
 }
