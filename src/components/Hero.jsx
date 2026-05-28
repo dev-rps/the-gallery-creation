@@ -37,7 +37,7 @@ export default function Hero() {
         className="absolute inset-0 w-full h-[120%] -top-[10%]"
       >
         <Image
-          src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80"
+          src="/hero-bg.jpg"
           alt="Cinematic luxury wedding photography background"
           fill
           priority

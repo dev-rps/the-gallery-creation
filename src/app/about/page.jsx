@@ -11,27 +11,27 @@ export default function AboutPage() {
     <div className="w-full bg-charcoal text-cream">
       {/* Split Biography Section */}
       <section className="min-h-[85vh] grid grid-cols-1 lg:grid-cols-12 gap-0 border-b border-gold/10">
-        {/* Left: Founder Photo Column */}
-        <div className="lg:col-span-5 relative min-h-[50vh] lg:min-h-0 bg-[#222]">
-          <Image
-            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80"
-            alt="Raju Das & Kuushaal Debnaath - The Gallery Creation & Shoot Insights"
-            fill
-            sizes="(max-width: 1024px) 100vw, 40vw"
-            priority
-            className="object-cover object-center"
-          />
-          {/* Subtle gold-tint overlay */}
-          <div className="absolute inset-0 bg-gold/5 bg-gradient-to-t from-charcoal via-transparent to-transparent" />
+        {/* Left: Brand Logo Column */}
+        <div className="lg:col-span-5 relative min-h-[50vh] lg:min-h-0 bg-[#ffffff] flex items-center justify-center p-12 border-r border-gold/10">
+          <div className="relative w-full aspect-square max-w-sm">
+            <Image
+              src="/shoot-insights.png"
+              alt="Shoot Insights Logo"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-contain"
+            />
+          </div>
         </div>
 
         {/* Right: Story Column */}
         <div className="lg:col-span-7 flex flex-col justify-center p-8 md:p-16 lg:p-24 bg-charcoal">
           <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 block">
-            The Founders
+            The Story
           </span>
           <h1 className="font-serif text-3xl md:text-5xl font-bold tracking-wide mb-8">
-            Raju Das &amp; Kuushaal Debnaath
+            The Gallery Creation
           </h1>
 
           <div className="space-y-6 text-cream/80 text-sm md:text-base font-light leading-relaxed">
@@ -54,6 +54,94 @@ export default function AboutPage() {
             <p className="text-cream/70 text-xs md:text-sm font-light italic leading-relaxed">
               &ldquo;{photographerInfo.philosophy}&rdquo;
             </p>
+          </div>
+
+          {/* Studio Brand Logos Grid */}
+          <div className="mt-12 pt-10 border-t border-cream/5">
+            <h3 className="text-xs uppercase tracking-widest text-gold font-semibold mb-6">
+              Our Studio Brands
+            </h3>
+            <div className="flex flex-wrap gap-6">
+              <div className="bg-[#ffffff] p-4 rounded-sm flex items-center justify-center w-32 h-32 shadow-md">
+                <Image
+                  src="/mockup.png"
+                  alt="The Gallery Creation Logo"
+                  width={110}
+                  height={110}
+                  className="object-contain"
+                />
+              </div>
+              <div className="bg-[#ffffff] p-4 rounded-sm flex items-center justify-center w-32 h-32 shadow-md">
+                <Image
+                  src="/shoot-insights.png"
+                  alt="Shoot Insights Logo"
+                  width={110}
+                  height={110}
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet the Founders Section */}
+      <section className="py-24 bg-[#1a1a1a] border-b border-gold/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold block mb-2">
+              The Creative Minds
+            </span>
+            <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-wide">
+              Meet the Founders
+            </h2>
+            <div className="w-16 h-[1px] bg-gold mx-auto mt-4" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            {/* Founder 1: Raju Das */}
+            <div className="bg-[#222] border border-cream/5 rounded-sm overflow-hidden flex flex-col group shadow-xl">
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#333]">
+                <Image
+                  src="/raju.jpg"
+                  alt="Raju Das - Co-Founder"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  priority
+                />
+                <div className="absolute inset-0 bg-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <div className="p-8 text-center bg-[#222] border-t border-gold/10">
+                <h3 className="font-serif text-xl font-bold text-cream tracking-wide">Raju Das</h3>
+                <p className="text-xs uppercase tracking-widest text-gold mt-1 font-semibold">Co-Founder &amp; Principal Photographer</p>
+                <p className="text-sm text-cream/70 mt-4 leading-relaxed font-light">
+                  Raju specializes in capturing the grandeur and editorial fine-art moments of weddings, using light and scale to create breathtaking compositions.
+                </p>
+              </div>
+            </div>
+
+            {/* Founder 2: Kuushaal Debnaath */}
+            <div className="bg-[#222] border border-cream/5 rounded-sm overflow-hidden flex flex-col group shadow-xl">
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#333]">
+                <Image
+                  src="/kuushal.jpg"
+                  alt="Kuushaal Debnaath - Co-Founder"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  priority
+                />
+                <div className="absolute inset-0 bg-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <div className="p-8 text-center bg-[#222] border-t border-gold/10">
+                <h3 className="font-serif text-xl font-bold text-cream tracking-wide">Kuushaal Debnaath</h3>
+                <p className="text-xs uppercase tracking-widest text-gold mt-1 font-semibold">Co-Founder &amp; Creative Director</p>
+                <p className="text-sm text-cream/70 mt-4 leading-relaxed font-light">
+                  Kuushaal focuses on candid storytelling and cinematic photojournalism, capturing the intimate, raw emotions and spontaneous love stories of your milestones.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

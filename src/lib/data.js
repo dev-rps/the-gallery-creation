@@ -24,7 +24,7 @@ export const navLinks = [
 export const portfolioImages = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
+    src: "/portfolio/wedding-1.jpg",
     alt: "Luxury wedding couple standing together in scenic outdoor garden setting",
     category: "wedding",
     width: 800,
@@ -32,7 +32,7 @@ export const portfolioImages = [
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80",
+    src: "/portfolio/wedding-2.jpg",
     alt: "Indian wedding couple holding hands walking down aisle covered in flower petals",
     category: "wedding",
     width: 800,
@@ -40,7 +40,7 @@ export const portfolioImages = [
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80",
+    src: "/portfolio/wedding-3.jpg",
     alt: "Close up shot of Indian bride and groom during wedding rituals",
     category: "wedding",
     width: 800,
@@ -48,7 +48,7 @@ export const portfolioImages = [
   },
   {
     id: 4,
-    src: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80",
+    src: "/portfolio/wedding-4.jpg",
     alt: "Wedding couple embracing under soft warm light outdoors",
     category: "wedding",
     width: 800,
@@ -56,7 +56,7 @@ export const portfolioImages = [
   },
   {
     id: 5,
-    src: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=800&q=80",
+    src: "/portfolio/prewedding-1.jpg",
     alt: "Close up of wedding rings resting on top of elegant bridal flowers",
     category: "pre-wedding",
     width: 800,
@@ -64,7 +64,7 @@ export const portfolioImages = [
   },
   {
     id: 6,
-    src: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=800&q=80",
+    src: "/portfolio/prewedding-2.jpg",
     alt: "Pre-wedding couple standing hand-in-hand smiling at sunset",
     category: "pre-wedding",
     width: 800,
@@ -72,7 +72,7 @@ export const portfolioImages = [
   },
   {
     id: 7,
-    src: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&q=80",
+    src: "/portfolio/prewedding-3.jpg",
     alt: "Couple walking through scenic open field together laughing",
     category: "pre-wedding",
     width: 800,
@@ -80,7 +80,7 @@ export const portfolioImages = [
   },
   {
     id: 8,
-    src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80",
+    src: "/portfolio/portrait-1.jpg",
     alt: "Fine art personal portrait of a woman looking directly at camera with natural lighting",
     category: "portraits",
     width: 800,
@@ -88,7 +88,7 @@ export const portfolioImages = [
   },
   {
     id: 9,
-    src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
+    src: "/portfolio/portrait-2.jpg",
     alt: "Elegant studio portrait of a man looking thoughtful in dark background",
     category: "portraits",
     width: 800,
@@ -96,7 +96,7 @@ export const portfolioImages = [
   },
   {
     id: 10,
-    src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80",
+    src: "/portfolio/events-1.jpg",
     alt: "Corporate gala night dinner setup with luxury table settings and warm lighting",
     category: "events",
     width: 800,
@@ -104,7 +104,7 @@ export const portfolioImages = [
   },
   {
     id: 11,
-    src: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80",
+    src: "/portfolio/events-2.jpg",
     alt: "Group of friends toasted with champagne glasses during event reception",
     category: "events",
     width: 800,
@@ -112,7 +112,7 @@ export const portfolioImages = [
   },
   {
     id: 12,
-    src: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=800&q=80",
+    src: "/portfolio/events-3.jpg",
     alt: "Luxury ballroom reception hall decorated with grand chandeliers and flower displays",
     category: "events",
     width: 800,
