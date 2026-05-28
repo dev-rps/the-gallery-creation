@@ -7,8 +7,8 @@ import TestimonialCard from '@/components/TestimonialCard';
 import { services, testimonials, photographerInfo } from '@/lib/data';
 
 export const metadata = {
-  title: 'Lumière Studio | Luxury Wedding & Event Photography',
-  description: 'Welcome to Lumière Studio. Captured by Arjun Mehta, we specialize in high-end, luxury wedding photography and fine-art portraits.',
+  title: 'The Gallery Creation & Shoot Insights | Premium Wedding & Event Photography',
+  description: 'Welcome to The Gallery Creation & Shoot Insights. Captured by Raju Das & Kuushaal Debnaath, we specialize in high-end, luxury wedding photography and fine-art portraits.',
 };
 
 export default function Home() {

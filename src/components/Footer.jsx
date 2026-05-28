@@ -11,14 +11,14 @@ export default function Footer() {
         {/* Left: Studio Info */}
         <div className="flex flex-col space-y-4">
           <Link href="/" className="flex flex-col w-fit">
-            <span className="font-serif text-3xl tracking-widest text-gold font-bold">LUMIÈRE</span>
-            <span className="text-xs uppercase tracking-[0.3em] text-cream/70 -mt-1">STUDIO</span>
+            <span className="font-serif text-2xl tracking-widest text-gold font-bold leading-tight">THE GALLERY CREATION</span>
+            <span className="text-[10px] uppercase tracking-[0.25em] text-cream/70 mt-0.5">&amp; SHOOT INSIGHTS</span>
           </Link>
           <p className="text-sm text-cream/70 leading-relaxed max-w-sm italic">
-            &quot;Where Moments Become Masterpieces&quot;
+            &quot;Timeless memories, treasured forever.&quot;
           </p>
           <p className="text-sm text-cream/60 leading-relaxed max-w-sm pt-2">
-            Capturing luxury weddings and fine-art portraits in Kolkata and nationwide. Let us document your love story with timeless sophistication.
+            Capturing luxury weddings and fine-art portraits in Howrah, Kolkata, and nationwide. Let us document your love story with timeless sophistication.
           </p>
         </div>
 
@@ -46,16 +46,21 @@ export default function Footer() {
               <MapPin size={16} className="text-gold shrink-0" />
               <span>{photographerInfo.location}</span>
             </li>
-            <li className="flex items-center space-x-3">
-              <Phone size={16} className="text-gold shrink-0" />
-              <a href={`https://wa.me/${whatsappNumber}`} className="hover:text-gold transition-colors">
-                +{whatsappNumber}
-              </a>
+            <li className="flex items-start space-x-3">
+              <Phone size={16} className="text-gold shrink-0 mt-0.5" />
+              <div className="flex flex-col text-cream/80">
+                <a href="https://wa.me/919163961246" className="hover:text-gold transition-colors">
+                  +91 9163961246
+                </a>
+                <a href="https://wa.me/918240677269" className="hover:text-gold transition-colors">
+                  +91 8240677269
+                </a>
+              </div>
             </li>
             <li className="flex items-center space-x-3">
               <Mail size={16} className="text-gold shrink-0" />
-              <a href="mailto:info@lumierestudio.in" className="hover:text-gold transition-colors">
-                info@lumierestudio.in
+              <a href="mailto:thegallerycreation@gmail.com" className="hover:text-gold transition-colors">
+                thegallerycreation@gmail.com
               </a>
             </li>
           </ul>
@@ -90,9 +95,9 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-cream/5 text-center text-xs text-cream/40 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p>© {new Date().getFullYear()} Lumière Studio. All Rights Reserved.</p>
+        <p>© {new Date().getFullYear()} The Gallery Creation & Shoot Insights. All Rights Reserved.</p>
         <p className="tracking-wide">
-          Designed by Arjun Mehta | Hosted on Vercel
+          Designed by The Gallery Creation | Hosted on Vercel
         </p>
       </div>
     </footer>

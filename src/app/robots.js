@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://lumierestudio.in/sitemap.xml',
+    sitemap: 'https://thegallerycreation.in/sitemap.xml',
   };
 }

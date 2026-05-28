@@ -2,7 +2,7 @@ import Gallery from '@/components/gallery/Gallery';
 
 export const metadata = {
   title: 'Our Portfolio',
-  description: 'Explore the full portfolio of luxury wedding, pre-wedding, event, and portrait photography by Arjun Mehta.',
+  description: 'Explore the full portfolio of premium wedding, pre-wedding, event, and portrait photography by Raju Das & Kuushaal Debnaath.',
 };
 
 export default function PortfolioPage() {

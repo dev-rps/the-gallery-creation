@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function WhatsAppButton() {
   const [isHovered, setIsHovered] = useState(false);
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '910000000000';
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919163961246';
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center">

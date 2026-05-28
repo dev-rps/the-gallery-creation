@@ -2,8 +2,8 @@ import Image from 'next/image';
 import { timeline, photographerInfo } from '@/lib/data';
 
 export const metadata = {
-  title: 'About Arjun Mehta',
-  description: 'Learn about Arjun Mehta, the creative force and principal photographer behind Lumière Studio, with 8 years of luxury wedding experience.',
+  title: 'About Raju Das & Kuushaal Debnaath',
+  description: 'Learn about Raju Das & Kuushaal Debnaath, the founders and principal photographers behind The Gallery Creation & Shoot Insights.',
 };
 
 export default function AboutPage() {
@@ -15,7 +15,7 @@ export default function AboutPage() {
         <div className="lg:col-span-5 relative min-h-[50vh] lg:min-h-0 bg-[#222]">
           <Image
             src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80"
-            alt="Arjun Mehta - Luxury Wedding Photographer"
+            alt="Raju Das & Kuushaal Debnaath - The Gallery Creation & Shoot Insights"
             fill
             sizes="(max-width: 1024px) 100vw, 40vw"
             priority
@@ -28,21 +28,21 @@ export default function AboutPage() {
         {/* Right: Story Column */}
         <div className="lg:col-span-7 flex flex-col justify-center p-8 md:p-16 lg:p-24 bg-charcoal">
           <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 block">
-            The Artist
+            The Founders
           </span>
           <h1 className="font-serif text-3xl md:text-5xl font-bold tracking-wide mb-8">
-            Arjun Mehta
+            Raju Das &amp; Kuushaal Debnaath
           </h1>
 
           <div className="space-y-6 text-cream/80 text-sm md:text-base font-light leading-relaxed">
             <p>
-              I believe that photography is more than just framing a shot; it&apos;s about holding onto a feeling. For the past 8 years, my camera has been an extension of my heart, helping me capture the quiet glances, grand celebrations, and emotional milestones that define our lives.
+              We believe that photography is more than just framing a shot; it&apos;s about holding onto a feeling. For the past 10 years, our cameras have been extensions of our hearts, helping us capture the quiet glances, grand celebrations, and emotional milestones that define our lives.
             </p>
             <p>
-              Growing up in the culturally rich streets of Kolkata, I was always drawn to how light dances across ancient structures and how local rituals bring communities together in a burst of colors. This city taught me to find beauty in details, which eventually inspired the inception of Lumière Studio.
+              Growing up in the culturally rich streets of Kolkata and Howrah, we were always drawn to how light dances across local structures and how festive rituals bring communities together in a burst of colors. This city taught us to find beauty in details, which eventually inspired the inception of The Gallery Creation &amp; Shoot Insights.
             </p>
             <p>
-              For me, every wedding is a completely blank canvas. I approach each couple not just as clients, but as collaborators in creating a visual heritage. My style blends editorial aesthetics with candid photojournalism, giving you photographs that feel like cinema and print quality that lasts for generations.
+              For us, every wedding is a completely blank canvas. We approach each couple not just as clients, but as collaborators in creating a visual heritage. Our style blends editorial aesthetics with candid photojournalism, giving you photographs that feel like cinema and print quality that lasts for generations.
             </p>
           </div>
 

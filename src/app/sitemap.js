@@ -1,5 +1,5 @@
 export default async function sitemap() {
-  const baseUrl = 'https://lumierestudio.in';
+  const baseUrl = 'https://thegallerycreation.in';
   
   const routes = ['', '/portfolio', '/services', '/about', '/testimonials', '/contact'].map((route) => ({
     url: `${baseUrl}${route}`,

@@ -5,7 +5,7 @@ import { Play } from 'lucide-react';
 
 export const metadata = {
   title: 'Client Love Stories',
-  description: 'Read detailed client reviews and testimonials from couples whose weddings and events were photographed by Arjun Mehta.',
+  description: 'Read detailed client reviews and testimonials from weddings and events captured by Raju Das & Kuushaal Debnaath.',
 };
 
 export default function TestimonialsPage() {

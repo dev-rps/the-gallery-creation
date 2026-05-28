@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Our Services & Pricing',
-  description: 'Explore photography packages for weddings, pre-wedding couple shoots, fine-art portraits, and corporate event coverages at Lumière Studio.',
+  description: 'Explore photography packages for weddings, pre-wedding couple shoots, fine-art portraits, and corporate event coverages at The Gallery Creation & Shoot Insights.',
 };
 
 export default function ServicesPage() {

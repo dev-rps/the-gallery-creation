@@ -38,8 +38,8 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" onClick={closeDrawer} className="flex flex-col">
-            <span className="font-serif text-2xl tracking-widest text-gold font-bold">LUMIÈRE</span>
-            <span className="text-[10px] uppercase tracking-[0.3em] text-cream/70 -mt-1">STUDIO</span>
+            <span className="font-serif text-xl tracking-widest text-gold font-bold leading-tight">THE GALLERY CREATION</span>
+            <span className="text-[9px] uppercase tracking-[0.2em] text-cream/75 mt-0.5">&amp; SHOOT INSIGHTS</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -112,8 +112,8 @@ export default function Navbar() {
               <div>
                 <div className="flex justify-between items-center mb-12">
                   <div className="flex flex-col">
-                    <span className="font-serif text-xl tracking-widest text-gold font-bold">LUMIÈRE</span>
-                    <span className="text-[9px] uppercase tracking-[0.3em] text-cream/70 -mt-1">STUDIO</span>
+                    <span className="font-serif text-lg tracking-widest text-gold font-bold leading-tight">THE GALLERY CREATION</span>
+                    <span className="text-[8px] uppercase tracking-[0.2em] text-cream/75 mt-0.5">&amp; SHOOT INSIGHTS</span>
                   </div>
                   <button
                     onClick={closeDrawer}
@@ -150,8 +150,8 @@ export default function Navbar() {
               </div>
 
               <div className="text-center text-xs text-cream/40 border-t border-cream/5 pt-6">
-                <p>© {new Date().getFullYear()} Lumière Studio.</p>
-                <p className="mt-1">Where Moments Become Masterpieces</p>
+                <p>© {new Date().getFullYear()} The Gallery Creation & Shoot Insights.</p>
+                <p className="mt-1">Timeless memories, treasured forever.</p>
               </div>
             </motion.div>
           </>

@@ -15,7 +15,7 @@ export default function ContactPage() {
   const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
   const [responseMessage, setResponseMessage] = useState('');
 
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '910000000000';
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919163961246';
   const web3formsKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'your_key_here';
 
   const handleInputChange = (e) => {
@@ -53,8 +53,8 @@ export default function ContactPage() {
           phone: formData.phone,
           event_date: formData.eventDate,
           message: formData.message,
-          subject: `Lumière Studio Booking - ${formData.name}`,
-          from_name: 'Lumière Studio Website',
+          subject: `The Gallery Creation Booking - ${formData.name}`,
+          from_name: 'The Gallery Creation Website',
         }),
       });
 
@@ -62,7 +62,7 @@ export default function ContactPage() {
 
       if (data.success) {
         setStatus('success');
-        setResponseMessage('Your booking inquiry has been received! Arjun Mehta will connect with you within 24 hours.');
+        setResponseMessage('Your booking inquiry has been received! Raju or Kuushaal will connect with you within 24 hours.');
         setFormData({
           name: '',
           email: '',
@@ -228,7 +228,7 @@ export default function ContactPage() {
                 Want a faster response?
               </p>
               <a
-                href={`https://wa.me/${whatsappNumber}`}
+                href="https://wa.me/919163961246"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 px-6 py-3 border border-[#25D366]/40 hover:border-[#25D366] text-[#25D366] font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-sm bg-[#25D366]/5 hover:bg-[#25D366]/10"
@@ -243,32 +243,40 @@ export default function ContactPage() {
           <div className="lg:col-span-5 space-y-8">
             {/* Contact Details Card */}
             <div className="bg-[#222222] p-8 rounded-sm border border-cream/5 shadow-xl">
-              <h2 className="font-serif text-2xl font-semibold mb-6 text-gold tracking-wide">
-                Lumière Studio
+              <h2 className="font-serif text-xl font-semibold mb-6 text-gold tracking-wide leading-tight">
+                The Gallery Creation &amp; Shoot Insights
               </h2>
               <ul className="space-y-6 text-sm text-cream/80">
                 <li className="flex items-start space-x-4">
                   <MapPin size={20} className="text-gold shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-cream mb-1">Our Location</h4>
-                    <p className="text-xs text-cream/70 font-light">Kolkata, West Bengal, India</p>
+                    <h4 className="font-semibold text-cream mb-1">Our Studio Address</h4>
+                    <p className="text-xs text-cream/70 font-light leading-relaxed">
+                      76/28, JOGENDRA NATH MUKHERJEE ROAD,<br/>
+                      Ghusuri, Howrah, West Bengal - 711107
+                    </p>
                   </div>
                 </li>
                 <li className="flex items-start space-x-4">
                   <Phone size={20} className="text-gold shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-semibold text-cream mb-1">Call / WhatsApp</h4>
-                    <a href={`tel:+${whatsappNumber}`} className="text-xs text-cream/70 font-light hover:text-gold transition-colors block">
-                      +{whatsappNumber}
-                    </a>
+                    <div className="flex flex-col text-xs text-cream/70 font-light space-y-1">
+                      <a href="https://wa.me/919163961246" className="hover:text-gold transition-colors block">
+                        +91 9163961246
+                      </a>
+                      <a href="https://wa.me/918240677269" className="hover:text-gold transition-colors block">
+                        +91 8240677269
+                      </a>
+                    </div>
                   </div>
                 </li>
                 <li className="flex items-start space-x-4">
                   <Mail size={20} className="text-gold shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-semibold text-cream mb-1">Inquiries Email</h4>
-                    <a href="mailto:info@lumierestudio.in" className="text-xs text-cream/70 font-light hover:text-gold transition-colors block">
-                      info@lumierestudio.in
+                    <a href="mailto:thegallerycreation@gmail.com" className="text-xs text-cream/70 font-light hover:text-gold transition-colors block">
+                      thegallerycreation@gmail.com
                     </a>
                   </div>
                 </li>
@@ -282,9 +290,9 @@ export default function ContactPage() {
                 <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
                   <MapPin size={24} />
                 </div>
-                <h4 className="font-serif text-cream font-bold tracking-wide mb-1">Kolkata Studio</h4>
+                <h4 className="font-serif text-cream font-bold tracking-wide mb-1">Howrah Studio</h4>
                 <p className="text-xs text-cream/60 font-light max-w-xs mb-2">
-                  Salt Lake Sector V, Kolkata, WB 700091
+                  76/28, JOGENDRA NATH MUKHERJEE ROAD, Ghusuri, Howrah - 711107
                 </p>
                 <span className="text-[10px] text-gold uppercase tracking-[0.2em] font-semibold border border-gold/20 py-1 px-3 rounded-sm bg-gold/5">
                   Physical Consults by Appointment

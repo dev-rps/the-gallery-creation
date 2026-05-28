@@ -3,7 +3,6 @@ import Script from 'next/script';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import './globals.css';
 
 const playfair = Playfair_Display({
@@ -20,18 +19,18 @@ const inter = Inter({
 
 export const metadata = {
   title: {
-    default: 'Lumière Studio | Luxury Wedding & Event Photography Kolkata',
-    template: '%s | Lumière Studio',
+    default: 'The Gallery Creation & Shoot Insights | Premium Wedding & Event Photography Kolkata',
+    template: '%s | The Gallery Creation & Shoot Insights',
   },
-  description: 'Luxury wedding and event photography by Arjun Mehta. Capturing timeless, emotional stories and fine-art moments in Kolkata and across India.',
-  keywords: ['Wedding Photography', 'Luxury Wedding Photographer', 'Kolkata Wedding Photographer', 'Arjun Mehta', 'Lumiere Studio', 'Pre-Wedding Shoot'],
-  authors: [{ name: 'Arjun Mehta' }],
-  metadataBase: new URL('https://lumierestudio.in'),
+  description: 'Premium wedding and event photography by Raju Das & Kuushaal Debnaath. Capturing timeless, emotional stories and fine-art moments in Kolkata and across India.',
+  keywords: ['Wedding Photography', 'Premium Wedding Photographer', 'Kolkata Wedding Photographer', 'Raju Das', 'Kuushaal Debnaath', 'The Gallery Creation', 'Shoot Insights', 'Pre-Wedding Shoot'],
+  authors: [{ name: 'Raju Das & Kuushaal Debnaath' }],
+  metadataBase: new URL('https://thegallerycreation.in'),
   openGraph: {
-    title: 'Lumière Studio | Luxury Wedding & Event Photography',
-    description: 'Luxury wedding and event photography by Arjun Mehta. Capturing timeless, emotional stories and fine-art moments.',
-    url: 'https://lumierestudio.in',
-    siteName: 'Lumière Studio',
+    title: 'The Gallery Creation & Shoot Insights | Premium Wedding & Event Photography',
+    description: 'Premium wedding and event photography by Raju Das & Kuushaal Debnaath. Capturing timeless, emotional stories and fine-art moments.',
+    url: 'https://thegallerycreation.in',
+    siteName: 'The Gallery Creation & Shoot Insights',
     locale: 'en_IN',
     type: 'website',
   },
@@ -71,11 +70,9 @@ export default function RootLayout({ children }) {
           </>
         )}
         <Navbar />
-        <PageTransitionWrapper>
-          <main className="w-full flex-grow pt-20">
-            {children}
-          </main>
-        </PageTransitionWrapper>
+        <main className="w-full flex-grow pt-20">
+          {children}
+        </main>
         <Footer />
         <WhatsAppButton />
       </body>

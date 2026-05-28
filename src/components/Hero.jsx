@@ -14,18 +14,18 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.25,
-        delayChildren: 0.2,
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.5, ease: "easeOut" },
     },
   };
 
@@ -56,12 +56,11 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-center"
         >
-          {/* Small label above heading */}
           <motion.span
             variants={itemVariants}
-            className="text-gold uppercase tracking-[0.4em] text-xs md:text-sm mb-4 font-semibold"
+            className="text-gold uppercase tracking-[0.3em] text-xs md:text-sm mb-4 font-semibold"
           >
-            Lumière Studio
+            The Gallery Creation &amp; Shoot Insights
           </motion.span>
 
           {/* Main heading */}
@@ -77,7 +76,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-cream/80 max-w-2xl text-sm md:text-lg lg:text-xl font-light mb-10 tracking-wider leading-relaxed"
           >
-            Fine-art wedding and portrait photography capturing the raw emotion, grandeur, and silent intimacies of your most precious moments.
+            &quot;Timeless memories, treasured forever.&quot; Capturing the raw emotion, grandeur, and silent intimacies of your most precious milestones.
           </motion.p>
 
           {/* CTA Buttons */}

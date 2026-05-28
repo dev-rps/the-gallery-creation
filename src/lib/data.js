@@ -1,15 +1,15 @@
 export const photographerInfo = {
-  name: "Arjun Mehta",
-  experience: "8 Years",
-  location: "Kolkata, India",
+  name: "Raju Das & Kuushaal Debnaath",
+  experience: "10 Years",
+  location: "Howrah, West Bengal, India",
   stats: [
-    { target: 300, suffix: "+", label: "Weddings" },
-    { target: 8, suffix: " Years", label: "Experience" },
-    { target: 12, suffix: "", label: "Cities" },
-    { target: 500, suffix: "+", label: "Happy Couples" }
+    { target: 350, suffix: "+", label: "Weddings" },
+    { target: 10, suffix: " Years", label: "Experience" },
+    { target: 15, suffix: "", label: "Cities" },
+    { target: 600, suffix: "+", label: "Happy Couples" }
   ],
-  bio: "Arjun Mehta is an award-winning luxury wedding and event photographer based in Kolkata, India. Over the past 8 years, Arjun has travelled across 12 cities, capturing the raw emotion, grandeur, and quiet intimacies of love. His signature style blends editorial fine-art with candid photojournalism, crafting visuals that resonate for generations.",
-  philosophy: "We believe that photography is not merely documenting an event; it is the art of capturing an emotion in its purest form. In every glance, every tear, and every celebration, we see a timeless masterpiece."
+  bio: "Raju Das & Kuushaal Debnaath are the award-winning principal founders behind The Gallery Creation & Shoot Insights, based in Howrah, West Bengal. With over 10 years of professional experience, they have traveled across 15+ cities, capturing the raw emotion, grandeur, and quiet intimacies of love. Their signature style blends editorial fine-art with candid photojournalism, crafting visuals that resonate for generations.",
+  philosophy: "We believe that photography is not merely documenting an event; it is the art of capturing an emotion in its purest form. Timeless memories, treasured forever."
 };
 
 export const navLinks = [
@@ -127,7 +127,7 @@ export const services = [
     description: "Complete luxury documentation of your wedding day, capturing every detail, ritual, and emotion in cinematic style.",
     price: "₹1,50,000",
     deliverables: [
-      "12 Hours of coverage by Arjun Mehta & team",
+      "12 Hours of coverage by Raju Das, Kuushaal Debnaath & team",
       "500+ High-resolution edited digital photos",
       "Signature hardbound luxury wedding album (40 pages)",
       "Online private gallery with 1-year access",
@@ -181,69 +181,69 @@ export const testimonials = [
     name: "Aarav & Riya",
     location: "Kolkata",
     stars: 5,
-    text: "Arjun and his team did an absolute miracle for our wedding. The photos feel like paintings! Every single frame is so emotional and beautifully composed. We couldn't have asked for a better storyteller."
+    text: "Raju, Kuushaal and their team did an absolute miracle for our wedding. The photos feel like paintings! Every single frame is so emotional and beautifully composed. We couldn't have asked for a better storyteller."
   },
   {
     id: 2,
     name: "Dev & Ishita",
     location: "Mumbai",
     stars: 5,
-    text: "The pre-wedding shoot was so relaxed and fun. Arjun made us feel completely at ease. The photos are stunning and perfectly capture our personalities. Absolute luxury service from start to finish!"
+    text: "The pre-wedding shoot was so relaxed and fun. Raju and Kuushaal made us feel completely at ease. The photos are stunning and perfectly capture our personalities. Absolute luxury service from start to finish!"
   },
   {
     id: 3,
     name: "Priya Sen",
     location: "Kolkata",
     stars: 5,
-    text: "I booked Arjun for a fine-art portrait session, and I am absolutely blown away by the results. His use of light and shadow is masterclass. He is truly an artist who understands his craft."
+    text: "I booked The Gallery Creation & Shoot Insights for a fine-art portrait session, and I am absolutely blown away by the results. Their use of light and shadow is masterclass. They are truly artists who understand their craft."
   },
   {
     id: 4,
     name: "Karan & Simran",
     location: "Delhi",
     stars: 5,
-    text: "Capturing a Punjabi-Bengali fusion wedding is no easy task, but Arjun did it flawlessly. He didn't miss a single ritual or tear. The luxury album we received is our most prized possession."
+    text: "Capturing a Punjabi-Bengali fusion wedding is no easy task, but Raju and Kuushaal did it flawlessly. They didn't miss a single ritual or tear. The luxury album we received is our most prized possession."
   },
   {
     id: 5,
     name: "Meera & Rohan",
     location: "Bengaluru",
     stars: 5,
-    text: "We hired Lumière Studio for our 3-day destination wedding in Jaipur. Arjun and his crew were indefatigable, capturing moments from dawn till late night. Exceptional quality and professionalism!"
+    text: "We hired The Gallery Creation & Shoot Insights for our 3-day destination wedding in Jaipur. Raju, Kuushaal and their crew were indefatigable, capturing moments from dawn till late night. Exceptional quality and professionalism!"
   },
   {
     id: 6,
     name: "Siddharth Roy",
     location: "Kolkata",
     stars: 5,
-    text: "Lumière Studio handled our corporate gala. The quality of the shots and the fast turnaround time (we got preview shots the next morning) was perfect for our PR release. Highly recommended!"
+    text: "The Gallery Creation & Shoot Insights handled our corporate gala. The quality of the shots and the fast turnaround time (we got preview shots the next morning) was perfect for our PR release. Highly recommended!"
   }
 ];
 
 export const timeline = [
   {
-    year: "2018",
+    year: "2016",
     title: "The Genesis",
-    description: "Arjun Mehta completes his Master's in Photography and starts taking freelance wedding projects in Kolkata."
+    description: "Raju Das & Kuushaal Debnaath complete their photography studies and start taking freelance wedding projects in Kolkata and Howrah."
   },
   {
-    year: "2020",
-    title: "Lumière Studio Founded",
-    description: "Establishes a physical studio space in Kolkata, assembling a team of passionate videographers and editors."
+    year: "2019",
+    title: "The Gallery Creation Founded",
+    description: "Establish a physical studio space on Jogendra NATH Mukherjee Road in Howrah, assembling a team of passionate videographers and editors."
   },
   {
     year: "2022",
     title: "Going National",
-    description: "Expanded coverage to 5 major Indian cities, capturing high-profile destination weddings and cultural fusions."
+    description: "Expanded coverage to 8 major Indian cities, capturing high-profile weddings and cultural fusions under the brand The Gallery Creation & Shoot Insights."
   },
   {
     year: "2024",
-    title: "Milestone: 200 Weddings",
-    description: "Featured in leading Indian bridal magazines. Celebrated the milestone of documenting 200 love stories."
+    title: "Milestone: 250 Weddings",
+    description: "Featured in leading Indian bridal platforms. Celebrated the milestone of documenting 250 love stories."
   },
   {
     year: "2026",
     title: "Present Day",
-    description: "Now boasting over 8 years of experience, 300+ weddings documented across 12 cities, and a reputation for unmatched luxury photography."
+    description: "Now boasting over 10 years of experience, 350+ weddings documented across 15 cities, and a reputation for unmatched luxury photography."
   }
 ];
