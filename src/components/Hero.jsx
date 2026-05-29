@@ -30,7 +30,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-charcoal flex items-center justify-center">
+    <section className="relative h-screen w-full overflow-hidden bg-[#1a1a1a] flex items-center justify-center">
       {/* Background Image with Parallax */}
       <motion.div
         style={{ y: yBg, opacity: opacityBg }}
@@ -45,7 +45,7 @@ export default function Hero() {
           className="object-cover object-center"
         />
         {/* Dark Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-charcoal/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/60" />
       </motion.div>
 
       {/* Content */}
@@ -58,7 +58,7 @@ export default function Hero() {
         >
           <motion.span
             variants={itemVariants}
-            className="text-gold uppercase tracking-[0.3em] text-xs md:text-sm mb-4 font-semibold"
+            className="text-[#C9A96E] uppercase tracking-[0.3em] text-xs md:text-sm mb-4 font-semibold"
           >
             The Gallery Creation &amp; Shoot Insights
           </motion.span>
@@ -66,15 +66,15 @@ export default function Hero() {
           {/* Main heading */}
           <motion.h1
             variants={itemVariants}
-            className="font-serif text-4xl md:text-6xl lg:text-7xl text-cream font-bold leading-tight max-w-4xl mb-6 tracking-wide text-balance"
+            className="font-serif text-4xl md:text-6xl lg:text-7xl text-[#F9F7F3] font-bold leading-tight max-w-4xl mb-6 tracking-wide text-balance"
           >
-            Every Love Story Deserves to Be <span className="text-gold italic font-normal">Timeless</span>
+            Every Love Story Deserves to Be <span className="text-[#C9A96E] italic font-normal">Timeless</span>
           </motion.h1>
 
           {/* Subheading */}
           <motion.p
             variants={itemVariants}
-            className="text-cream/80 max-w-2xl text-sm md:text-lg lg:text-xl font-light mb-10 tracking-wider leading-relaxed"
+            className="text-[#F9F7F3]/80 max-w-2xl text-sm md:text-lg lg:text-xl font-light mb-10 tracking-wider leading-relaxed"
           >
             &quot;Timeless memories, treasured forever.&quot; Capturing the raw emotion, grandeur, and silent intimacies of your most precious milestones.
           </motion.p>
@@ -86,13 +86,13 @@ export default function Hero() {
           >
             <Link
               href="/portfolio"
-              className="px-8 py-4 bg-gold hover:bg-[#b59459] text-charcoal font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-sm w-full sm:w-auto hover:shadow-lg hover:shadow-gold/20"
+              className="px-8 py-4 bg-[#C9A96E] hover:bg-[#b59459] text-[#1a1a1a] font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-sm w-full sm:w-auto hover:shadow-lg hover:shadow-gold/20"
             >
               View Portfolio
             </Link>
             <Link
               href="/contact"
-              className="px-8 py-4 border border-cream/20 hover:border-gold hover:text-gold text-cream font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-sm w-full sm:w-auto bg-charcoal/40 backdrop-blur-sm"
+              className="px-8 py-4 border border-[#F9F7F3]/20 hover:border-[#C9A96E] hover:text-[#C9A96E] text-[#F9F7F3] font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-sm w-full sm:w-auto bg-black/40 backdrop-blur-sm"
             >
               Book a Session
             </Link>
@@ -108,8 +108,8 @@ export default function Hero() {
           transition={{ delay: 1.5, repeat: Infinity, repeatType: "reverse", duration: 1 }}
           className="flex flex-col items-center cursor-pointer"
         >
-          <span className="text-[10px] uppercase tracking-[0.25em] text-cream/40 mb-2 font-semibold">Scroll</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-gold to-transparent" />
+          <span className="text-[10px] uppercase tracking-[0.25em] text-[#F9F7F3]/40 mb-2 font-semibold">Scroll</span>
+          <div className="w-[1px] h-12 bg-gradient-to-b from-[#C9A96E] to-transparent" />
         </motion.div>
       </div>
     </section>

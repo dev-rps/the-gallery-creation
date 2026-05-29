@@ -15,7 +15,10 @@ export default function ContactPage() {
   const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
   const [responseMessage, setResponseMessage] = useState('');
 
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919163961246';
+  let whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919163961246';
+  if (!whatsappNumber || whatsappNumber === '910000000000' || whatsappNumber.includes('000000') || whatsappNumber.includes('XXXX')) {
+    whatsappNumber = '919163961246';
+  }
   const web3formsKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'your_key_here';
 
   const handleInputChange = (e) => {

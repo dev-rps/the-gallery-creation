@@ -50,7 +50,7 @@ export default function AnimatedCounter({ target, suffix = "", label }) {
   }, [isInView, target]);
 
   return (
-    <div ref={ref} className="text-center p-4 border border-gold/5 bg-charcoal/40 backdrop-blur-sm rounded-sm hover:border-gold/20 transition-colors duration-300">
+    <div ref={ref} className="text-center p-4 border border-gold/5 bg-card-bg backdrop-blur-sm rounded-sm hover:border-gold/20 transition-colors duration-300">
       <div className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-gold mb-2 tracking-tight">
         {count}
         {suffix}

@@ -27,6 +27,13 @@ export default function Navbar() {
   // Close drawer helper
   const closeDrawer = () => setIsOpen(false);
 
+  const isHomePage = pathname === '/';
+  const useLightText = isHomePage && !scrolled;
+
+  const brandColorClass = useLightText ? 'text-[#C9A96E]' : 'text-gold';
+  const tagColorClass = useLightText ? 'text-[#F9F7F3]/75' : 'text-cream/75';
+  const triggerColorClass = useLightText ? 'text-[#F9F7F3] hover:text-[#C9A96E]' : 'text-cream hover:text-gold';
+
   return (
     <>
       <header
@@ -38,27 +45,29 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" onClick={closeDrawer} className="flex flex-col">
-            <span className="font-serif text-xl tracking-widest text-gold font-bold leading-tight">THE GALLERY CREATION</span>
-            <span className="text-[9px] uppercase tracking-[0.2em] text-cream/75 mt-0.5">&amp; SHOOT INSIGHTS</span>
+            <span className={`font-serif text-xl tracking-widest ${brandColorClass} font-bold leading-tight`}>THE GALLERY CREATION</span>
+            <span className={`text-[9px] uppercase tracking-[0.2em] ${tagColorClass} mt-0.5`}>&amp; SHOOT INSIGHTS</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
+              const linkColorClass = isActive
+                ? (useLightText ? 'text-[#C9A96E]' : 'text-gold')
+                : (useLightText ? 'text-[#F9F7F3]/80 hover:text-[#C9A96E]' : 'text-cream/80 hover:text-gold');
+
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`relative py-1 text-sm tracking-widest uppercase transition-colors duration-200 ${
-                    isActive ? 'text-gold' : 'text-cream/80 hover:text-gold'
-                  }`}
+                  className={`relative py-1 text-sm tracking-widest uppercase transition-colors duration-200 ${linkColorClass}`}
                 >
                   {link.name}
                   {isActive && (
                     <motion.span
                       layoutId="nav-underline"
-                      className="absolute bottom-0 left-0 w-full h-[1px] bg-gold"
+                      className={`absolute bottom-0 left-0 w-full h-[1px] ${useLightText ? 'bg-[#C9A96E]' : 'bg-gold'}`}
                       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                     />
                   )}
@@ -70,7 +79,7 @@ export default function Navbar() {
           {/* Mobile Hamburger Trigger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-cream hover:text-gold transition-colors focus:outline-none"
+            className={`md:hidden ${triggerColorClass} transition-colors focus:outline-none`}
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
