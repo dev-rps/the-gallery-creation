@@ -43,7 +43,7 @@ export default function Home() {
       </section>
 
       {/* 3. Portfolio Preview Section */}
-      <section className="py-24 bg-[#1f1f1f] relative z-10">
+      <section className="py-24 bg-section-bg relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-baseline justify-between mb-16">
             <div>
@@ -106,7 +106,7 @@ export default function Home() {
       </section>
 
       {/* 5. Testimonials Section */}
-      <section className="py-24 bg-[#1f1f1f] relative z-10">
+      <section className="py-24 bg-section-bg relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold block mb-2">
@@ -144,7 +144,7 @@ export default function Home() {
       </section>
 
       {/* 6. Bottom CTA Banner */}
-      <section className="py-24 bg-gradient-to-br from-[#2c2214] to-charcoal border-t border-gold/10 relative z-10">
+      <section className="py-24 bg-gradient-to-br from-card-bg to-charcoal border-y border-gold/20 relative z-10">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-bold tracking-wide text-cream mb-6">
             Ready to Tell Your Story?

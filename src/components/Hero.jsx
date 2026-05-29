@@ -101,15 +101,17 @@ export default function Hero() {
       </div>
 
       {/* Decorative Bottom Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, repeat: Infinity, repeatType: "reverse", duration: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer pointer-events-none"
-      >
-        <span className="text-[10px] uppercase tracking-[0.25em] text-cream/40 mb-2 font-semibold">Scroll</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-gold to-transparent" />
-      </motion.div>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none z-20">
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, repeat: Infinity, repeatType: "reverse", duration: 1 }}
+          className="flex flex-col items-center cursor-pointer"
+        >
+          <span className="text-[10px] uppercase tracking-[0.25em] text-cream/40 mb-2 font-semibold">Scroll</span>
+          <div className="w-[1px] h-12 bg-gradient-to-b from-gold to-transparent" />
+        </motion.div>
+      </div>
     </section>
   );
 }

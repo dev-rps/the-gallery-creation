@@ -3,8 +3,6 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import { navLinks, photographerInfo } from '@/lib/data';
 
 export default function Footer() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '910000000000';
-
   return (
     <footer className="bg-charcoal border-t border-gold/10 text-cream pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">

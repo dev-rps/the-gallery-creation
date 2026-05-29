@@ -12,7 +12,7 @@ export default function ServiceCard({ id, name, description, price, deliverables
   const IconComponent = iconMap[id] || Camera;
 
   return (
-    <div className="group relative bg-[#222222] border border-cream/5 p-8 flex flex-col justify-between rounded-sm transition-all duration-300 hover:border-gold hover:shadow-[0_0_20px_rgba(201,169,110,0.15)]">
+    <div className="group relative bg-card-bg border border-cream/5 p-8 flex flex-col justify-between rounded-sm transition-all duration-300 hover:border-gold hover:shadow-[0_0_20px_rgba(201,169,110,0.15)]">
       <div>
         {/* Card Header Icon & Price */}
         <div className="flex items-start justify-between mb-8">

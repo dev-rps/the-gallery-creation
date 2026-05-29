@@ -47,7 +47,7 @@ export default function AboutPage() {
           </div>
 
           {/* Philosophy Section */}
-          <div className="mt-12 p-6 border-l border-gold bg-[#222222]/40 rounded-sm">
+          <div className="mt-12 p-6 border-l border-gold bg-card-bg/40 rounded-sm">
             <h3 className="font-serif text-lg text-gold mb-2 tracking-wide">
               What We Believe
             </h3>
@@ -86,7 +86,7 @@ export default function AboutPage() {
       </section>
 
       {/* Meet the Founders Section */}
-      <section className="py-24 bg-[#1a1a1a] border-b border-gold/10">
+      <section className="py-24 bg-charcoal border-b border-gold/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold block mb-2">
@@ -100,8 +100,8 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {/* Founder 1: Raju Das */}
-            <div className="bg-[#222] border border-cream/5 rounded-sm overflow-hidden flex flex-col group shadow-xl">
-              <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#333]">
+            <div className="bg-card-bg border border-cream/5 rounded-sm overflow-hidden flex flex-col group shadow-xl">
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-section-bg">
                 <Image
                   src="/raju.jpg"
                   alt="Raju Das - Co-Founder"
@@ -112,7 +112,7 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <div className="p-8 text-center bg-[#222] border-t border-gold/10">
+              <div className="p-8 text-center bg-card-bg border-t border-gold/10">
                 <h3 className="font-serif text-xl font-bold text-cream tracking-wide">Raju Das</h3>
                 <p className="text-xs uppercase tracking-widest text-gold mt-1 font-semibold">Co-Founder &amp; Principal Photographer</p>
                 <p className="text-sm text-cream/70 mt-4 leading-relaxed font-light">
@@ -122,8 +122,8 @@ export default function AboutPage() {
             </div>
 
             {/* Founder 2: Kuushaal Debnaath */}
-            <div className="bg-[#222] border border-cream/5 rounded-sm overflow-hidden flex flex-col group shadow-xl">
-              <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#333]">
+            <div className="bg-card-bg border border-cream/5 rounded-sm overflow-hidden flex flex-col group shadow-xl">
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-section-bg">
                 <Image
                   src="/kuushal.jpg"
                   alt="Kuushaal Debnaath - Co-Founder"
@@ -134,7 +134,7 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <div className="p-8 text-center bg-[#222] border-t border-gold/10">
+              <div className="p-8 text-center bg-card-bg border-t border-gold/10">
                 <h3 className="font-serif text-xl font-bold text-cream tracking-wide">Kuushaal Debnaath</h3>
                 <p className="text-xs uppercase tracking-widest text-gold mt-1 font-semibold">Co-Founder &amp; Creative Director</p>
                 <p className="text-sm text-cream/70 mt-4 leading-relaxed font-light">
@@ -147,7 +147,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-24 bg-[#1f1f1f]">
+      <section className="py-24 bg-section-bg">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold block mb-2">

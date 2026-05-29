@@ -40,7 +40,7 @@ export default function ServicesPage() {
         </div>
 
         {/* Custom Package Bottom Banner */}
-        <div className="bg-[#222222] border border-gold/20 p-8 md:p-12 text-center rounded-sm max-w-4xl mx-auto relative overflow-hidden">
+        <div className="bg-card-bg border border-gold/20 p-8 md:p-12 text-center rounded-sm max-w-4xl mx-auto relative overflow-hidden">
           {/* Subtle decoration */}
           <div className="absolute top-0 right-0 w-24 h-24 bg-gold/5 rounded-full blur-2xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-24 h-24 bg-gold/5 rounded-full blur-2xl pointer-events-none" />

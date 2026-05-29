@@ -8,9 +8,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        charcoal: '#1a1a1a',
-        gold: '#C9A96E',
-        cream: '#F9F7F3',
+        charcoal: '#FDFBF7',
+        cream: '#2A2724',
+        gold: '#B59459',
+        'gold-light': '#C9A96E',
+        'card-bg': '#FAF6F0',
+        'section-bg': '#F4F0EB',
+        'overlay-bg': 'rgba(42, 39, 36, 0.45)',
       },
       fontFamily: {
         serif: ['var(--font-playfair)', 'serif'],

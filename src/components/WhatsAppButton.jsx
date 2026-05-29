@@ -26,7 +26,7 @@ export default function WhatsAppButton() {
 
       {/* Floating Button */}
       <a
-        href={`https://wa.me/${whatsappNumber}`}
+        href={`https://wa.me/${whatsappNumber}?text=Hello!%20I%20visited%20your%20website%20and%20would%20like%20to%20inquire%20about%20booking%20a%20photography%20session.`}
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setIsHovered(true)}

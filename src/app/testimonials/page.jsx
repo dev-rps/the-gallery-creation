@@ -57,7 +57,7 @@ export default function TestimonialsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Video Placeholder 1 */}
-            <div className="group relative aspect-video bg-[#222222] border border-cream/5 flex items-center justify-center rounded-sm overflow-hidden shadow-xl cursor-pointer">
+            <div className="group relative aspect-video bg-card-bg border border-cream/5 flex items-center justify-center rounded-sm overflow-hidden shadow-xl cursor-pointer">
               {/* Fake backdrop with nice dark gradient */}
               <div className="absolute inset-0 bg-gradient-to-tr from-charcoal via-charcoal/80 to-gold/10" />
               {/* Info Overlay */}
@@ -72,7 +72,7 @@ export default function TestimonialsPage() {
             </div>
 
             {/* Video Placeholder 2 */}
-            <div className="group relative aspect-video bg-[#222222] border border-cream/5 flex items-center justify-center rounded-sm overflow-hidden shadow-xl cursor-pointer">
+            <div className="group relative aspect-video bg-card-bg border border-cream/5 flex items-center justify-center rounded-sm overflow-hidden shadow-xl cursor-pointer">
               {/* Fake backdrop with nice dark gradient */}
               <div className="absolute inset-0 bg-gradient-to-tr from-charcoal via-charcoal/80 to-gold/10" />
               {/* Info Overlay */}

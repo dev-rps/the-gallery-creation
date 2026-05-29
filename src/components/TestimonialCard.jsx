@@ -2,7 +2,7 @@ import { Star } from 'lucide-react';
 
 export default function TestimonialCard({ name, location, stars = 5, text }) {
   return (
-    <div className="bg-[#222222] border border-cream/5 p-8 rounded-sm relative flex flex-col justify-between hover:border-gold/30 transition-all duration-300 shadow-lg">
+    <div className="bg-card-bg border border-cream/5 p-8 rounded-sm relative flex flex-col justify-between hover:border-gold/30 transition-all duration-300 shadow-lg">
       {/* Decorative Giant Quote Mark */}
       <span className="font-serif text-8xl text-gold/10 absolute top-4 left-4 pointer-events-none select-none">
         “

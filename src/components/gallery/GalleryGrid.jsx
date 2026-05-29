@@ -25,12 +25,12 @@ function GalleryItem({ image, index, onClick }) {
   return (
     <div
       onClick={onClick}
-      className="masonry-item group relative overflow-hidden bg-[#222222] cursor-pointer rounded-sm border border-cream/5"
+      className="masonry-item group relative overflow-hidden bg-card-bg cursor-pointer rounded-sm border border-cream/5"
       style={{ aspectRatio: `${image.width} / ${image.height}` }}
     >
       {/* Skeleton Loading Placeholder */}
       {isLoading && (
-        <div className="absolute inset-0 bg-[#222222] animate-pulse flex items-center justify-center">
+        <div className="absolute inset-0 bg-card-bg animate-pulse flex items-center justify-center">
           <div className="w-8 h-8 rounded-full border-t border-r border-gold/40 animate-spin" />
         </div>
       )}

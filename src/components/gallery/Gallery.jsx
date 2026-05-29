@@ -52,7 +52,7 @@ export default function Gallery({ limit = null }) {
               className={`px-6 py-2.5 text-xs uppercase tracking-widest transition-all duration-300 rounded-sm ${
                 isActive
                   ? 'bg-gold text-charcoal font-semibold shadow-md'
-                  : 'bg-[#222222] border border-cream/5 text-cream/70 hover:text-gold hover:border-gold/30'
+                  : 'bg-card-bg border border-cream/5 text-cream/70 hover:text-gold hover:border-gold/30'
               }`}
             >
               {filter}

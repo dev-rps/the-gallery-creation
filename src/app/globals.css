@@ -3,21 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --background: #1a1a1a;
-  --foreground: #F9F7F3;
+  --background: #FDFBF7;
+  --foreground: #2A2724;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #1a1a1a;
-  color: #F9F7F3;
+  background-color: #FDFBF7;
+  color: #2A2724;
   scrollbar-width: thin;
-  scrollbar-color: #C9A96E #1a1a1a;
+  scrollbar-color: #B59459 #FDFBF7;
 }
 
 body {
-  background-color: #1a1a1a;
-  color: #F9F7F3;
+  background-color: #FDFBF7;
+  color: #2A2724;
 }
 
 /* Custom Scrollbar for WebKit browsers */
@@ -26,20 +26,20 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #FDFBF7;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C9A96E;
+  background: #B59459;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #b59459;
+  background: #C9A96E;
 }
 
 /* Selection highlight styling */
 ::selection {
-  background: #C9A96E;
-  color: #1a1a1a;
+  background: #B59459;
+  color: #FDFBF7;
 }
 
 /* CSS columns masonry layout */

@@ -100,7 +100,7 @@ export default function ContactPage() {
         {/* Layout Column Wrapper */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Form Wrapper (NO <form> TAGS) */}
-          <div className="lg:col-span-7 bg-[#222222] p-8 md:p-12 rounded-sm border border-cream/5 shadow-xl">
+          <div className="lg:col-span-7 bg-card-bg p-8 md:p-12 rounded-sm border border-cream/5 shadow-xl">
             <h2 className="font-serif text-2xl font-semibold mb-8 text-gold tracking-wide">
               Inquiry Form
             </h2>
@@ -242,7 +242,7 @@ export default function ContactPage() {
           {/* Right Column: Contact Details & Google Maps */}
           <div className="lg:col-span-5 space-y-8">
             {/* Contact Details Card */}
-            <div className="bg-[#222222] p-8 rounded-sm border border-cream/5 shadow-xl">
+            <div className="bg-card-bg p-8 rounded-sm border border-cream/5 shadow-xl">
               <h2 className="font-serif text-xl font-semibold mb-6 text-gold tracking-wide leading-tight">
                 The Gallery Creation &amp; Shoot Insights
               </h2>
@@ -284,9 +284,9 @@ export default function ContactPage() {
             </div>
 
             {/* Google Maps Placeholder Card */}
-            <div className="bg-[#222222] border border-cream/5 rounded-sm overflow-hidden h-[300px] relative flex flex-col justify-end shadow-xl">
+            <div className="bg-card-bg border border-cream/5 rounded-sm overflow-hidden h-[300px] relative flex flex-col justify-end shadow-xl">
               {/* Mock map style */}
-              <div className="absolute inset-0 bg-neutral-900 flex flex-col items-center justify-center p-6 text-center">
+              <div className="absolute inset-0 bg-section-bg flex flex-col items-center justify-center p-6 text-center">
                 <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
                   <MapPin size={24} />
                 </div>
