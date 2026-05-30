@@ -4,6 +4,12 @@ import { useState } from 'react';
 import { Mail, Phone, MapPin, MessageSquare, Send, CheckCircle, AlertTriangle } from 'lucide-react';
 
 export default function ContactPage() {
+  const mailtoUrl = `mailto:thegallerycreation@gmail.com?subject=${encodeURIComponent(
+    "Booking Inquiry — The Gallery Creation"
+  )}&body=${encodeURIComponent(
+    "Hello, I visited your website and would like to inquire about booking a photography session. Please get in touch with me at your earliest convenience."
+  )}`;
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -274,12 +280,16 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </li>
-                <li className="flex items-start space-x-4">
-                  <Mail size={20} className="text-gold shrink-0 mt-0.5" />
+                 <li className="flex items-start space-x-4">
+                  <Mail size={20} className="text-[#C9A96E] shrink-0 mt-1" />
                   <div>
                     <h4 className="font-semibold text-cream mb-1">Inquiries Email</h4>
-                    <a href="mailto:thegallerycreation@gmail.com" className="text-xs text-cream/70 font-light hover:text-gold transition-colors block">
-                      thegallerycreation@gmail.com
+                    <a
+                      href={mailtoUrl}
+                      className="inline-flex items-center space-x-2 border border-[#C9A96E] text-[#C9A96E] hover:bg-[#C9A96E] hover:text-[#1a1a1a] px-4 py-2 text-xs uppercase tracking-widest font-semibold transition-all duration-300 rounded-sm mt-2 focus:outline-none"
+                    >
+                      <Mail size={14} className="shrink-0" />
+                      <span>Send Booking Email</span>
                     </a>
                   </div>
                 </li>

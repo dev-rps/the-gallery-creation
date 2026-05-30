@@ -1,86 +1,105 @@
+"use client";
+
 import Image from 'next/image';
 import { timeline, photographerInfo } from '@/lib/data';
+import { motion } from 'framer-motion';
 
-export const metadata = {
-  title: 'About Raju Das & Kuushaal Debnaath',
-  description: 'Learn about Raju Das & Kuushaal Debnaath, the founders and principal photographers behind The Gallery Creation & Shoot Insights.',
-};
+const CameraIcon = () => (
+  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="mb-4 text-[#C9A96E]">
+    <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+    <circle cx="12" cy="13" r="3" />
+  </svg>
+);
+
+const FilmIcon = () => (
+  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="mb-4 text-[#C9A96E]">
+    <rect width="20" height="20" x="2" y="2" rx="2.18" ry="2.18" />
+    <path d="M7 2v20" />
+    <path d="M17 2v20" />
+    <path d="M2 12h20" />
+    <path d="M2 7h5" />
+    <path d="M2 17h5" />
+    <path d="M17 17h5" />
+    <path d="M17 7h5" />
+  </svg>
+);
 
 export default function AboutPage() {
   return (
     <div className="w-full bg-charcoal text-cream">
       {/* Split Biography Section */}
-      <section className="min-h-[85vh] grid grid-cols-1 lg:grid-cols-12 gap-0 border-b border-gold/10">
-        {/* Left: Brand Logo Column */}
-        <div className="lg:col-span-5 relative min-h-[50vh] lg:min-h-0 bg-[#ffffff] flex items-center justify-center p-12 border-r border-gold/10">
-          <div className="relative w-full aspect-square max-w-sm">
-            <Image
-              src="/shoot-insights.png"
-              alt="Shoot Insights Logo"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-contain"
-            />
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-b border-gold/10">
+        {/* Left Side: Two logos stacked vertically */}
+        <div className="lg:col-span-5 flex flex-col bg-charcoal border-r border-gold/10">
+          {/* Logo 1 (top) */}
+          <div className="flex-1 flex flex-col items-center justify-center p-12 border-b border-[#C9A96E]/30 min-h-[35vh]">
+            <CameraIcon />
+            <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-widest text-[#C9A96E] text-center mt-4">
+              THE GALLERY CREATION
+            </h2>
+          </div>
+          
+          {/* Logo 2 (bottom) */}
+          <div className="flex-1 flex flex-col items-center justify-center p-12 min-h-[35vh]">
+            <FilmIcon />
+            <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-widest text-[#C9A96E] text-center mt-4">
+              SHOOT INSIGHTS
+            </h2>
           </div>
         </div>
 
-        {/* Right: Story Column */}
-        <div className="lg:col-span-7 flex flex-col justify-center p-8 md:p-16 lg:p-24 bg-charcoal">
-          <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 block">
-            The Story
-          </span>
-          <h1 className="font-serif text-3xl md:text-5xl font-bold tracking-wide mb-8">
-            The Gallery Creation
-          </h1>
-
-          <div className="space-y-6 text-cream/80 text-sm md:text-base font-light leading-relaxed">
-            <p>
-              We believe that photography is more than just framing a shot; it&apos;s about holding onto a feeling. For the past 10 years, our cameras have been extensions of our hearts, helping us capture the quiet glances, grand celebrations, and emotional milestones that define our lives.
-            </p>
-            <p>
-              Growing up in the culturally rich streets of Kolkata and Howrah, we were always drawn to how light dances across local structures and how festive rituals bring communities together in a burst of colors. This city taught us to find beauty in details, which eventually inspired the inception of The Gallery Creation &amp; Shoot Insights.
-            </p>
-            <p>
-              For us, every wedding is a completely blank canvas. We approach each couple not just as clients, but as collaborators in creating a visual heritage. Our style blends editorial aesthetics with candid photojournalism, giving you photographs that feel like cinema and print quality that lasts for generations.
-            </p>
+        {/* Right Side: Two story blocks stacked vertically */}
+        <div className="lg:col-span-7 flex flex-col bg-charcoal">
+          {/* Story 1 (top) */}
+          <div className="flex-1 flex flex-col justify-center p-8 md:p-16 lg:p-24 border-b border-gold/10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="pl-6 border-l border-[#C9A96E]"
+            >
+              <h3 className="font-serif text-2xl font-bold text-cream mb-6 tracking-wide">
+                The Gallery Creation
+              </h3>
+              <div className="space-y-6 text-cream/80 text-sm md:text-base font-light leading-relaxed">
+                <p>
+                  We believe that photography is more than just framing a shot; it&apos;s about holding onto a feeling. For the past 10 years, our cameras have been extensions of our hearts, helping us capture the quiet glances, grand celebrations, and emotional milestones that define our lives.
+                </p>
+                <p>
+                  Growing up in the culturally rich streets of Kolkata and Howrah, we were always drawn to how light dances across local structures and how festive rituals bring communities together in a burst of colors. This city taught us to find beauty in details, which eventually inspired the inception of The Gallery Creation.
+                </p>
+                <p>
+                  For us, every wedding is a completely blank canvas. We approach each couple not just as clients, but as collaborators in creating a visual heritage. Our style blends editorial aesthetics with candid photojournalism, giving you photographs that feel like cinema and print quality that lasts for generations.
+                </p>
+              </div>
+            </motion.div>
           </div>
 
-          {/* Philosophy Section */}
-          <div className="mt-12 p-6 border-l border-gold bg-card-bg/40 rounded-sm">
-            <h3 className="font-serif text-lg text-gold mb-2 tracking-wide">
-              What We Believe
-            </h3>
-            <p className="text-cream/70 text-xs md:text-sm font-light italic leading-relaxed">
-              &ldquo;{photographerInfo.philosophy}&rdquo;
-            </p>
-          </div>
-
-          {/* Studio Brand Logos Grid */}
-          <div className="mt-12 pt-10 border-t border-cream/5">
-            <h3 className="text-xs uppercase tracking-widest text-gold font-semibold mb-6">
-              Our Studio Brands
-            </h3>
-            <div className="flex flex-wrap gap-6">
-              <div className="bg-[#ffffff] p-4 rounded-sm flex items-center justify-center w-32 h-32 shadow-md">
-                <Image
-                  src="/mockup.png"
-                  alt="The Gallery Creation Logo"
-                  width={110}
-                  height={110}
-                  className="object-contain"
-                />
+          {/* Story 2 (bottom) */}
+          <div className="flex-1 flex flex-col justify-center p-8 md:p-16 lg:p-24">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="pl-6 border-l border-[#C9A96E]"
+            >
+              <h3 className="font-serif text-2xl font-bold text-cream mb-6 tracking-wide">
+                Shoot Insights
+              </h3>
+              <div className="space-y-6 text-cream/80 text-sm md:text-base font-light leading-relaxed">
+                <p>
+                  Shoot Insights is our premier cinematic branch. We capture behind-the-scenes magic, highlight reels, and detailed documentary video production. We believe in visual motion that takes your breath away and captures the dynamic energy of your milestones.
+                </p>
+                <p>
+                  Our video work focuses on the cinematic cadence of weddings and events. With custom sound design, color grading, and direction, we turn spontaneous laughter and high-energy dances into a film you can watch over and over.
+                </p>
+                <p>
+                  From drone shots of grand venues to close-ups of silent tears, our cinematic reels bring out the depth of the event. We tell your wedding story through a lens of premium film and documentary-style videography.
+                </p>
               </div>
-              <div className="bg-[#ffffff] p-4 rounded-sm flex items-center justify-center w-32 h-32 shadow-md">
-                <Image
-                  src="/shoot-insights.png"
-                  alt="Shoot Insights Logo"
-                  width={110}
-                  height={110}
-                  className="object-contain"
-                />
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

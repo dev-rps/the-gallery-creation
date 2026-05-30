@@ -1,10 +1,10 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Hero from '@/components/Hero';
 import AnimatedCounter from '@/components/AnimatedCounter';
-import Gallery from '@/components/gallery/Gallery';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
-import { services, testimonials, photographerInfo } from '@/lib/data';
+import { services, testimonials, photographerInfo, portfolioImages } from '@/lib/data';
 
 export const metadata = {
   title: 'The Gallery Creation & Shoot Insights | Premium Wedding & Event Photography',
@@ -62,8 +62,35 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Limits to 6 images on home page */}
-          <Gallery limit={6} />
+          {/* Scrolling Film Reel Strip */}
+          <div className="film-perforations overflow-hidden w-full mb-12">
+            <div className="film-reel-scroll flex gap-4 py-2">
+              {/* Original Images */}
+              {portfolioImages.map((image, idx) => (
+                <Image
+                  key={`orig-${image.id}-${idx}`}
+                  src={image.src}
+                  alt={image.alt}
+                  width={image.width || 400}
+                  height={image.height || 280}
+                  className="h-[280px] w-auto object-cover rounded-lg border border-[#C9A96E] shrink-0 select-none"
+                  style={{ height: '280px' }}
+                />
+              ))}
+              {/* Duplicated Images */}
+              {portfolioImages.map((image, idx) => (
+                <Image
+                  key={`dup-${image.id}-${idx}`}
+                  src={image.src}
+                  alt={image.alt}
+                  width={image.width || 400}
+                  height={image.height || 280}
+                  className="h-[280px] w-auto object-cover rounded-lg border border-[#C9A96E] shrink-0 select-none"
+                  style={{ height: '280px' }}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -82,7 +109,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
             {servicesSnapshot.map((service) => (
               <ServiceCard
                 key={service.id}
@@ -121,13 +148,14 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonialsSnapshot.map((testimonial) => (
+            {testimonialsSnapshot.map((testimonial, index) => (
               <TestimonialCard
                 key={testimonial.id}
                 name={testimonial.name}
                 location={testimonial.location}
                 stars={testimonial.stars}
                 text={testimonial.text}
+                index={index}
               />
             ))}
           </div>

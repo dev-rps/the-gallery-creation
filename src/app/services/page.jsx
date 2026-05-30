@@ -1,6 +1,7 @@
 import ServiceCard from '@/components/ServiceCard';
 import { services } from '@/lib/data';
 import Link from 'next/link';
+import { ExternalLink } from 'lucide-react';
 
 export const metadata = {
   title: 'Our Services & Pricing',
@@ -26,7 +27,7 @@ export default function ServicesPage() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto mb-24">
           {services.map((service) => (
             <ServiceCard
               key={service.id}
@@ -51,12 +52,15 @@ export default function ServicesPage() {
           <p className="text-sm text-cream/70 leading-relaxed font-light max-w-xl mx-auto mb-8">
             Every celebration is unique. If you need coverage across multiple cities, extra shooters, custom physical print deliverables, or customized timelines, we will build a custom quote just for you.
           </p>
-          <Link
-            href="/contact"
-            className="inline-block px-8 py-4 bg-gold hover:bg-[#b59459] text-charcoal font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-sm hover:shadow-lg hover:shadow-gold/20"
+          <a
+            href="https://forms.gle/YOUR_FORM_ID_HERE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center space-x-2 px-8 py-4 border border-[#C9A96E] hover:bg-[#C9A96E] hover:text-charcoal text-[#C9A96E] font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-sm"
           >
-            Get a Custom Quote
-          </Link>
+            <span>Request Custom Quote</span>
+            <ExternalLink size={14} />
+          </a>
         </div>
       </div>
     </div>

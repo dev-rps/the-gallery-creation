@@ -13,6 +13,8 @@ html {
   color: #2A2724;
   scrollbar-width: thin;
   scrollbar-color: #B59459 #FDFBF7;
+  scrollbar-gutter: stable;
+  overflow-y: scroll;
 }
 
 body {
@@ -39,7 +41,7 @@ body {
 /* Selection highlight styling */
 ::selection {
   background: #B59459;
-  color: #FDFBF7;
+  color: #1a1a1a;
 }
 
 /* CSS columns masonry layout */
@@ -65,4 +67,47 @@ body {
   break-inside: avoid;
   margin-bottom: 1rem;
   display: block;
+}
+
+/* Film reel scrolling animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.film-reel-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+/* Film perforation dots styling */
+.film-perforations {
+  position: relative;
+  padding: 16px 0;
+  background-color: #111111;
+}
+
+.film-perforations::before,
+.film-perforations::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 6px, transparent 6px);
+  background-size: 16px 6px;
+  z-index: 10;
+}
+
+.film-perforations::before {
+  top: 6px;
+}
+
+.film-perforations::after {
+  bottom: 6px;
 }

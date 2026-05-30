@@ -117,6 +117,42 @@ export const portfolioImages = [
     category: "events",
     width: 800,
     height: 1200
+  },
+  {
+    id: 13,
+    src: "/portfolio/wedding-1.jpg",
+    alt: "Cinematic wedding highlights film teaser video placeholder",
+    category: "film",
+    width: 800,
+    height: 533,
+    isVideo: true
+  },
+  {
+    id: 14,
+    src: "/portfolio/prewedding-2.jpg",
+    alt: "Romantic sunset prewedding cinematic teaser video placeholder",
+    category: "film",
+    width: 800,
+    height: 533,
+    isVideo: true
+  },
+  {
+    id: 15,
+    src: "/portfolio/wedding-2.jpg",
+    alt: "Short vertical wedding dance instagram reels placeholder",
+    category: "reels",
+    width: 800,
+    height: 1200,
+    isReel: true
+  },
+  {
+    id: 16,
+    src: "/portfolio/prewedding-1.jpg",
+    alt: "Fine-art portrait shoot short vertical reels placeholder",
+    category: "reels",
+    width: 800,
+    height: 1200,
+    isReel: true
   }
 ];
 

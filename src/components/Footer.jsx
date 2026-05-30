@@ -7,10 +7,18 @@ export default function Footer() {
     <footer className="bg-charcoal border-t border-gold/10 text-cream pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
         {/* Left: Studio Info */}
-        <div className="flex flex-col space-y-4">
-          <Link href="/" className="flex flex-col w-fit">
-            <span className="font-serif text-2xl tracking-widest text-gold font-bold leading-tight">THE GALLERY CREATION</span>
-            <span className="text-[10px] uppercase tracking-[0.25em] text-cream/70 mt-0.5">&amp; SHOOT INSIGHTS</span>
+        <div className="flex flex-col space-y-4 md:border-r md:border-white/10 md:pr-12">
+          <Link href="/" className="flex flex-col justify-center items-start gap-[2px] w-fit">
+            <span
+              className="font-sans text-xl tracking-[0.22em] font-black uppercase leading-none text-[#2A2724]"
+            >
+              THE GALLERY CREATION
+            </span>
+            <span
+              className="font-sans text-sm uppercase tracking-[0.1em] leading-none text-[#C9A96E] font-medium opacity-100"
+            >
+              &amp; SHOOT INSIGHTS
+            </span>
           </Link>
           <p className="text-sm text-cream/70 leading-relaxed max-w-sm italic">
             &quot;Timeless memories, treasured forever.&quot;
@@ -21,7 +29,7 @@ export default function Footer() {
         </div>
 
         {/* Center: Quick Links */}
-        <div className="flex flex-col space-y-4 md:items-center">
+        <div className="flex flex-col space-y-4 md:items-center md:border-r md:border-white/10 md:pr-12">
           <div className="w-fit">
             <h3 className="font-serif text-lg text-gold tracking-wide mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm text-cream/80">
@@ -63,30 +71,31 @@ export default function Footer() {
             </li>
           </ul>
 
-          <div className="flex space-x-4 pt-4">
+          <div className="flex flex-wrap gap-4 pt-4">
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full border border-gold/20 flex items-center justify-center text-cream hover:text-gold hover:border-gold transition-all duration-300"
-              aria-label="Instagram"
+              className="flex items-center space-x-2 rounded-lg px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:opacity-90 text-sm font-medium"
+              style={{ background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)' }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
               </svg>
+              <span>Instagram</span>
             </a>
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full border border-gold/20 flex items-center justify-center text-cream hover:text-gold hover:border-gold transition-all duration-300"
-              aria-label="Facebook"
+              className="flex items-center space-x-2 rounded-lg px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:opacity-90 text-sm font-medium bg-[#1877F2]"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
               </svg>
+              <span>Facebook</span>
             </a>
           </div>
         </div>

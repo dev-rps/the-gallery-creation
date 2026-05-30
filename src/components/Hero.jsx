@@ -74,27 +74,27 @@ export default function Hero() {
           {/* Subheading */}
           <motion.p
             variants={itemVariants}
+            className="text-[#F9F7F3] italic text-lg md:text-xl lg:text-2xl mb-3 block max-w-2xl tracking-wider leading-relaxed"
+          >
+            &quot;Timeless memories, treasured forever.&quot;
+          </motion.p>
+          <motion.p
+            variants={itemVariants}
             className="text-[#F9F7F3]/80 max-w-2xl text-sm md:text-lg lg:text-xl font-light mb-10 tracking-wider leading-relaxed"
           >
-            &quot;Timeless memories, treasured forever.&quot; Capturing the raw emotion, grandeur, and silent intimacies of your most precious milestones.
+            Capturing the raw emotion, grandeur, and silent intimacies of your most precious milestones.
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto"
+            className="flex justify-center items-center w-full"
           >
             <Link
               href="/portfolio"
-              className="px-8 py-4 bg-[#C9A96E] hover:bg-[#b59459] text-[#1a1a1a] font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-sm w-full sm:w-auto hover:shadow-lg hover:shadow-gold/20"
+              className="px-8 py-4 border border-[#F9F7F3]/20 hover:border-[#C9A96E] hover:text-[#C9A96E] text-[#F9F7F3] font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-sm w-full sm:w-auto bg-[#1a1a1a]/40 backdrop-blur-sm text-center"
             >
               View Portfolio
-            </Link>
-            <Link
-              href="/contact"
-              className="px-8 py-4 border border-[#F9F7F3]/20 hover:border-[#C9A96E] hover:text-[#C9A96E] text-[#F9F7F3] font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-sm w-full sm:w-auto bg-black/40 backdrop-blur-sm"
-            >
-              Book a Session
             </Link>
           </motion.div>
         </motion.div>

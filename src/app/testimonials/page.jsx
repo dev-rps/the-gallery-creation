@@ -30,13 +30,14 @@ export default function TestimonialsPage() {
 
         {/* Testimonials Grid (min 6) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-          {testimonials.map((testimonial) => (
+          {testimonials.map((testimonial, index) => (
             <TestimonialCard
               key={testimonial.id}
               name={testimonial.name}
               location={testimonial.location}
               stars={testimonial.stars}
               text={testimonial.text}
+              index={index}
             />
           ))}
         </div>

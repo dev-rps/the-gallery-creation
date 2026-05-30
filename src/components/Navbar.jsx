@@ -10,6 +10,7 @@ import { navLinks } from '@/lib/data';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -30,51 +31,93 @@ export default function Navbar() {
   const isHomePage = pathname === '/';
   const useLightText = isHomePage && !scrolled;
 
-  const brandColorClass = useLightText ? 'text-[#C9A96E]' : 'text-gold';
-  const tagColorClass = useLightText ? 'text-[#F9F7F3]/75' : 'text-cream/75';
   const triggerColorClass = useLightText ? 'text-[#F9F7F3] hover:text-[#C9A96E]' : 'text-cream hover:text-gold';
+
+  const navContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const navItemVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
+  };
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
-          scrolled
-            ? 'bg-charcoal/80 backdrop-blur-md border-b border-gold/10 py-4 shadow-lg'
-            : 'bg-transparent py-6'
+        className={`fixed top-0 left-0 w-full z-40 h-20 flex items-center ${
+          scrolled ? 'backdrop-blur-md' : ''
         }`}
+        style={{
+          transition: 'box-shadow 0.3s ease, background 0.3s ease',
+          background: scrolled ? 'rgba(26, 26, 26, 0.95)' : 'transparent',
+          boxShadow: scrolled ? '0 1px 0 rgba(201, 169, 110, 0.15)' : 'none',
+        }}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <Link href="/" onClick={closeDrawer} className="flex flex-col">
-            <span className={`font-serif text-xl tracking-widest ${brandColorClass} font-bold leading-tight`}>THE GALLERY CREATION</span>
-            <span className={`text-[9px] uppercase tracking-[0.2em] ${tagColorClass} mt-0.5`}>&amp; SHOOT INSIGHTS</span>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between w-full h-full">
+          <Link href="/" onClick={closeDrawer} className="flex flex-col justify-center items-start gap-[2px]">
+            <span
+              className="font-sans text-sm md:text-base tracking-[0.22em] font-black uppercase leading-none"
+              style={{
+                color: scrolled ? '#C9A96E' : '#2A2724',
+              }}
+            >
+              THE GALLERY CREATION
+            </span>
+            <span
+              className="font-sans text-[10px] uppercase tracking-[0.18em] leading-none font-medium text-[#C9A96E]"
+            >
+              &amp; SHOOT INSIGHTS
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <motion.nav
+            variants={navContainerVariants}
+            initial="hidden"
+            animate="visible"
+            className="hidden md:flex items-center space-x-8 h-full"
+            onMouseLeave={() => setHoveredLink(null)}
+          >
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
-              const linkColorClass = isActive
-                ? (useLightText ? 'text-[#C9A96E]' : 'text-gold')
-                : (useLightText ? 'text-[#F9F7F3]/80 hover:text-[#C9A96E]' : 'text-cream/80 hover:text-gold');
+              const linkColorClass = scrolled
+                ? (isActive ? 'text-gold' : 'text-[#F9F7F3]/80 hover:text-gold')
+                : (isActive ? 'text-[#C9A96E]' : 'text-[#2A2724] hover:text-[#C9A96E]');
+
+              const showUnderline = hoveredLink ? hoveredLink === link.href : isActive;
 
               return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`relative py-1 text-sm tracking-widest uppercase transition-colors duration-200 ${linkColorClass}`}
-                >
-                  {link.name}
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className={`absolute bottom-0 left-0 w-full h-[1px] ${useLightText ? 'bg-[#C9A96E]' : 'bg-gold'}`}
-                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                    />
-                  )}
-                </Link>
+                <motion.div key={link.name} variants={navItemVariants} className="h-full flex items-center">
+                  <Link
+                    href={link.href}
+                    onMouseEnter={() => setHoveredLink(link.href)}
+                    className={`relative py-1 text-sm tracking-widest uppercase transition-colors duration-200 ${linkColorClass} flex items-center h-full`}
+                  >
+                    {link.name}
+                    {showUnderline && (
+                      <motion.span
+                        layoutId="nav-underline"
+                        className="absolute bottom-0 left-0 w-full h-[2px] bg-[#C9A96E]"
+                        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                  </Link>
+                </motion.div>
               );
             })}
-          </nav>
+          </motion.nav>
 
           {/* Mobile Hamburger Trigger */}
           <button
@@ -120,9 +163,9 @@ export default function Navbar() {
             >
               <div>
                 <div className="flex justify-between items-center mb-12">
-                  <div className="flex flex-col">
-                    <span className="font-serif text-lg tracking-widest text-gold font-bold leading-tight">THE GALLERY CREATION</span>
-                    <span className="text-[8px] uppercase tracking-[0.2em] text-cream/75 mt-0.5">&amp; SHOOT INSIGHTS</span>
+                  <div className="flex flex-col justify-center items-start gap-[2px]">
+                    <span className="font-sans text-sm tracking-[0.22em] text-gold font-black uppercase leading-none">THE GALLERY CREATION</span>
+                    <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-[#C9A96E] font-medium leading-none">&amp; SHOOT INSIGHTS</span>
                   </div>
                   <button
                     onClick={closeDrawer}
