@@ -91,17 +91,20 @@ export default function WhatsAppButton() {
               </motion.div>
             )}
           </AnimatePresence>
-          <motion.a
-            href={`tel:+${whatsappNumber}`}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            onMouseEnter={() => setHoveredButton('call')}
-            onMouseLeave={() => setHoveredButton(null)}
-            className="flex items-center justify-center w-[52px] h-[52px] bg-[#1a73e8] text-white rounded-full shadow-2xl transition-all duration-200"
-            aria-label="Call Us"
+          <a
+            href={`tel:+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919163961246'}`}
+            aria-label="Call us"
           >
-            <Phone size={20} className="fill-white text-white" />
-          </motion.a>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              onMouseEnter={() => setHoveredButton('call')}
+              onMouseLeave={() => setHoveredButton(null)}
+              className="flex items-center justify-center w-[52px] h-[52px] bg-[#1a73e8] text-white rounded-full shadow-2xl transition-all duration-200 cursor-pointer"
+            >
+              <Phone size={20} className="fill-white text-white" />
+            </motion.div>
+          </a>
         </div>
 
         {/* 3. WhatsApp Button (Bottom) */}

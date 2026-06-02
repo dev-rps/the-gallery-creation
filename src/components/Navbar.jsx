@@ -28,10 +28,11 @@ export default function Navbar() {
   // Close drawer helper
   const closeDrawer = () => setIsOpen(false);
 
-  const isHomePage = pathname === '/';
-  const useLightText = isHomePage && !scrolled;
-
-  const triggerColorClass = useLightText ? 'text-[#F9F7F3] hover:text-[#C9A96E]' : 'text-cream hover:text-gold';
+  const isHomepage = pathname === '/';
+  
+  const hamburgerColor = scrolled
+    ? '#F9F7F3'        // scrolled: always cream on dark bg
+    : '#2A2724';       // not scrolled: always dark on light bg
 
   const navContainerVariants = {
     hidden: { opacity: 0 },
@@ -122,7 +123,8 @@ export default function Navbar() {
           {/* Mobile Hamburger Trigger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden ${triggerColorClass} transition-colors focus:outline-none`}
+            className="md:hidden transition-colors duration-300 focus:outline-none"
+            style={{ color: hamburgerColor, transition: 'color 0.3s ease' }}
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}

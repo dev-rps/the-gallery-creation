@@ -1,13 +1,9 @@
 "use client";
 
 import Link from 'next/link';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function Hero() {
-  const { scrollY } = useScroll();
-  const yBg = useTransform(scrollY, [0, 1000], [0, 300]);
-  const opacityBg = useTransform(scrollY, [0, 800], [1, 0.4]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -31,22 +27,16 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-[#1a1a1a] flex items-center justify-center">
-      {/* Background Image with Parallax */}
-      <motion.div
-        style={{ y: yBg, opacity: opacityBg }}
-        className="absolute inset-0 w-full h-[120%] -top-[10%]"
+      {/* Background Image with CSS Parallax */}
+      <div
+        style={{
+          backgroundImage: "url('/hero-bg.jpg')",
+        }}
+        className="absolute inset-0 w-full h-full bg-cover bg-[60%_center] md:bg-center bg-scroll md:bg-fixed"
       >
-        <Image
-          src="/hero-bg.jpg"
-          alt="Cinematic luxury wedding photography background"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
         {/* Dark Overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/60" />
-      </motion.div>
+      </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">

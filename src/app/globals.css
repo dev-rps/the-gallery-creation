@@ -70,7 +70,7 @@ body {
 }
 
 /* Film reel scrolling animation */
-@keyframes scroll {
+@keyframes filmScroll {
   0% {
     transform: translateX(0);
   }
@@ -82,12 +82,17 @@ body {
 .film-reel-scroll {
   display: flex;
   width: max-content;
-  animation: scroll 30s linear infinite;
+  animation: filmScroll 30s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Film perforation dots styling */
 .film-perforations {
   position: relative;
+  overflow: hidden;
   padding: 16px 0;
   background-color: #111111;
 }

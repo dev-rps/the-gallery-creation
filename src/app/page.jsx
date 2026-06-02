@@ -73,6 +73,8 @@ export default function Home() {
                   alt={image.alt}
                   width={image.width || 400}
                   height={image.height || 280}
+                  loading="eager"
+                  sizes="280px"
                   className="h-[280px] w-auto object-cover rounded-lg border border-[#C9A96E] shrink-0 select-none"
                   style={{ height: '280px' }}
                 />
@@ -85,6 +87,8 @@ export default function Home() {
                   alt={image.alt}
                   width={image.width || 400}
                   height={image.height || 280}
+                  loading="eager"
+                  sizes="280px"
                   className="h-[280px] w-auto object-cover rounded-lg border border-[#C9A96E] shrink-0 select-none"
                   style={{ height: '280px' }}
                 />

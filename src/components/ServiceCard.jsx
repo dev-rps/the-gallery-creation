@@ -17,13 +17,15 @@ export default function ServiceCard({ id, name, description, price, deliverables
 
   const cardStyle = {
     background: isHovered ? 'rgba(255, 255, 255, 0.78)' : 'rgba(255, 255, 255, 0.55)',
-    backdropFilter: 'blur(16px) saturate(140%)',
-    WebkitBackdropFilter: 'blur(16px) saturate(140%)',
+    backdropFilter: 'blur(12px) saturate(140%)',
+    WebkitBackdropFilter: 'blur(12px) saturate(140%)',
     borderColor: isHovered ? 'rgba(201, 169, 110, 0.55)' : 'rgba(201, 169, 110, 0.25)',
     boxShadow: isHovered
       ? '0 8px 40px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(201, 169, 110, 0.15), inset 0 1px 0 rgba(255, 255, 255, 1)'
       : '0 4px 24px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.90)',
-    transform: isHovered ? 'translateY(-6px)' : 'translateY(0)',
+    transform: isHovered ? 'translateY(-6px) translateZ(0)' : 'translateY(0) translateZ(0)',
+    willChange: 'transform',
+    isolation: 'isolate',
     transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
   };
 
