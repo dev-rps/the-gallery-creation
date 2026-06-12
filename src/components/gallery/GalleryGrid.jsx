@@ -5,25 +5,57 @@ import Image from 'next/image';
 import { Eye, Play, Film } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function GalleryGrid({ images, onImageClick }) {
+export default function GalleryGrid({ images, onImageClick, activeCategory = 'Pre-Wedding' }) {
+  const isSpecialCategory = activeCategory === 'Film' || activeCategory === 'Reels';
+
+  if (isSpecialCategory) {
+    return (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+        <AnimatePresence mode="popLayout" initial={false}>
+          {images.map((image, index) => (
+            <motion.div
+              key={image.id}
+              layout
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{
+                duration: 0.25,
+                delay: index * 0.02,
+                ease: "easeOut"
+              }}
+              className="w-full"
+            >
+              <GalleryItem
+                image={image}
+                index={index}
+                onClick={() => onImageClick(index)}
+              />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+    );
+  }
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+    <div className="grid grid-cols-3 gap-[3px] w-full">
       <AnimatePresence mode="popLayout" initial={false}>
         {images.map((image, index) => (
           <motion.div
             key={image.id}
             layout
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
+            exit={{ opacity: 0, scale: 0.95 }}
             transition={{
-              duration: 0.25,
-              delay: index * 0.02,
+              duration: 0.2,
+              delay: index * 0.03,
               ease: "easeOut"
             }}
             className="w-full"
           >
-            <GalleryItem
+            <InstagramItem
               image={image}
               index={index}
               onClick={() => onImageClick(index)}
@@ -101,3 +133,37 @@ function GalleryItem({ image, index, onClick }) {
     </div>
   );
 }
+
+function InstagramItem({ image, index, onClick }) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  return (
+    <div
+      onClick={onClick}
+      className="group relative overflow-hidden bg-[#1a1a1a] cursor-pointer aspect-square w-full"
+    >
+      {/* Skeleton Loading Placeholder */}
+      {isLoading && (
+        <div className="absolute inset-0 bg-[#1a1a1a] animate-pulse flex items-center justify-center">
+          <div className="w-6 h-6 rounded-full border-t border-r border-gold/40 animate-spin" />
+        </div>
+      )}
+
+      {/* Next.js Optimized Image */}
+      <Image
+        src={image.src}
+        alt={image.alt}
+        fill
+        sizes="(max-width: 768px) 33vw, (max-width: 1200px) 25vw, 20vw"
+        onLoad={() => setIsLoading(false)}
+        className={`object-cover object-center transition-transform duration-400 ease group-hover:scale-[1.08] ${
+          isLoading ? 'scale-95 opacity-0' : 'scale-100 opacity-100'
+        }`}
+      />
+
+      {/* Hover Overlay: dark overlay with transition */}
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors duration-300 z-20 pointer-events-none" />
+    </div>
+  );
+}
+

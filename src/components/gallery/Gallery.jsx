@@ -5,15 +5,14 @@ import GalleryGrid from './GalleryGrid';
 import Lightbox from './Lightbox';
 import { portfolioImages } from '@/lib/data';
 
-const filters = ['All', 'Pre-Wedding', 'Portraits', 'Wedding', 'Film', 'Reels'];
+const filters = ['Pre-Wedding', 'Portraits', 'Wedding', 'Film', 'Reels'];
 
 export default function Gallery({ limit = null }) {
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState('Pre-Wedding');
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   // Filter logic
   const filteredImages = portfolioImages.filter((img) => {
-    if (activeFilter === 'All') return true;
     return img.category.toLowerCase() === activeFilter.toLowerCase();
   });
 
@@ -62,7 +61,7 @@ export default function Gallery({ limit = null }) {
       </div>
 
       {/* Gallery Grid */}
-      <GalleryGrid images={displayedImages} onImageClick={handleImageClick} />
+      <GalleryGrid images={displayedImages} onImageClick={handleImageClick} activeCategory={activeFilter} />
 
       {/* Lightbox Overlay */}
       {lightboxIndex !== null && lightboxIndex >= 0 && (

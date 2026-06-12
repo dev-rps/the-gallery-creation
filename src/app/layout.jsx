@@ -4,6 +4,7 @@ import Script from 'next/script';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import BottomNavBar from '@/components/BottomNavBar';
 import './globals.css';
 
 const playwrite = localFont({
@@ -80,6 +81,7 @@ export default function RootLayout({ children }) {
         </main>
         <Footer />
         <WhatsAppButton />
+        <BottomNavBar />
       </body>
     </html>
   );

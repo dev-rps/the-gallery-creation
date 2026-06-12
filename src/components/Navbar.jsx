@@ -307,23 +307,23 @@ export default function Navbar() {
           >
             {/* Top line */}
             <motion.span
-              className="block rounded-full"
-              style={{ height: '1.5px', width: '24px', backgroundColor: hamburgerColor, transformOrigin: 'center' }}
-              animate={isOpen ? { rotate: 45, y: 7.5 } : { rotate: 0, y: 0 }}
+              className="block"
+              style={{ height: '3px', width: '24px', backgroundColor: hamburgerColor, borderRadius: '2px', transformOrigin: 'center' }}
+              animate={isOpen ? { rotate: 45, y: 9 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
             />
             {/* Middle line */}
             <motion.span
-              className="block rounded-full"
-              style={{ height: '1.5px', width: '24px', backgroundColor: hamburgerColor }}
+              className="block"
+              style={{ height: '3px', width: '24px', backgroundColor: hamburgerColor, borderRadius: '2px' }}
               animate={isOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
               transition={{ duration: 0.2 }}
             />
             {/* Bottom line */}
             <motion.span
-              className="block rounded-full"
-              style={{ height: '1.5px', width: '24px', backgroundColor: hamburgerColor, transformOrigin: 'center' }}
-              animate={isOpen ? { rotate: -45, y: -7.5 } : { rotate: 0, y: 0 }}
+              className="block"
+              style={{ height: '3px', width: '24px', backgroundColor: hamburgerColor, borderRadius: '2px', transformOrigin: 'center' }}
+              animate={isOpen ? { rotate: -45, y: -9 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
             />
           </button>

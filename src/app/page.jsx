@@ -21,6 +21,19 @@ export default function Home() {
   // Testimonials snapshot (first 3)
   const testimonialsSnapshot = testimonials.slice(0, 3);
 
+  // Filter standard photo images (exclude videos & reels)
+  const photos = portfolioImages.filter(img => !img.isVideo && !img.isReel);
+
+  // Distribute images for Row 1, Row 2, Row 3
+  const row1Base = photos.slice(0, 5);
+  const row2Base = [photos[5], photos[6], photos[7], photos[8], photos[0]];
+  const row3Base = [photos[9], photos[10], photos[11], photos[1], photos[2]];
+
+  // Duplicate rows for seamless loop
+  const row1 = [...row1Base, ...row1Base];
+  const row2 = [...row2Base, ...row2Base];
+  const row3 = [...row3Base, ...row3Base];
+
   return (
     <div className="w-full bg-charcoal text-cream overflow-x-hidden">
       {/* 1. Hero Section */}
@@ -43,57 +56,93 @@ export default function Home() {
       </section>
 
       {/* 3. Portfolio Preview Section */}
-      <section className="py-24 bg-section-bg relative z-10">
+      <section className="py-24 bg-transparent overflow-hidden relative z-10">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-baseline justify-between mb-16">
-            <div>
-              <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold block mb-2">
-                Our Work
-              </span>
-              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-wide">
-                Captured Moments
-              </h2>
+          <div className="flex flex-col items-baseline mb-16">
+            <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold block mb-2">
+              Our Work
+            </span>
+            <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-wide">
+              Captured Moments
+            </h2>
+          </div>
+
+          {/* 3-Row Floating Gallery Wrapper */}
+          <div className="floating-gallery-wrapper flex flex-col gap-4 mb-16">
+            {/* Row 1 (scrollLeft 35s) */}
+            <div className="overflow-hidden w-full">
+              <div 
+                className="floating-row-track track-left-slow"
+                onMouseEnter={undefined}
+                onMouseLeave={undefined}
+              >
+                {row1.map((image, idx) => (
+                  <div key={`row1-${image.id}-${idx}`} className="floating-image-card">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      loading="eager"
+                      sizes="320px"
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
+
+            {/* Row 2 (scrollRight 40s) */}
+            <div className="overflow-hidden w-full">
+              <div 
+                className="floating-row-track track-right"
+                onMouseEnter={undefined}
+                onMouseLeave={undefined}
+              >
+                {row2.map((image, idx) => (
+                  <div key={`row2-${image.id}-${idx}`} className="floating-image-card">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      loading="eager"
+                      sizes="320px"
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Row 3 (scrollLeft 30s) */}
+            <div className="overflow-hidden w-full">
+              <div 
+                className="floating-row-track track-left-fast"
+                onMouseEnter={undefined}
+                onMouseLeave={undefined}
+              >
+                {row3.map((image, idx) => (
+                  <div key={`row3-${image.id}-${idx}`} className="floating-image-card">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      loading="eager"
+                      sizes="320px"
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
             <Link
               href="/portfolio"
-              className="text-xs uppercase tracking-widest text-gold border-b border-gold/30 hover:border-gold pb-1 transition-all duration-300 font-semibold mt-4 md:mt-0"
+              className="inline-block text-xs uppercase tracking-widest text-gold border-b border-gold/30 hover:border-gold pb-1 transition-all duration-300 font-semibold"
             >
               View Full Portfolio
             </Link>
-          </div>
-
-          {/* Scrolling Film Reel Strip */}
-          <div className="film-perforations overflow-hidden w-full mb-12">
-            <div className="film-reel-scroll flex gap-4 py-2">
-              {/* Original Images */}
-              {portfolioImages.map((image, idx) => (
-                <Image
-                  key={`orig-${image.id}-${idx}`}
-                  src={image.src}
-                  alt={image.alt}
-                  width={image.width || 400}
-                  height={image.height || 280}
-                  loading="eager"
-                  sizes="280px"
-                  className="h-[280px] w-auto object-cover rounded-lg border border-[#C9A96E] shrink-0 select-none"
-                  style={{ height: '280px' }}
-                />
-              ))}
-              {/* Duplicated Images */}
-              {portfolioImages.map((image, idx) => (
-                <Image
-                  key={`dup-${image.id}-${idx}`}
-                  src={image.src}
-                  alt={image.alt}
-                  width={image.width || 400}
-                  height={image.height || 280}
-                  loading="eager"
-                  sizes="280px"
-                  className="h-[280px] w-auto object-cover rounded-lg border border-[#C9A96E] shrink-0 select-none"
-                  style={{ height: '280px' }}
-                />
-              ))}
-            </div>
           </div>
         </div>
       </section>

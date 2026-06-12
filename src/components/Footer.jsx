@@ -4,10 +4,19 @@ import { navLinks, photographerInfo } from '@/lib/data';
 
 export default function Footer() {
   return (
-    <footer className="bg-charcoal border-t border-gold/10 text-cream pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-        {/* Left: Studio Info */}
-        <div className="flex flex-col space-y-4 md:border-r md:border-white/10 md:pr-12">
+    <footer className="relative overflow-hidden w-full text-[#F9F7F3] pt-[64px] pb-[32px] bg-[#1a1612]">
+      {/* Top decorative element */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="w-full h-[1px] mb-[60px]" style={{
+          background: 'linear-gradient(90deg, transparent 0%, #C9A96E 30%, #C9A96E 70%, transparent 100%)'
+        }} />
+      </div>
+
+      {/* Footer content grid */}
+      <div className="max-w-7xl mx-auto px-6 md:px-[48px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 relative z-10">
+        
+        {/* Column 1 — Brand */}
+        <div className="flex flex-col space-y-4">
           <Link href="/" className="flex flex-col justify-center items-start gap-[3px] w-fit" style={{ overflow: 'visible' }}>
             <span
               style={{
@@ -25,14 +34,14 @@ export default function Footer() {
                 backgroundClip: 'text',
                 overflow: 'visible',
               }}
+              className="text-2xl font-serif"
             >
               The Gallery Creation
             </span>
             <span
-              className="text-[10.5px] uppercase font-semibold tracking-[0.3em]"
+              className="text-[10.5px] uppercase font-semibold tracking-[0.3em] text-[#C9A96E]"
               style={{
                 fontFamily: 'var(--font-jakarta)',
-                color: '#C4964A',
                 marginTop: '-2px',
                 paddingLeft: '2px',
                 display: 'block',
@@ -42,63 +51,67 @@ export default function Footer() {
               &amp; Shoot Insights
             </span>
           </Link>
-          <p className="text-sm text-cream/70 leading-relaxed max-w-sm italic">
-            &quot;Timeless memories, treasured forever.&quot;
+          <p className="text-sm text-[#F9F7F3]/60 leading-relaxed max-w-xs line-clamp-2">
+            Capturing luxury weddings and fine-art portraits with timeless sophistication.
           </p>
-          <p className="text-sm text-cream/60 leading-relaxed max-w-sm pt-2">
-            Capturing luxury weddings and fine-art portraits in Howrah, Kolkata, and nationwide. Let us document your love story with timeless sophistication.
-          </p>
+          <div className="text-[#C9A96E] text-sm mt-2">✦</div>
         </div>
 
-        {/* Center: Quick Links */}
-        <div className="flex flex-col space-y-4 md:items-center md:border-r md:border-white/10 md:pr-12">
-          <div className="w-fit">
-            <h3 className="font-serif text-lg text-gold tracking-wide mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm text-cream/80">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="hover:text-gold transition-colors duration-200 block py-1">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Right: Contact & Socials */}
+        {/* Column 2 — Quick Links */}
         <div className="flex flex-col space-y-4">
-          <h3 className="font-serif text-lg text-gold tracking-wide">Connect With Us</h3>
-          <ul className="space-y-3 text-sm text-cream/80">
+          <h3 className="text-xs tracking-[0.2em] uppercase text-[#C9A96E] mb-5 font-semibold">EXPLORE</h3>
+          <ul className="space-y-2 text-sm">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <Link
+                  href={link.href}
+                  className="group flex items-center gap-1 text-[#F9F7F3]/70 hover:text-[#C9A96E] transition-colors duration-200 py-1"
+                >
+                  <span>{link.name}</span>
+                  <span className="transform -translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">→</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Column 3 — Contact */}
+        <div className="flex flex-col space-y-4">
+          <h3 className="text-xs tracking-[0.2em] uppercase text-[#C9A96E] mb-5 font-semibold">CONNECT</h3>
+          <ul className="space-y-4 text-sm text-[#F9F7F3]/70">
             <li className="flex items-center space-x-3">
-              <MapPin size={16} className="text-gold shrink-0" />
+              <MapPin size={16} className="text-[#C9A96E] shrink-0" />
               <span>{photographerInfo.location}</span>
             </li>
             <li className="flex items-start space-x-3">
-              <Phone size={16} className="text-gold shrink-0 mt-0.5" />
-              <div className="flex flex-col text-cream/80">
-                <a href="https://wa.me/919163961246" className="hover:text-gold transition-colors">
+              <Phone size={16} className="text-[#C9A96E] shrink-0 mt-0.5" />
+              <div className="flex flex-col">
+                <a href="tel:+919163961246" className="hover:text-[#C9A96E] transition-colors">
                   +91 9163961246
                 </a>
-                <a href="https://wa.me/918240677269" className="hover:text-gold transition-colors">
+                <a href="tel:+918240677269" className="hover:text-[#C9A96E] transition-colors">
                   +91 8240677269
                 </a>
               </div>
             </li>
             <li className="flex items-center space-x-3">
-              <Mail size={16} className="text-gold shrink-0" />
-              <a href="mailto:thegallerycreation@gmail.com" className="hover:text-gold transition-colors">
+              <Mail size={16} className="text-[#C9A96E] shrink-0" />
+              <a href="mailto:thegallerycreation@gmail.com" className="hover:text-[#C9A96E] transition-colors">
                 thegallerycreation@gmail.com
               </a>
             </li>
           </ul>
+        </div>
 
-          <div className="flex flex-wrap gap-4 pt-4">
+        {/* Column 4 — Social */}
+        <div className="flex flex-col space-y-4">
+          <h3 className="text-xs tracking-[0.2em] uppercase text-[#C9A96E] mb-5 font-semibold">FOLLOW</h3>
+          <div className="flex flex-col gap-3">
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 rounded-lg px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:opacity-90 text-sm font-medium"
+              className="w-full flex items-center justify-center space-x-2 rounded-xl px-4 py-2.5 text-[#F9F7F3] transition-all duration-300 hover:scale-[1.02] hover:opacity-90 text-sm font-medium"
               style={{ background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)' }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -112,7 +125,7 @@ export default function Footer() {
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 rounded-lg px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:opacity-90 text-sm font-medium bg-[#1877F2]"
+              className="w-full flex items-center justify-center space-x-2 rounded-xl px-4 py-2.5 text-[#F9F7F3] transition-all duration-300 hover:scale-[1.02] hover:opacity-90 text-sm font-medium bg-[#1877F2]"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
@@ -123,11 +136,27 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-cream/5 text-center text-xs text-cream/40 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p>© {new Date().getFullYear()} The Gallery Creation & Shoot Insights. All Rights Reserved.</p>
-        <p className="tracking-wide">
-          Designed by The Gallery Creation | Hosted on Vercel
-        </p>
+      {/* Bottom bar */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="w-full h-[1px]" style={{
+          background: 'linear-gradient(90deg, transparent 0%, #C9A96E 30%, #C9A96E 70%, transparent 100%)'
+        }} />
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 py-6 text-xs text-[#F9F7F3]/40">
+          <p>© {new Date().getFullYear()} The Gallery Creation & Shoot Insights. All Rights Reserved.</p>
+          <p>Crafted with ❤️ in Kolkata</p>
+        </div>
+      </div>
+
+      {/* Decorative background element */}
+      <div
+        className="absolute bottom-[60px] left-1/2 -translate-x-1/2 font-black tracking-[0.3em] pointer-events-none user-select-none whitespace-nowrap z-0"
+        style={{
+          fontSize: '120px',
+          color: 'rgba(201, 169, 110, 0.04)',
+          fontWeight: 900,
+        }}
+      >
+        GALLERY
       </div>
     </footer>
   );

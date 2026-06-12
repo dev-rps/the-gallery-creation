@@ -69,50 +69,81 @@ body {
   display: block;
 }
 
-/* Film reel scrolling animation */
-@keyframes filmScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+/* Floating Gallery Section Animations & Styles */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
-.film-reel-scroll {
+.floating-gallery-wrapper {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.floating-row-track {
   display: flex;
+  flex-direction: row;
+  gap: 20px;
   width: max-content;
-  animation: filmScroll 30s linear infinite;
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
-/* Film perforation dots styling */
-.film-perforations {
-  position: relative;
+.track-left-slow {
+  animation: scrollLeft 35s linear infinite;
+}
+
+.track-right {
+  animation: scrollRight 40s linear infinite;
+}
+
+.track-left-fast {
+  animation: scrollLeft 30s linear infinite;
+}
+
+.floating-image-card {
+  width: 320px;
+  height: 220px;
+  border-radius: 16px;
   overflow: hidden;
-  padding: 16px 0;
-  background-color: #111111;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 
+    0 8px 32px rgba(0,0,0,0.10),
+    0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 400ms ease;
 }
 
-.film-perforations::before,
-.film-perforations::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 6px, transparent 6px);
-  background-size: 16px 6px;
-  z-index: 10;
+.floating-image-card:hover {
+  transform: scale(1.02);
 }
 
-.film-perforations::before {
-  top: 6px;
+@media (max-width: 768px) {
+  .floating-image-card {
+    width: 220px;
+    height: 160px;
+  }
 }
 
-.film-perforations::after {
-  bottom: 6px;
+/* Bottom Bar Pulsing Button Keyframes */
+@keyframes pulse {
+  0% { box-shadow: 0 4px 20px rgba(201,169,110,0.45), 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.25), 0 0 0 0 rgba(201,169,110,0.4); }
+  70% { box-shadow: 0 4px 20px rgba(201,169,110,0.45), 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.25), 0 0 0 10px rgba(201,169,110,0); }
+  100% { box-shadow: 0 4px 20px rgba(201,169,110,0.45), 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.25), 0 0 0 0 rgba(201,169,110,0); }
 }
+
+.bottom-bar-center-btn {
+  animation: pulse 2s infinite;
+}
+

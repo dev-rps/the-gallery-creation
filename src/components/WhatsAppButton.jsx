@@ -35,9 +35,19 @@ export default function WhatsAppButton() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isVideoOpen]);
 
+  useEffect(() => {
+    const handleOpenVideo = () => {
+      openVideoModal();
+    };
+    window.addEventListener('openVideoModal', handleOpenVideo);
+    return () => {
+      window.removeEventListener('openVideoModal', handleOpenVideo);
+    };
+  }, []);
+
   return (
     <>
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 select-none">
+      <div className="hidden md:flex fixed bottom-6 right-6 z-50 flex-col items-end gap-3 select-none">
         
         {/* 1. Video Button (Top) */}
         <div className="relative flex items-center">
