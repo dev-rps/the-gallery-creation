@@ -272,7 +272,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onMouseEnter={() => setHoveredLink(link.href)}
-                    className="relative py-1 lowercase flex items-center h-full"
+                    className="relative py-1 flex items-center h-full"
                     style={{
                       fontFamily: 'var(--font-playfair), serif',
                       fontWeight: 400,

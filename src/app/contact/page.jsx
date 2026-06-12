@@ -113,7 +113,8 @@ export default function ContactPage() {
         {/* Layout Column Wrapper */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Form Wrapper (NO <form> TAGS) */}
-          <div className="lg:col-span-7 bg-card-bg p-8 md:p-12 rounded-sm border border-cream/5 shadow-xl">
+          {/* Left Column: Form Wrapper */}
+          <div className="lg:col-span-7 bg-[#FAF6F0]/85 backdrop-blur-md p-8 md:p-12 rounded-2xl border border-[#C9A96E]/15 shadow-xl relative z-10">
             <h2 className="font-serif text-2xl font-semibold mb-8 text-gold tracking-wide">
               Inquiry Form
             </h2>
@@ -131,7 +132,9 @@ export default function ContactPage() {
                 <AlertTriangle className="shrink-0 mt-0.5" size={18} />
                 <span>{responseMessage}</span>
               </div>
-            )}            <form onSubmit={handleSubmitInquiry} className="space-y-6">
+            )}
+
+            <form onSubmit={handleSubmitInquiry} className="space-y-6">
               {/* Name */}
               <div>
                 <label className="text-xs uppercase tracking-widest text-cream/60 block mb-2 font-semibold">
@@ -143,7 +146,7 @@ export default function ContactPage() {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g. Priyanjali Sen"
-                  className="w-full bg-charcoal border border-cream/10 focus:border-gold py-3 px-4 rounded-sm text-cream placeholder-cream/35 text-sm transition-colors duration-200 outline-none"
+                  className="w-full bg-[#FDFBF7]/60 border border-[#C9A96E]/20 focus:border-[#C9A96E] focus:ring-1 focus:ring-[#C9A96E] py-3 px-4 rounded-xl text-cream placeholder-cream/35 text-sm transition-all duration-200 outline-none"
                   disabled={status === 'loading'}
                   required
                 />
@@ -161,7 +164,7 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="e.g. name@domain.com"
-                    className="w-full bg-charcoal border border-cream/10 focus:border-gold py-3 px-4 rounded-sm text-cream placeholder-cream/35 text-sm transition-colors duration-200 outline-none"
+                    className="w-full bg-[#FDFBF7]/60 border border-[#C9A96E]/20 focus:border-[#C9A96E] focus:ring-1 focus:ring-[#C9A96E] py-3 px-4 rounded-xl text-cream placeholder-cream/35 text-sm transition-all duration-200 outline-none"
                     disabled={status === 'loading'}
                     required
                   />
@@ -176,7 +179,7 @@ export default function ContactPage() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="e.g. +91 98765 43210"
-                    className="w-full bg-charcoal border border-cream/10 focus:border-gold py-3 px-4 rounded-sm text-cream placeholder-cream/35 text-sm transition-colors duration-200 outline-none"
+                    className="w-full bg-[#FDFBF7]/60 border border-[#C9A96E]/20 focus:border-[#C9A96E] focus:ring-1 focus:ring-[#C9A96E] py-3 px-4 rounded-xl text-cream placeholder-cream/35 text-sm transition-all duration-200 outline-none"
                     disabled={status === 'loading'}
                     required
                   />
@@ -193,7 +196,7 @@ export default function ContactPage() {
                   name="eventDate"
                   value={formData.eventDate}
                   onChange={handleInputChange}
-                  className="w-full bg-charcoal border border-cream/10 focus:border-gold py-3 px-4 rounded-sm text-cream placeholder-cream/35 text-sm transition-colors duration-200 outline-none"
+                  className="w-full bg-[#FDFBF7]/60 border border-[#C9A96E]/20 focus:border-[#C9A96E] focus:ring-1 focus:ring-[#C9A96E] py-3 px-4 rounded-xl text-cream placeholder-cream/35 text-sm transition-all duration-200 outline-none"
                   disabled={status === 'loading'}
                 />
               </div>
@@ -209,7 +212,7 @@ export default function ContactPage() {
                   onChange={handleInputChange}
                   rows={5}
                   placeholder="Share details like event style, venues, timings, or specific questions..."
-                  className="w-full bg-charcoal border border-cream/10 focus:border-gold py-3 px-4 rounded-sm text-cream placeholder-cream/35 text-sm transition-colors duration-200 outline-none resize-none"
+                  className="w-full bg-[#FDFBF7]/60 border border-[#C9A96E]/20 focus:border-[#C9A96E] focus:ring-1 focus:ring-[#C9A96E] py-3 px-4 rounded-xl text-cream placeholder-cream/35 text-sm transition-all duration-200 outline-none resize-none"
                   disabled={status === 'loading'}
                   required
                 />
@@ -218,12 +221,12 @@ export default function ContactPage() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full py-4 bg-gold hover:bg-[#b59459] text-charcoal font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-sm flex items-center justify-center space-x-2"
+                className="w-full py-4 bg-gradient-to-r from-[#C9A96E] to-[#B8965A] hover:scale-[1.01] hover:shadow-lg hover:shadow-gold/20 text-[#2A2724] font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-xl flex items-center justify-center space-x-2"
                 disabled={status === 'loading'}
               >
                 {status === 'loading' ? (
                   <>
-                    <div className="w-4 h-4 border-2 border-charcoal/30 border-t-charcoal rounded-full animate-spin" />
+                    <div className="w-4 h-4 border-2 border-[#2A2724]/30 border-t-[#2A2724] rounded-full animate-spin" />
                     <span>Submitting Inquiry...</span>
                   </>
                 ) : (
@@ -244,7 +247,7 @@ export default function ContactPage() {
                 href="https://wa.me/919163961246"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 px-6 py-3 border border-[#25D366]/40 hover:border-[#25D366] text-[#25D366] font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-sm bg-[#25D366]/5 hover:bg-[#25D366]/10"
+                className="inline-flex items-center space-x-2 px-6 py-3 border border-[#25D366]/40 hover:border-[#25D366] text-[#25D366] font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-xl bg-[#25D366]/5 hover:bg-[#25D366]/10"
               >
                 <MessageSquare size={14} />
                 <span>Chat Direct on WhatsApp</span>
@@ -253,9 +256,9 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Contact Details & Google Maps */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-5 space-y-8 relative z-10">
             {/* Contact Details Card */}
-            <div className="bg-card-bg p-8 rounded-sm border border-cream/5 shadow-xl">
+            <div className="bg-[#FAF6F0]/85 backdrop-blur-md p-8 rounded-2xl border border-[#C9A96E]/15 shadow-xl">
               <h2 className="font-serif text-xl font-semibold mb-6 text-gold tracking-wide leading-tight">
                 The Gallery Creation &amp; Shoot Insights
               </h2>
@@ -301,7 +304,7 @@ export default function ContactPage() {
             </div>
 
             {/* Google Maps Placeholder Card */}
-            <div className="bg-card-bg border border-cream/5 rounded-sm overflow-hidden h-[300px] relative flex flex-col justify-end shadow-xl">
+            <div className="bg-[#FAF6F0]/85 backdrop-blur-md border border-[#C9A96E]/15 rounded-2xl overflow-hidden h-[300px] relative flex flex-col justify-end shadow-xl">
               {/* Mock map style */}
               <div className="absolute inset-0 bg-section-bg flex flex-col items-center justify-center p-6 text-center">
                 <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
