@@ -26,7 +26,7 @@ const FilmIcon = () => (
 
 export default function AboutPage() {
   return (
-    <div className="w-full bg-charcoal text-cream relative">
+    <div className="w-full bg-transparent text-cream relative">
       {/* Split Biography Section */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-b border-gold/10 relative overflow-hidden">
         {/* Background Watermark */}
@@ -34,7 +34,7 @@ export default function AboutPage() {
           legacy
         </div>
         {/* Left Side: Two logos stacked vertically */}
-        <div className="lg:col-span-5 flex flex-col bg-charcoal border-r border-gold/10 relative z-10">
+        <div className="lg:col-span-5 flex flex-col bg-transparent border-r border-gold/10 relative z-10">
           {/* Logo 1 (top) */}
           <div className="flex-1 flex flex-col items-center justify-center p-12 border-b border-[#C9A96E]/30 min-h-[35vh]">
             <CameraIcon />
@@ -53,7 +53,7 @@ export default function AboutPage() {
         </div>
 
         {/* Right Side: Two story blocks stacked vertically */}
-        <div className="lg:col-span-7 flex flex-col bg-charcoal">
+        <div className="lg:col-span-7 flex flex-col bg-transparent">
           {/* Story 1 (top) */}
           <div className="flex-1 flex flex-col justify-center p-8 md:p-16 lg:p-24 border-b border-gold/10">
             <motion.div
@@ -109,7 +109,7 @@ export default function AboutPage() {
       </section>
 
       {/* Meet the Founders Section */}
-      <section className="py-24 bg-charcoal border-b border-gold/10 relative overflow-hidden">
+      <section className="py-24 bg-transparent border-b border-gold/10 relative overflow-hidden">
         {/* Background Watermark */}
         <div className="absolute right-10 bottom-10 font-serif font-black italic text-[120px] md:text-[180px] text-cream/[0.02] pointer-events-none select-none z-0">
           founders
@@ -174,7 +174,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-24 bg-section-bg relative overflow-hidden">
+      <section className="py-24 bg-transparent relative overflow-hidden">
         {/* Background Watermark */}
         <div className="absolute left-10 top-1/2 -translate-y-1/2 font-serif font-black italic text-[120px] md:text-[180px] text-cream/[0.02] pointer-events-none select-none z-0">
           journey

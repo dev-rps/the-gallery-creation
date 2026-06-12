@@ -148,11 +148,10 @@ export default function Navbar() {
           HEADER — z-60 when menu is open so hamburger X floats above overlay
       ════════════════════════════════════════════════════════════════ */}
       <header
-        className={`fixed top-0 left-0 w-full flex items-center ${scrolled ? 'backdrop-blur-md' : ''}`}
+        className={`fixed top-0 left-0 w-full h-20 flex items-center ${scrolled ? 'backdrop-blur-md' : ''}`}
         style={{
           zIndex: isOpen ? 60 : 40,
-          height: scrolled ? '76px' : '96px',
-          transition: 'height 0.5s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+          transition: 'background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
           // Transparent when overlay is open (avoid ugly bar on top of dark bg)
           background: isOpen
             ? 'transparent'

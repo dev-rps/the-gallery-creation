@@ -90,7 +90,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="w-full bg-charcoal text-cream py-16 md:py-24 relative overflow-hidden">
+    <div className="w-full bg-transparent text-cream py-16 md:py-24 relative overflow-hidden">
       {/* Background Watermark */}
       <div className="absolute left-[20px] top-[15%] font-serif font-black italic text-[120px] md:text-[180px] text-cream/[0.02] pointer-events-none select-none z-0">
         hello

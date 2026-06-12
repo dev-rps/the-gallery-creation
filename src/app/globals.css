@@ -9,7 +9,8 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #FDFBF7;
+  background: linear-gradient(180deg, #FDFBF7 0%, #FAF6EE 30%, #F1EAE0 70%, #FDFBF7 100%) !important;
+  background-attachment: fixed !important;
   color: #2A2724;
   scrollbar-width: thin;
   scrollbar-color: #B59459 #FDFBF7;
@@ -18,7 +19,8 @@ html {
 }
 
 body {
-  background-color: #FDFBF7;
+  background: linear-gradient(180deg, #FDFBF7 0%, #FAF6EE 30%, #F1EAE0 70%, #FDFBF7 100%) !important;
+  background-attachment: fixed !important;
   color: #2A2724;
 }
 

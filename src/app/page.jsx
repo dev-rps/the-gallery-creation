@@ -148,7 +148,7 @@ export default function Home() {
       </section>
 
       {/* 4. Services Snapshot Section */}
-      <section className="py-24 bg-charcoal relative z-10 overflow-hidden">
+      <section className="py-24 bg-transparent relative z-10 overflow-hidden">
         {/* Background Watermark */}
         <div className="absolute right-[-40px] top-[20px] font-serif font-black italic text-[120px] md:text-[160px] text-cream/[0.02] pointer-events-none select-none z-0">
           artistry
@@ -190,7 +190,7 @@ export default function Home() {
       </section>
 
       {/* 5. Testimonials Section */}
-      <section className="py-24 bg-section-bg relative z-10 overflow-hidden">
+      <section className="py-24 bg-transparent relative z-10 overflow-hidden">
         {/* Background Watermark */}
         <div className="absolute left-[-20px] bottom-[20px] font-serif font-black italic text-[120px] md:text-[160px] text-cream/[0.02] pointer-events-none select-none z-0">
           devotion
