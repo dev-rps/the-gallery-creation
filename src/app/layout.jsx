@@ -1,20 +1,25 @@
-import { Playfair_Display, Inter } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
+import localFont from 'next/font/local';
 import Script from 'next/script';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import './globals.css';
 
-const playfair = Playfair_Display({
-  subsets: ['latin'],
+const playwrite = localFont({
+  src: [
+    { path: './fonts/PlaywriteGBJ.ttf',        weight: '100 400', style: 'normal' },
+    { path: './fonts/PlaywriteGBJ-Italic.ttf', weight: '100 400', style: 'italic' },
+  ],
   display: 'swap',
-  variable: '--font-playfair',
+  variable: '--font-playwrite',
 });
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-jakarta',
+  weight: ['400', '500', '600'],
 });
 
 export const metadata = {
@@ -44,7 +49,7 @@ export default function RootLayout({ children }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="en" className={`${jakarta.variable} ${playwrite.variable}`}>
       <body className="font-sans bg-charcoal text-cream min-h-screen flex flex-col selection:bg-gold selection:text-charcoal">
         {/* Google Analytics */}
         {gaId && (

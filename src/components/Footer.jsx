@@ -8,16 +8,38 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
         {/* Left: Studio Info */}
         <div className="flex flex-col space-y-4 md:border-r md:border-white/10 md:pr-12">
-          <Link href="/" className="flex flex-col justify-center items-start gap-[2px] w-fit">
+          <Link href="/" className="flex flex-col justify-center items-start gap-[3px] w-fit" style={{ overflow: 'visible' }}>
             <span
-              className="font-sans text-xl tracking-[0.22em] font-black uppercase leading-none text-[#2A2724]"
+              style={{
+                fontFamily: 'var(--font-playwrite)',
+                fontStyle: 'italic',
+                fontWeight: 400,
+                fontSize: '1.5rem',
+                letterSpacing: '0.04em',
+                lineHeight: 1.5,
+                paddingBottom: '6px',
+                display: 'block',
+                background: 'linear-gradient(135deg, #C9A96E 0%, #F5E090 30%, #EDD470 50%, #F5E090 70%, #C9A96E 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                overflow: 'visible',
+              }}
             >
-              THE GALLERY CREATION
+              The Gallery Creation
             </span>
             <span
-              className="font-sans text-sm uppercase tracking-[0.1em] leading-none text-[#C9A96E] font-medium opacity-100"
+              className="text-[10.5px] uppercase font-semibold tracking-[0.3em]"
+              style={{
+                fontFamily: 'var(--font-jakarta)',
+                color: '#C4964A',
+                marginTop: '-2px',
+                paddingLeft: '2px',
+                display: 'block',
+                lineHeight: 1,
+              }}
             >
-              &amp; SHOOT INSIGHTS
+              &amp; Shoot Insights
             </span>
           </Link>
           <p className="text-sm text-cream/70 leading-relaxed max-w-sm italic">
