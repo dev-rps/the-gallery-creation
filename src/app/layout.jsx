@@ -1,4 +1,4 @@
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Plus_Jakarta_Sans, Inter, Playfair_Display } from 'next/font/google';
 import localFont from 'next/font/local';
 import Script from 'next/script';
 import Navbar from '@/components/Navbar';
@@ -21,6 +21,18 @@ const jakarta = Plus_Jakarta_Sans({
   display: 'swap',
   variable: '--font-jakarta',
   weight: ['400', '500', '600'],
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
 });
 
 export const metadata = {
@@ -50,8 +62,9 @@ export default function RootLayout({ children }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
-    <html lang="en" className={`${jakarta.variable} ${playwrite.variable}`}>
-      <body className="font-sans bg-charcoal text-cream min-h-screen flex flex-col selection:bg-gold selection:text-charcoal">
+    <html lang="en" className={`${jakarta.variable} ${playwrite.variable} ${inter.variable} ${playfair.variable}`}>
+      <body className="font-sans bg-charcoal text-cream min-h-screen flex flex-col selection:bg-gold selection:text-charcoal relative">
+        <div className="film-grain" />
         {/* Google Analytics */}
         {gaId && (
           <>

@@ -90,8 +90,12 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="w-full bg-charcoal text-cream py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="w-full bg-charcoal text-cream py-16 md:py-24 relative overflow-hidden">
+      {/* Background Watermark */}
+      <div className="absolute left-[20px] top-[15%] font-serif font-black italic text-[120px] md:text-[180px] text-cream/[0.02] pointer-events-none select-none z-0">
+        hello
+      </div>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-gold uppercase tracking-[0.4em] text-xs font-semibold block mb-3">

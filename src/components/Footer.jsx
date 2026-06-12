@@ -59,13 +59,13 @@ export default function Footer() {
 
         {/* Column 2 — Quick Links */}
         <div className="flex flex-col space-y-4">
-          <h3 className="text-xs tracking-[0.2em] uppercase text-[#C9A96E] mb-5 font-semibold">EXPLORE</h3>
-          <ul className="space-y-2 text-sm">
+          <h3 className="font-serif text-[15px] font-normal tracking-[0.15em] text-[#C9A96E] italic lowercase mb-5">explore</h3>
+          <ul className="space-y-2">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className="group flex items-center gap-1 text-[#F9F7F3]/70 hover:text-[#C9A96E] transition-colors duration-200 py-1"
+                  className="group flex items-center gap-1 text-[#F9F7F3]/70 hover:text-[#C9A96E] transition-colors duration-200 py-1 font-sans text-xs tracking-[0.12em] font-light uppercase"
                 >
                   <span>{link.name}</span>
                   <span className="transform -translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">→</span>
@@ -77,8 +77,8 @@ export default function Footer() {
 
         {/* Column 3 — Contact */}
         <div className="flex flex-col space-y-4">
-          <h3 className="text-xs tracking-[0.2em] uppercase text-[#C9A96E] mb-5 font-semibold">CONNECT</h3>
-          <ul className="space-y-4 text-sm text-[#F9F7F3]/70">
+          <h3 className="font-serif text-[15px] font-normal tracking-[0.15em] text-[#C9A96E] italic lowercase mb-5">connect</h3>
+          <ul className="space-y-4 font-sans text-xs font-light tracking-[0.08em] text-[#F9F7F3]/70 uppercase">
             <li className="flex items-center space-x-3">
               <MapPin size={16} className="text-[#C9A96E] shrink-0" />
               <span>{photographerInfo.location}</span>
@@ -96,7 +96,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center space-x-3">
               <Mail size={16} className="text-[#C9A96E] shrink-0" />
-              <a href="mailto:thegallerycreation@gmail.com" className="hover:text-[#C9A96E] transition-colors">
+              <a href="mailto:thegallerycreation@gmail.com" className="hover:text-[#C9A96E] transition-colors lowercase">
                 thegallerycreation@gmail.com
               </a>
             </li>
@@ -105,13 +105,13 @@ export default function Footer() {
 
         {/* Column 4 — Social */}
         <div className="flex flex-col space-y-4">
-          <h3 className="text-xs tracking-[0.2em] uppercase text-[#C9A96E] mb-5 font-semibold">FOLLOW</h3>
+          <h3 className="font-serif text-[15px] font-normal tracking-[0.15em] text-[#C9A96E] italic lowercase mb-5">follow</h3>
           <div className="flex flex-col gap-3">
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center space-x-2 rounded-xl px-4 py-2.5 text-[#F9F7F3] transition-all duration-300 hover:scale-[1.02] hover:opacity-90 text-sm font-medium"
+              className="w-full flex items-center justify-center space-x-2 rounded-xl px-4 py-2.5 text-[#F9F7F3] transition-all duration-300 hover:scale-[1.02] hover:opacity-90 text-xs tracking-[0.12em] font-light uppercase"
               style={{ background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)' }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -125,7 +125,7 @@ export default function Footer() {
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center space-x-2 rounded-xl px-4 py-2.5 text-[#F9F7F3] transition-all duration-300 hover:scale-[1.02] hover:opacity-90 text-sm font-medium bg-[#1877F2]"
+              className="w-full flex items-center justify-center space-x-2 rounded-xl px-4 py-2.5 text-[#F9F7F3] transition-all duration-300 hover:scale-[1.02] hover:opacity-90 text-xs tracking-[0.12em] font-light uppercase bg-[#1877F2]"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
@@ -141,7 +141,7 @@ export default function Footer() {
         <div className="w-full h-[1px]" style={{
           background: 'linear-gradient(90deg, transparent 0%, #C9A96E 30%, #C9A96E 70%, transparent 100%)'
         }} />
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 py-6 text-xs text-[#F9F7F3]/40">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 py-6 font-sans text-[10px] tracking-[0.12em] font-light text-[#F9F7F3]/40 uppercase">
           <p>© {new Date().getFullYear()} The Gallery Creation & Shoot Insights. All Rights Reserved.</p>
           <p>Crafted with ❤️ in Kolkata</p>
         </div>

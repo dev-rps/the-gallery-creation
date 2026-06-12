@@ -148,14 +148,15 @@ export default function Navbar() {
           HEADER — z-60 when menu is open so hamburger X floats above overlay
       ════════════════════════════════════════════════════════════════ */}
       <header
-        className={`fixed top-0 left-0 w-full h-20 flex items-center ${scrolled ? 'backdrop-blur-md' : ''}`}
+        className={`fixed top-0 left-0 w-full flex items-center ${scrolled ? 'backdrop-blur-md' : ''}`}
         style={{
           zIndex: isOpen ? 60 : 40,
-          transition: 'box-shadow 0.3s ease, background 0.3s ease',
+          height: scrolled ? '76px' : '96px',
+          transition: 'height 0.5s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
           // Transparent when overlay is open (avoid ugly bar on top of dark bg)
           background: isOpen
             ? 'transparent'
-            : scrolled ? 'rgba(26, 26, 26, 0.95)' : 'transparent',
+            : scrolled ? 'rgba(20, 18, 16, 0.85)' : 'transparent',
           boxShadow: (!isOpen && scrolled) ? '0 1px 0 rgba(201, 169, 110, 0.15)' : 'none',
         }}
       >
@@ -272,13 +273,14 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onMouseEnter={() => setHoveredLink(link.href)}
-                    className="relative py-1 uppercase flex items-center h-full"
+                    className="relative py-1 lowercase flex items-center h-full"
                     style={{
-                      fontFamily: 'var(--font-jakarta)',
-                      fontWeight: 500,
-                      fontSize: '13px',
-                      letterSpacing: isHovered ? '0.12em' : '0.08em',
-                      transition: 'letter-spacing 300ms ease, color 200ms ease',
+                      fontFamily: 'var(--font-playfair), serif',
+                      fontWeight: 400,
+                      fontStyle: 'italic',
+                      fontSize: '16px',
+                      letterSpacing: isHovered ? '0.10em' : '0.06em',
+                      transition: 'letter-spacing 300ms ease, color 300ms ease',
                       color: linkColor,
                     }}
                   >
@@ -286,7 +288,7 @@ export default function Navbar() {
                     {showUnderline && (
                       <motion.span
                         layoutId="nav-underline"
-                        className="absolute bottom-0 left-0 w-full h-[2px] bg-[#C9A96E]"
+                        className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#C9A96E]"
                         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                       />
                     )}

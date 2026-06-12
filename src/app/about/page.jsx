@@ -26,11 +26,15 @@ const FilmIcon = () => (
 
 export default function AboutPage() {
   return (
-    <div className="w-full bg-charcoal text-cream">
+    <div className="w-full bg-charcoal text-cream relative">
       {/* Split Biography Section */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-b border-gold/10">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-b border-gold/10 relative overflow-hidden">
+        {/* Background Watermark */}
+        <div className="absolute left-10 top-10 font-serif font-black italic text-[120px] md:text-[180px] text-cream/[0.02] pointer-events-none select-none z-0">
+          legacy
+        </div>
         {/* Left Side: Two logos stacked vertically */}
-        <div className="lg:col-span-5 flex flex-col bg-charcoal border-r border-gold/10">
+        <div className="lg:col-span-5 flex flex-col bg-charcoal border-r border-gold/10 relative z-10">
           {/* Logo 1 (top) */}
           <div className="flex-1 flex flex-col items-center justify-center p-12 border-b border-[#C9A96E]/30 min-h-[35vh]">
             <CameraIcon />
@@ -105,8 +109,12 @@ export default function AboutPage() {
       </section>
 
       {/* Meet the Founders Section */}
-      <section className="py-24 bg-charcoal border-b border-gold/10">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-24 bg-charcoal border-b border-gold/10 relative overflow-hidden">
+        {/* Background Watermark */}
+        <div className="absolute right-10 bottom-10 font-serif font-black italic text-[120px] md:text-[180px] text-cream/[0.02] pointer-events-none select-none z-0">
+          founders
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold block mb-2">
               The Creative Minds
@@ -166,8 +174,12 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-24 bg-section-bg">
-        <div className="max-w-4xl mx-auto px-6">
+      <section className="py-24 bg-section-bg relative overflow-hidden">
+        {/* Background Watermark */}
+        <div className="absolute left-10 top-1/2 -translate-y-1/2 font-serif font-black italic text-[120px] md:text-[180px] text-cream/[0.02] pointer-events-none select-none z-0">
+          journey
+        </div>
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold block mb-2">
               Our Journey
