@@ -1,4 +1,4 @@
-import TestimonialCard from '@/components/TestimonialCard';
+import TestimonialsList from '@/components/TestimonialsList';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import { testimonials, photographerInfo } from '@/lib/data';
 import { Play } from 'lucide-react';
@@ -28,19 +28,8 @@ export default function TestimonialsPage() {
           </p>
         </div>
 
-        {/* Testimonials Grid (min 6) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-          {testimonials.map((testimonial, index) => (
-            <TestimonialCard
-              key={testimonial.id}
-              name={testimonial.name}
-              location={testimonial.location}
-              stars={testimonial.stars}
-              text={testimonial.text}
-              index={index}
-            />
-          ))}
-        </div>
+        {/* Testimonials Grid & Writing Form */}
+        <TestimonialsList initialTestimonials={testimonials} />
 
         {/* Video Testimonials Showcase Mockup */}
         <div className="mb-28">

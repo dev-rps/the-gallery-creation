@@ -59,13 +59,13 @@ export default function Footer() {
 
         {/* Column 2 — Quick Links */}
         <div className="flex flex-col space-y-4">
-          <h3 className="font-serif text-[15px] font-normal tracking-[0.15em] text-[#C9A96E] italic lowercase mb-5">explore</h3>
+          <h3 className="font-serif text-[15px] font-normal tracking-[0.15em] text-[#C9A96E] italic mb-5 border-b border-[#C9A96E]/20 pb-1.5 w-fit">Explore</h3>
           <ul className="space-y-2">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className="group flex items-center gap-1 text-[#F9F7F3]/70 hover:text-[#C9A96E] transition-colors duration-200 py-1 font-sans text-xs tracking-[0.12em] font-light uppercase"
+                  className="group flex items-center gap-1 text-[#F9F7F3]/70 hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors duration-200 py-1 font-sans text-xs tracking-[0.12em] font-light uppercase"
                 >
                   <span>{link.name}</span>
                   <span className="transform -translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">→</span>
@@ -77,7 +77,7 @@ export default function Footer() {
 
         {/* Column 3 — Contact */}
         <div className="flex flex-col space-y-4">
-          <h3 className="font-serif text-[15px] font-normal tracking-[0.15em] text-[#C9A96E] italic lowercase mb-5">connect</h3>
+          <h3 className="font-serif text-[15px] font-normal tracking-[0.15em] text-[#C9A96E] italic mb-5 border-b border-[#C9A96E]/20 pb-1.5 w-fit">Connect</h3>
           <ul className="space-y-4 font-sans text-xs font-light tracking-[0.08em] text-[#F9F7F3]/70 uppercase">
             <li className="flex items-center space-x-3">
               <MapPin size={16} className="text-[#C9A96E] shrink-0" />
@@ -86,17 +86,17 @@ export default function Footer() {
             <li className="flex items-start space-x-3">
               <Phone size={16} className="text-[#C9A96E] shrink-0 mt-0.5" />
               <div className="flex flex-col">
-                <a href="tel:+919163961246" className="hover:text-[#C9A96E] transition-colors">
+                <a href="tel:+919163961246" className="hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors">
                   +91 9163961246
                 </a>
-                <a href="tel:+918240677269" className="hover:text-[#C9A96E] transition-colors">
+                <a href="tel:+918240677269" className="hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors">
                   +91 8240677269
                 </a>
               </div>
             </li>
             <li className="flex items-center space-x-3">
               <Mail size={16} className="text-[#C9A96E] shrink-0" />
-              <a href="mailto:thegallerycreation@gmail.com" className="hover:text-[#C9A96E] transition-colors lowercase">
+              <a href="mailto:thegallerycreation@gmail.com" className="hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors lowercase">
                 thegallerycreation@gmail.com
               </a>
             </li>
@@ -105,7 +105,7 @@ export default function Footer() {
 
         {/* Column 4 — Social */}
         <div className="flex flex-col space-y-4">
-          <h3 className="font-serif text-[15px] font-normal tracking-[0.15em] text-[#C9A96E] italic lowercase mb-5">follow</h3>
+          <h3 className="font-serif text-[15px] font-normal tracking-[0.15em] text-[#C9A96E] italic mb-5 border-b border-[#C9A96E]/20 pb-1.5 w-fit">Follow</h3>
           <div className="flex flex-col gap-3">
             <a
               href="https://instagram.com"

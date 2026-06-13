@@ -211,50 +211,8 @@ export const services = [
   }
 ];
 
-export const testimonials = [
-  {
-    id: 1,
-    name: "Aarav & Riya",
-    location: "Kolkata",
-    stars: 5,
-    text: "Raju, Kuushaal and their team did an absolute miracle for our wedding. The photos feel like paintings! Every single frame is so emotional and beautifully composed. We couldn't have asked for a better storyteller."
-  },
-  {
-    id: 2,
-    name: "Dev & Ishita",
-    location: "Mumbai",
-    stars: 5,
-    text: "The pre-wedding shoot was so relaxed and fun. Raju and Kuushaal made us feel completely at ease. The photos are stunning and perfectly capture our personalities. Absolute luxury service from start to finish!"
-  },
-  {
-    id: 3,
-    name: "Priya Sen",
-    location: "Kolkata",
-    stars: 5,
-    text: "I booked The Gallery Creation & Shoot Insights for a fine-art portrait session, and I am absolutely blown away by the results. Their use of light and shadow is masterclass. They are truly artists who understand their craft."
-  },
-  {
-    id: 4,
-    name: "Karan & Simran",
-    location: "Delhi",
-    stars: 5,
-    text: "Capturing a Punjabi-Bengali fusion wedding is no easy task, but Raju and Kuushaal did it flawlessly. They didn't miss a single ritual or tear. The luxury album we received is our most prized possession."
-  },
-  {
-    id: 5,
-    name: "Meera & Rohan",
-    location: "Bengaluru",
-    stars: 5,
-    text: "We hired The Gallery Creation & Shoot Insights for our 3-day destination wedding in Jaipur. Raju, Kuushaal and their crew were indefatigable, capturing moments from dawn till late night. Exceptional quality and professionalism!"
-  },
-  {
-    id: 6,
-    name: "Siddharth Roy",
-    location: "Kolkata",
-    stars: 5,
-    text: "The Gallery Creation & Shoot Insights handled our corporate gala. The quality of the shots and the fast turnaround time (we got preview shots the next morning) was perfect for our PR release. Highly recommended!"
-  }
-];
+import testimonialsData from './testimonials.json';
+export const testimonials = testimonialsData;
 
 export const timeline = [
   {
