@@ -18,7 +18,7 @@ const MENU_ITEMS = [
   { name: 'Contact',      href: '/contact' },
 ];
 const TOTAL    = MENU_ITEMS.length;
-const ITEM_GAP = 82; // px per drum slot
+const ITEM_GAP = 61.5; // px per drum slot (reduced by 25% from 82)
 
 function drumReducer(state, action) {
   switch (action.type) {
@@ -31,17 +31,17 @@ function drumReducer(state, action) {
 
 function getDrumStyle(absOffset) {
   if (absOffset === 0) return {
-    fontSize: 48, letterSpacing: '0.06em',
+    fontSize: 30, letterSpacing: '0.06em',
     color: '#C9A96E', opacity: 1, scale: 1.0,
     fontFamily: 'var(--font-playwrite)', fontStyle: 'italic', fontWeight: 400,
   };
   if (absOffset === 1) return {
-    fontSize: 24, letterSpacing: '0.06em',
+    fontSize: 18, letterSpacing: '0.06em',
     color: '#F9F7F3', opacity: 0.5, scale: 0.75,
     fontFamily: 'var(--font-jakarta)', fontStyle: 'normal', fontWeight: 400,
   };
   return {
-    fontSize: 20, letterSpacing: '0.05em',
+    fontSize: 16, letterSpacing: '0.05em',
     color: '#F9F7F3', opacity: 0.2, scale: 0.6,
     fontFamily: 'var(--font-jakarta)', fontStyle: 'normal', fontWeight: 400,
   };
@@ -84,14 +84,39 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // ── Body scroll lock ────────────────────────────────────────────────────────
+  useEffect(() => {
+    if (isOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.top = `-${scrollY}px`;
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
+    };
+  }, [isOpen]);
+
+
   // ── Keyboard navigation ─────────────────────────────────────────────────────
   useEffect(() => {
     if (!isOpen) return;
     const onKey = (e) => {
       if (e.key === 'ArrowDown')  { e.preventDefault(); dispatchDrum({ type: 'NEXT' }); }
       if (e.key === 'ArrowUp')    { e.preventDefault(); dispatchDrum({ type: 'PREV' }); }
-      if (e.key === 'Escape')     { setIsOpen(false); }
-      if (e.key === 'Enter')      { router.push(MENU_ITEMS[drum.index].href); setIsOpen(false); }
+      if (e.key === 'Escape')     { closeMenu(); }
+      if (e.key === 'Enter')      { router.push(MENU_ITEMS[drum.index].href); closeMenu(); }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -126,11 +151,25 @@ export default function Navbar() {
   }, []);
 
   // ── Helpers ─────────────────────────────────────────────────────────────────
-  const openMenu  = () => { dispatchDrum({ type: 'SET', index: 0 }); setIsOpen(true); };
-  const closeMenu = () => setIsOpen(false);
+  const openMenu  = () => {
+    dispatchDrum({ type: 'SET', index: 0 });
+    setIsOpen(true);
+    window.dispatchEvent(new CustomEvent('menuOpen'));
+  };
+  const closeMenu = () => {
+    setIsOpen(false);
+    window.dispatchEvent(new CustomEvent('menuClose'));
+  };
 
   // Hamburger line color: cream when scrolled OR menu is open (dark overlay beneath)
   const hamburgerColor = (scrolled || isOpen) ? '#F9F7F3' : '#2A2724';
+
+  const logoColor = isOpen 
+    ? '#C9A96E' 
+    : scrolled 
+      ? '#C9A96E' 
+      : '#2A2724';
+
 
   // ── Desktop nav animation variants (unchanged) ──────────────────────────────
   const navContainerVariants = {
@@ -150,7 +189,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 w-full h-20 flex items-center ${scrolled ? 'backdrop-blur-md' : ''}`}
         style={{
-          zIndex: isOpen ? 60 : 40,
+          zIndex: isOpen ? 99999 : 40,
           transition: 'background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
           // Transparent when overlay is open (avoid ugly bar on top of dark bg)
           background: isOpen
@@ -160,21 +199,19 @@ export default function Navbar() {
         }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between w-full h-full">
-
-          {/* ── Logo ─────────────────────────────────────────────────── */}
+ 
+           {/* ── Logo ─────────────────────────────────────────────────── */}
           <Link
             href="/"
             onClick={closeMenu}
             className="flex flex-col justify-center items-start gap-[3px]"
             style={{
               overflow: 'visible',
-              opacity: isOpen ? 0 : 1,
-              pointerEvents: isOpen ? 'none' : 'auto',
-              transition: 'opacity 0.25s ease',
+              position: 'relative',
+              zIndex: 99999,
             }}
           >
             <div className="relative" style={{ overflow: 'visible', display: 'block' }}>
-              {/* Unscrolled logo */}
               <span
                 style={{
                   fontFamily: 'var(--font-playwrite)',
@@ -185,41 +222,8 @@ export default function Navbar() {
                   lineHeight: 1.5,
                   paddingBottom: '8px',
                   display: 'block',
-                  background: 'linear-gradient(135deg, #5C3A10 0%, #9B6210 35%, #C47B0A 50%, #9B6210 65%, #5C3A10 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  opacity: scrolled ? 0 : 1,
-                  transition: 'opacity 0.3s ease',
-                  willChange: 'opacity',
-                  overflow: 'visible',
-                }}
-              >
-                The Gallery Creation
-              </span>
-              {/* Scrolled logo */}
-              <span
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  fontFamily: 'var(--font-playwrite)',
-                  fontStyle: 'italic',
-                  fontWeight: 400,
-                  fontSize: 'clamp(1.1rem, 3vw, 1.6rem)',
-                  letterSpacing: '0.04em',
-                  lineHeight: 1.5,
-                  paddingBottom: '8px',
-                  display: 'block',
-                  background: 'linear-gradient(135deg, #C9A96E 0%, #F5E090 30%, #EDD470 50%, #F5E090 70%, #C9A96E 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  opacity: scrolled ? 1 : 0,
-                  transition: 'opacity 0.3s ease',
-                  willChange: 'opacity',
-                  pointerEvents: 'none',
+                  color: logoColor,
+                  transition: 'color 0.3s ease',
                   overflow: 'visible',
                 }}
               >
@@ -230,10 +234,11 @@ export default function Navbar() {
               className="text-[10.5px] uppercase font-semibold tracking-[0.3em]"
               style={{
                 fontFamily: 'var(--font-jakarta)',
-                color: scrolled ? '#C4964A' : '#7A5520',
+                color: (isOpen || scrolled) ? '#C4964A' : '#7A5520',
                 transition: 'color 0.3s ease',
                 marginTop: '-2px',
                 paddingLeft: '2px',
+
                 display: 'block',
                 lineHeight: 1,
               }}
@@ -302,7 +307,7 @@ export default function Navbar() {
             id="mobile-menu-toggle"
             onClick={() => isOpen ? closeMenu() : openMenu()}
             className="md:hidden focus:outline-none flex flex-col justify-center items-center w-8 h-8"
-            style={{ gap: '6px' }}
+            style={{ gap: '6px', zIndex: 99999 }}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
           >
@@ -345,7 +350,7 @@ export default function Navbar() {
             exit="closed"
             className="fixed inset-0 flex flex-col md:hidden"
             style={{
-              zIndex: 55, // sits between normal page content and header z-60, above WhatsAppButton z-50
+              zIndex: 9998, // sits between normal page content and header z-60, above WhatsAppButton z-50
               background: 'linear-gradient(rgba(10, 10, 10, 0.96), rgba(10, 10, 10, 0.96)), url(/hero-bg.jpg)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
@@ -476,6 +481,11 @@ export default function Navbar() {
                           userSelect: 'none',
                           pointerEvents: 'none',
                           display: 'block',
+                          whiteSpace: 'nowrap',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                          maxWidth: 'calc(100vw - 48px)',
+                          textAlign: 'center',
                         }}
                       >
                         {item.name}

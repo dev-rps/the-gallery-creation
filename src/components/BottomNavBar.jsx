@@ -1,9 +1,23 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Play } from 'lucide-react';
 
 export default function BottomNavBar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpen = () => setMenuOpen(true);
+    const handleClose = () => setMenuOpen(false);
+    window.addEventListener('menuOpen', handleOpen);
+    window.addEventListener('menuClose', handleClose);
+    return () => {
+      window.removeEventListener('menuOpen', handleOpen);
+      window.removeEventListener('menuClose', handleClose);
+    };
+  }, []);
+
   let whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919163961246';
   if (!whatsappNumber || whatsappNumber === '910000000000' || whatsappNumber.includes('000000') || whatsappNumber.includes('XXXX')) {
     whatsappNumber = '919163961246';
@@ -18,12 +32,23 @@ export default function BottomNavBar() {
   };
 
   return (
-    <motion.div
-      initial={{ y: 100, x: '-50%', opacity: 0 }}
-      animate={{ y: 0, x: '-50%', opacity: 1 }}
-      transition={{ type: 'spring', delay: 0.5, duration: 0.4, stiffness: 100, damping: 15 }}
-      className="fixed bottom-[20px] left-1/2 w-[calc(100%-40px)] max-w-[360px] h-[64px] flex items-center justify-around px-2 z-[9999] md:hidden select-none"
+    <div
+      className="fixed bottom-[20px] left-1/2 w-[calc(100%-40px)] max-w-[360px] z-[9999] md:hidden"
+      style={{
+        opacity: menuOpen ? 0 : 1,
+        transform: menuOpen 
+          ? 'translateY(120px) translateX(-50%)' 
+          : 'translateY(0) translateX(-50%)',
+        pointerEvents: menuOpen ? 'none' : 'auto',
+        transition: 'all 0.35s cubic-bezier(0.4,0,0.2,1)'
+      }}
     >
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ type: 'spring', delay: 0.5, duration: 0.4, stiffness: 100, damping: 15 }}
+        className="w-full h-[64px] flex items-center justify-around px-2 select-none relative"
+      >
       {/* SVG Background with notch */}
       <div className="absolute inset-0 -top-[12px] w-full h-[76px] -z-10 overflow-visible" style={{
         filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.35)) drop-shadow(0 2px 8px rgba(0,0,0,0.25))',
@@ -90,6 +115,7 @@ export default function BottomNavBar() {
           <span className="text-[9px] tracking-wider text-[#F9F7F3]/60 mt-0.5">Chat</span>
         </motion.div>
       </a>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 }
