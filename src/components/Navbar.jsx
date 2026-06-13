@@ -3,7 +3,7 @@
 import { useState, useEffect, useReducer, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useAnimation, useMotionValue } from 'framer-motion';
 import { navLinks } from '@/lib/data';
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -73,6 +73,11 @@ export default function Navbar() {
 
   const [drum, dispatchDrum] = useReducer(drumReducer, { index: 0 });
 
+  const [highlightedIndex, setHighlightedIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const controls = useAnimation();
+  const dragY = useMotionValue(0);
+
   const touchStartY = useRef(null);
   const wheelLock   = useRef(false);
   const overlayRef  = useRef(null);
@@ -108,6 +113,21 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
+  // Sync drag carousel position with active drum index
+  useEffect(() => {
+    controls.start({
+      y: -drum.index * ITEM_GAP,
+      transition: { 
+        type: 'spring',
+        stiffness: 300,
+        damping: 30,
+        mass: 0.8
+      }
+    });
+    setHighlightedIndex(drum.index);
+  }, [drum.index, controls]);
+
+
 
   // ── Keyboard navigation ─────────────────────────────────────────────────────
   useEffect(() => {
@@ -138,17 +158,7 @@ export default function Navbar() {
     return () => el.removeEventListener('wheel', handleWheel);
   }, [isOpen, handleWheel]);
 
-  // ── Touch ───────────────────────────────────────────────────────────────────
-  const onTouchStart = useCallback((e) => {
-    touchStartY.current = e.touches[0].clientY;
-  }, []);
 
-  const onTouchEnd = useCallback((e) => {
-    if (touchStartY.current === null) return;
-    const delta = touchStartY.current - e.changedTouches[0].clientY;
-    if (Math.abs(delta) > 30) dispatchDrum({ type: delta > 0 ? 'NEXT' : 'PREV' });
-    touchStartY.current = null;
-  }, []);
 
   // ── Helpers ─────────────────────────────────────────────────────────────────
   const openMenu  = () => {
@@ -164,11 +174,8 @@ export default function Navbar() {
   // Hamburger line color: cream when scrolled OR menu is open (dark overlay beneath)
   const hamburgerColor = (scrolled || isOpen) ? '#F9F7F3' : '#2A2724';
 
-  const logoColor = isOpen 
-    ? '#C9A96E' 
-    : scrolled 
-      ? '#C9A96E' 
-      : '#2A2724';
+  const isGoldMode = scrolled || isOpen;
+  const logoColor = isGoldMode ? '#C9A96E' : '#2A2724';
 
 
   // ── Desktop nav animation variants (unchanged) ──────────────────────────────
@@ -212,6 +219,7 @@ export default function Navbar() {
             }}
           >
             <div className="relative" style={{ overflow: 'visible', display: 'block' }}>
+              {/* Unscrolled / default: dark rose-gold gradient */}
               <span
                 style={{
                   fontFamily: 'var(--font-playwrite)',
@@ -222,8 +230,41 @@ export default function Navbar() {
                   lineHeight: 1.5,
                   paddingBottom: '8px',
                   display: 'block',
-                  color: logoColor,
-                  transition: 'color 0.3s ease',
+                  background: 'linear-gradient(135deg, #5C3A10 0%, #9B6210 35%, #C47B0A 50%, #9B6210 65%, #5C3A10 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  opacity: isGoldMode ? 0 : 1,
+                  transition: 'opacity 0.3s ease',
+                  willChange: 'opacity',
+                  overflow: 'visible',
+                }}
+              >
+                The Gallery Creation
+              </span>
+              {/* Scrolled / menu open: bright gold gradient */}
+              <span
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  fontFamily: 'var(--font-playwrite)',
+                  fontStyle: 'italic',
+                  fontWeight: 400,
+                  fontSize: 'clamp(1.1rem, 3vw, 1.6rem)',
+                  letterSpacing: '0.04em',
+                  lineHeight: 1.5,
+                  paddingBottom: '8px',
+                  display: 'block',
+                  background: 'linear-gradient(135deg, #C9A96E 0%, #F5E090 30%, #EDD470 50%, #F5E090 70%, #C9A96E 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  opacity: isGoldMode ? 1 : 0,
+                  transition: 'opacity 0.3s ease',
+                  willChange: 'opacity',
+                  pointerEvents: 'none',
                   overflow: 'visible',
                 }}
               >
@@ -234,11 +275,9 @@ export default function Navbar() {
               className="text-[10.5px] uppercase font-semibold tracking-[0.3em]"
               style={{
                 fontFamily: 'var(--font-jakarta)',
-                color: (isOpen || scrolled) ? '#C4964A' : '#7A5520',
-                transition: 'color 0.3s ease',
+                color: '#C9A96E',
                 marginTop: '-2px',
                 paddingLeft: '2px',
-
                 display: 'block',
                 lineHeight: 1,
               }}
@@ -348,7 +387,7 @@ export default function Navbar() {
             initial="closed"
             animate="open"
             exit="closed"
-            className="fixed inset-0 flex flex-col md:hidden"
+            className="fixed inset-0 flex flex-col md:hidden pt-20"
             style={{
               zIndex: 9998, // sits between normal page content and header z-60, above WhatsAppButton z-50
               background: 'linear-gradient(rgba(10, 10, 10, 0.96), rgba(10, 10, 10, 0.96)), url(/hero-bg.jpg)',
@@ -357,51 +396,7 @@ export default function Navbar() {
               backgroundAttachment: 'fixed',
               willChange: 'clip-path',
             }}
-            onTouchStart={onTouchStart}
-            onTouchEnd={onTouchEnd}
           >
-
-            {/* ── Top: Studio name label ──────────────────────────────── */}
-            <motion.div
-              className="flex flex-col justify-center items-start px-6 pt-7"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.35 }}
-              style={{ overflow: 'visible' }}
-            >
-              <span
-                style={{
-                  fontFamily: 'var(--font-playwrite)',
-                  fontStyle: 'italic',
-                  fontWeight: 400,
-                  fontSize: '16px',
-                  letterSpacing: '0.04em',
-                  lineHeight: 1.5,
-                  paddingBottom: '6px',
-                  display: 'block',
-                  background: 'linear-gradient(135deg, #C9A96E 0%, #F5E090 30%, #EDD470 50%, #F5E090 70%, #C9A96E 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  overflow: 'visible',
-                }}
-              >
-                The Gallery Creation
-              </span>
-              <span
-                className="text-[10.5px] uppercase font-semibold tracking-[0.3em]"
-                style={{
-                  fontFamily: 'var(--font-jakarta)',
-                  color: '#C4964A',
-                  marginTop: '-2px',
-                  paddingLeft: '2px',
-                  display: 'block',
-                  lineHeight: 1,
-                }}
-              >
-                &amp; Shoot Insights
-              </span>
-            </motion.div>
 
             {/* ── Top gold separator ──────────────────────────────────── */}
             <div
@@ -421,78 +416,112 @@ export default function Navbar() {
                 Item center = 2*ITEM_GAP + ITEM_GAP/2 = 2.5 * ITEM_GAP = 50% of container. ✓
               */}
               <div
-                className="relative w-full"
+                className="relative w-full overflow-hidden"
                 style={{ height: `${ITEM_GAP * 5}px` }}
                 aria-label="Navigation menu"
                 role="listbox"
               >
-                {MENU_ITEMS.map((item, i) => {
-                  // Circular offset normalised to [-TOTAL/2, TOTAL/2]
-                  let offset = i - drum.index;
-                  if (offset >  TOTAL / 2) offset -= TOTAL;
-                  if (offset < -TOTAL / 2) offset += TOTAL;
+                <motion.div
+                  drag="y"
+                  dragConstraints={{
+                    top: -(TOTAL - 1) * ITEM_GAP,
+                    bottom: 0
+                  }}
+                  dragElastic={0.15}
+                  dragMomentum={true}
+                  style={{
+                    position: 'absolute',
+                    top: `${2 * ITEM_GAP}px`, // aligns top of list to center slot
+                    y: dragY,
+                    touchAction: 'none',
+                    cursor: isDragging ? 'grabbing' : 'grab',
+                    width: '100%',
+                  }}
+                  onDragStart={() => setIsDragging(true)}
+                  onDrag={(e, info) => {
+                    const currentY = dragY.get();
+                    const rawIndex = -currentY / ITEM_GAP;
+                    const clampedIndex = Math.max(0, Math.min(TOTAL - 1, Math.round(rawIndex)));
+                    setHighlightedIndex(clampedIndex);
+                  }}
+                  onDragEnd={(e, info) => {
+                    setIsDragging(false);
+                    const velocity = info.velocity.y;
+                    const currentY = dragY.get();
+                    const projected = currentY + velocity * 0.15;
+                    const targetIndex = Math.max(0, Math.min(
+                      TOTAL - 1,
+                      Math.round(-projected / ITEM_GAP)
+                    ));
+                    setHighlightedIndex(targetIndex);
+                    dispatchDrum({ type: 'SET', index: targetIndex });
+                  }}
+                  animate={controls}
+                >
+                  {MENU_ITEMS.map((item, i) => {
+                    const absOffset = Math.abs(i - highlightedIndex);
+                    const s = getDrumStyle(absOffset);
+                    const visible = absOffset <= 2;
 
-                  const absOffset = Math.abs(offset);
-                  const s = getDrumStyle(absOffset);
-                  const visible = absOffset <= 2;
-
-                  return (
-                    <motion.button
-                      key={item.href}
-                      role="option"
-                      aria-selected={offset === 0}
-                      // Base position: center slot of drum container
-                      className="absolute inset-x-0 flex items-center justify-center"
-                      style={{
-                        top: `${2 * ITEM_GAP}px`,
-                        height: `${ITEM_GAP}px`,
-                        willChange: 'transform, opacity',
-                        cursor: 'pointer',
-                        background: 'none',
-                        border: 'none',
-                        outline: 'none',
-                        pointerEvents: visible ? 'auto' : 'none',
-                      }}
-                      animate={{
-                        y: offset * ITEM_GAP,
-                        scale: s.scale,
-                        opacity: visible ? s.opacity : 0,
-                      }}
-                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                      onClick={() => {
-                        if (offset === 0) {
-                          router.push(item.href);
-                          closeMenu();
-                        } else {
-                          // Bring clicked item to center
-                          dispatchDrum({ type: 'SET', index: i });
-                        }
-                      }}
-                    >
-                      <span
+                    return (
+                      <div
+                        key={item.href}
+                        role="option"
+                        aria-selected={i === drum.index}
+                        className="w-full flex items-center justify-center"
                         style={{
-                          fontFamily: s.fontFamily,
-                          fontSize: `${s.fontSize}px`,
-                          color: s.color,
-                          letterSpacing: s.letterSpacing,
-                          fontStyle: s.fontStyle,
-                          fontWeight: s.fontWeight,
-                          textTransform: 'uppercase',
-                          userSelect: 'none',
-                          pointerEvents: 'none',
-                          display: 'block',
-                          whiteSpace: 'nowrap',
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                          maxWidth: 'calc(100vw - 48px)',
-                          textAlign: 'center',
+                          height: `${ITEM_GAP}px`,
+                          pointerEvents: 'auto',
                         }}
                       >
-                        {item.name}
-                      </span>
-                    </motion.button>
-                  );
-                })}
+                        <button
+                          style={{
+                            background: 'none',
+                            border: 'none',
+                            outline: 'none',
+                            cursor: 'pointer',
+                            display: 'block',
+                            width: '100%',
+                            textAlign: 'center',
+                            opacity: visible ? s.opacity : 0,
+                            scale: s.scale,
+                            transition: 'opacity 0.2s ease, transform 0.2s ease',
+                          }}
+                          onClick={() => {
+                            if (i === drum.index) {
+                              router.push(item.href);
+                              closeMenu();
+                            } else {
+                              dispatchDrum({ type: 'SET', index: i });
+                            }
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily: s.fontFamily,
+                              fontSize: `${s.fontSize}px`,
+                              color: s.color,
+                              letterSpacing: s.letterSpacing,
+                              fontStyle: s.fontStyle,
+                              fontWeight: s.fontWeight,
+                              textTransform: 'uppercase',
+                              userSelect: 'none',
+                              pointerEvents: 'none',
+                              display: 'block',
+                              whiteSpace: 'nowrap',
+                              overflow: 'hidden',
+                              textOverflow: 'ellipsis',
+                              maxWidth: 'calc(100vw - 48px)',
+                              textAlign: 'center',
+                            }}
+                          >
+                            {item.name}
+                          </span>
+                        </button>
+                      </div>
+                    );
+                  })}
+                </motion.div>
 
                 {/* Subtle center-highlight bracket lines */}
                 <div
