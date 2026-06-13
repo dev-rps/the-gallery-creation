@@ -47,5 +47,12 @@
     "location": "Howrah",
     "stars": 5,
     "text": "Raju & Kuushaal captured our special moments beautifully!"
+  },
+  {
+    "id": 8,
+    "name": "rahul",
+    "location": "kolkata",
+    "stars": 4,
+    "text": "amazing photography"
   }
 ]
