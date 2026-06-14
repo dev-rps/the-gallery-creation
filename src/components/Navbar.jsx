@@ -23,14 +23,12 @@ const ITEM_GAP = 61.5;               // px per slot
 // Infinite loop: 7× repetition. LOOP_OFFSET = centre of the pool.
 // After every drag, we snap back to the middle group so boundaries
 // are never reached in normal usage.
-const REPEAT      = 7;
-const ALL_ITEMS   = Array.from({ length: REPEAT }, () => MENU_ITEMS).flat(); // 42 items
-const LOOP_OFFSET = TOTAL * Math.floor(REPEAT / 2); // 18 — index of real-item-0 in pool
+const ALL_ITEMS   = MENU_ITEMS;
+const LOOP_OFFSET = 0;
 
-// Circular distance between two real indices (for opacity/scale falloff)
-function circularDist(a, b) {
-  const d = Math.abs(a - b);
-  return Math.min(d, TOTAL - d);
+// Linear distance between two real indices (for opacity/scale falloff)
+function linearDist(a, b) {
+  return Math.abs(a - b);
 }
 
 function getDrumStyle(absOffset) {
@@ -53,10 +51,14 @@ function getDrumStyle(absOffset) {
 
 function drumReducer(state, action) {
   switch (action.type) {
-    case 'NEXT': return { index: (state.index + 1) % TOTAL };
-    case 'PREV': return { index: (state.index - 1 + TOTAL) % TOTAL };
-    case 'SET':  return { index: ((action.index % TOTAL) + TOTAL) % TOTAL };
-    default:     return state;
+    case 'NEXT': 
+      return { index: Math.min(state.index + 1, TOTAL - 1) };
+    case 'PREV': 
+      return { index: Math.max(state.index - 1, 0) };
+    case 'SET':  
+      return { index: Math.max(0, Math.min(action.index, TOTAL - 1)) };
+    default:     
+      return state;
   }
 }
 
@@ -85,7 +87,7 @@ export default function Navbar() {
 
   // THE KEY PATTERN: one MotionValue drives y; standalone animate() does spring snaps.
   // drag="y" modifies this same MotionValue — no useAnimation conflict.
-  const y = useMotionValue(-LOOP_OFFSET * ITEM_GAP); // start centred on real-item-0
+  const y = useMotionValue(0); // start at Home (y=0)
   const springRef    = useRef(null);  // cancel in-flight springs
   const fromDragRef  = useRef(false); // prevent double-snap on dragEnd → drum.index
 
@@ -127,7 +129,7 @@ export default function Navbar() {
   useEffect(() => {
     if (isOpen) {
       if (springRef.current) { springRef.current.stop(); springRef.current = null; }
-      y.set(-LOOP_OFFSET * ITEM_GAP);
+      y.set(0);
       dispatchDrum({ type: 'SET', index: 0 });
       setHighlightedIndex(0);
     }
@@ -148,8 +150,7 @@ export default function Navbar() {
   // ── drum.index → snap (wheel / keyboard / click only; drag bypasses this) ─
   useEffect(() => {
     if (fromDragRef.current) return; // drag already called snapTo
-    const targetCi = LOOP_OFFSET + drum.index;
-    snapTo(-targetCi * ITEM_GAP);
+    snapTo(-drum.index * ITEM_GAP);
     setHighlightedIndex(drum.index);
   }, [drum.index, snapTo]);
 
@@ -335,9 +336,7 @@ export default function Navbar() {
                 <motion.div
                   drag="y"
                   dragConstraints={{
-                    // Allow dragging through all 42 items.
-                    // In practice snap always resets to centre so limits are unreachable.
-                    top:    -(ALL_ITEMS.length - 1) * ITEM_GAP,
+                    top:    -(TOTAL - 1) * ITEM_GAP,
                     bottom: 0,
                   }}
                   dragElastic={0.10}
@@ -358,40 +357,40 @@ export default function Navbar() {
                   onDrag={() => {
                     // Update highlighted item live while dragging
                     const currentY = y.get();
-                    const rawCi    = -currentY / ITEM_GAP; // fractional clone-array index
-                    const ci       = Math.round(rawCi);
-                    const realIdx  = ((ci % TOTAL) + TOTAL) % TOTAL;
-                    setHighlightedIndex(realIdx);
+                    const rawIdx   = -currentY / ITEM_GAP;
+                    const clampedIdx = Math.max(0, 
+                      Math.min(TOTAL - 1, Math.round(rawIdx)));
+                    setHighlightedIndex(clampedIdx);
                   }}
                   onDragEnd={(_, info) => {
                     setIsDragging(false);
                     const currentY  = y.get();
                     const projected = currentY + info.velocity.y * 0.10; // velocity throw
-                    const rawCi     = -projected / ITEM_GAP;
-                    const ci        = Math.round(rawCi);
-                    const realIdx   = ((ci % TOTAL) + TOTAL) % TOTAL;
-                    const targetCi  = LOOP_OFFSET + realIdx; // snap to middle-group equivalent
-                    const targetY   = -targetCi * ITEM_GAP;
+                    const rawIdx    = -projected / ITEM_GAP;
+                    // Clamp — no wrapping, hard stop at 0 and TOTAL-1
+                    const clampedIdx = Math.max(0, 
+                      Math.min(TOTAL - 1, Math.round(rawIdx)));
+                    const targetY   = -clampedIdx * ITEM_GAP;
 
-                    setHighlightedIndex(realIdx);
+                    setHighlightedIndex(clampedIdx);
 
                     // Flag so drum.index effect knows drag already handled the snap
                     fromDragRef.current = true;
-                    dispatchDrum({ type: 'SET', index: realIdx });
+                    dispatchDrum({ type: 'SET', index: clampedIdx });
                     snapTo(targetY);
                     // Clear flag after effects have fired
                     setTimeout(() => { fromDragRef.current = false; }, 0);
                   }}
                 >
                   {ALL_ITEMS.map((item, i) => {
-                    const realI     = i % TOTAL;
-                    const absOffset = circularDist(realI, highlightedIndex);
+                    const realI     = i;
+                    const absOffset = linearDist(realI, highlightedIndex);
                     const s         = getDrumStyle(absOffset);
                     // visible = within 2 real-item-positions of the highlighted target.
-                    // IMPORTANT: use circularDist(highlightedIndex) — NOT y.get() —
+                    // IMPORTANT: use linearDist(highlightedIndex) — NOT y.get() —
                     // so items stay visible throughout the spring animation, not just
                     // when the physical y position has already caught up.
-                    const visible = circularDist(realI, highlightedIndex) <= 2;
+                    const visible = linearDist(realI, highlightedIndex) <= 2;
 
                     return (
                       <div
