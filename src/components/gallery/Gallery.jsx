@@ -7,13 +7,19 @@ import { portfolioImages } from '@/lib/data';
 
 const filters = ['Pre-Wedding', 'Portraits', 'Story Telling', 'Film', 'Reels'];
 
+// Maps display labels to their actual data category values
+const filterCategoryMap = {
+  'Story Telling': 'wedding',
+};
+
 export default function Gallery({ limit = null }) {
   const [activeFilter, setActiveFilter] = useState('Pre-Wedding');
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
-  // Filter logic
+  // Filter logic — resolve label to actual category key
   const filteredImages = portfolioImages.filter((img) => {
-    return img.category.toLowerCase() === activeFilter.toLowerCase();
+    const categoryKey = filterCategoryMap[activeFilter] || activeFilter;
+    return img.category.toLowerCase() === categoryKey.toLowerCase();
   });
 
   // Optional limit for homepage preview (e.g. 6 items)
