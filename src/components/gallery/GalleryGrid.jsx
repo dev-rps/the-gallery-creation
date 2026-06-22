@@ -71,13 +71,7 @@ function GalleryItem({ image, index, onClick }) {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleClick = (e) => {
-    if (image.isVideo || image.isReel) {
-      e.stopPropagation();
-      const redirectUrl = image.youtubeUrl || "https://youtube.com/@thegallerycreation";
-      window.open(redirectUrl, '_blank', 'noopener,noreferrer');
-    } else {
-      onClick();
-    }
+    onClick();
   };
 
   return (

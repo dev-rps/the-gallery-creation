@@ -26,7 +26,6 @@ export default function Lightbox({
     };
 
     window.addEventListener('keydown', handleKeyDown);
-    // Disable background scroll when open
     document.body.style.overflow = 'hidden';
 
     return () => {
@@ -35,40 +34,31 @@ export default function Lightbox({
     };
   }, [onClose, onPrev, onNext]);
 
-  // Touch handlers for mobile swipe
-  const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
+  const handleTouchStart = (e) => setTouchStart(e.targetTouches[0].clientX);
+  const handleTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
   const handleTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-
-    if (isLeftSwipe) {
-      onNext();
-    } else if (isRightSwipe) {
-      onPrev();
-    }
-
+    if (distance > 50) onNext();
+    else if (distance < -50) onPrev();
     setTouchStart(0);
     setTouchEnd(0);
   };
 
   if (!currentImage) return null;
 
+  const isYouTube = !!(currentImage.isVideo || currentImage.isReel) && !!currentImage.youtubeId;
+  const embedUrl = isYouTube
+    ? `https://www.youtube.com/embed/${currentImage.youtubeId}?autoplay=1&rel=0`
+    : null;
+
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm">
-        {/* Backdrop Close Click */}
+        {/* Backdrop close */}
         <div className="absolute inset-0 cursor-zoom-out" onClick={onClose} />
 
-        {/* Top Controls: Counter & Close */}
+        {/* Top bar: counter + close */}
         <div className="absolute top-6 left-6 right-6 flex items-center justify-between text-cream z-20">
           <span className="font-mono text-xs uppercase tracking-widest bg-charcoal/60 backdrop-blur-md py-1.5 px-3 rounded-sm border border-cream/5">
             {currentIndex + 1} / {images.length}
@@ -82,16 +72,16 @@ export default function Lightbox({
           </button>
         </div>
 
-        {/* Navigation Left */}
+        {/* Nav Left */}
         <button
           onClick={onPrev}
           className="absolute left-6 w-12 h-12 rounded-full bg-charcoal/60 backdrop-blur-md flex items-center justify-center text-cream hover:bg-gold hover:text-charcoal hover:scale-105 transition-all duration-300 border border-cream/5 z-20 hidden md:flex"
-          aria-label="Previous image"
+          aria-label="Previous"
         >
           <ChevronLeft size={24} />
         </button>
 
-        {/* Main Image Container */}
+        {/* Main content */}
         <motion.div
           key={currentImage.id}
           initial={{ opacity: 0, scale: 0.95 }}
@@ -103,28 +93,41 @@ export default function Lightbox({
           onTouchEnd={handleTouchEnd}
           className="relative max-w-[90vw] max-h-[80vh] w-full h-full flex items-center justify-center z-10"
         >
-          <div className="relative w-full h-full max-w-[1200px] max-h-[75vh] select-none">
-            <Image
-              src={currentImage.src}
-              alt={currentImage.alt}
-              fill
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              priority
-              className="object-contain"
-            />
-          </div>
+          {isYouTube ? (
+            <div className="w-full max-w-[900px] aspect-video rounded-lg overflow-hidden shadow-2xl border border-gold/20">
+              <iframe
+                src={embedUrl}
+                title={currentImage.alt}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+                style={{ border: 'none' }}
+              />
+            </div>
+          ) : (
+            <div className="relative w-full h-full max-w-[1200px] max-h-[75vh] select-none">
+              <Image
+                src={currentImage.src}
+                alt={currentImage.alt}
+                fill
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                priority
+                className="object-contain"
+              />
+            </div>
+          )}
         </motion.div>
 
-        {/* Navigation Right */}
+        {/* Nav Right */}
         <button
           onClick={onNext}
           className="absolute right-6 w-12 h-12 rounded-full bg-charcoal/60 backdrop-blur-md flex items-center justify-center text-cream hover:bg-gold hover:text-charcoal hover:scale-105 transition-all duration-300 border border-cream/5 z-20 hidden md:flex"
-          aria-label="Next image"
+          aria-label="Next"
         >
           <ChevronRight size={24} />
         </button>
 
-        {/* Slide indicators for touch users */}
+        {/* Mobile dot indicators */}
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 md:hidden flex gap-1 z-25">
           {images.map((_, idx) => (
             <button
