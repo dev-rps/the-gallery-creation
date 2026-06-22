@@ -26,7 +26,7 @@ export const portfolioImages = [
     id: 1,
     src: "/portfolio/wedding-1.jpg",
     alt: "Luxury wedding couple standing together in scenic outdoor garden setting",
-    category: "wedding",
+    category: "story telling",
     width: 800,
     height: 1200
   },
@@ -34,7 +34,7 @@ export const portfolioImages = [
     id: 2,
     src: "/portfolio/wedding-2.jpg",
     alt: "Indian wedding couple holding hands walking down aisle covered in flower petals",
-    category: "wedding",
+    category: "story telling",
     width: 800,
     height: 533
   },
@@ -42,7 +42,7 @@ export const portfolioImages = [
     id: 3,
     src: "/portfolio/wedding-3.jpg",
     alt: "Close up shot of Indian bride and groom during wedding rituals",
-    category: "wedding",
+    category: "story telling",
     width: 800,
     height: 1000
   },
@@ -50,7 +50,7 @@ export const portfolioImages = [
     id: 4,
     src: "/portfolio/wedding-4.jpg",
     alt: "Wedding couple embracing under soft warm light outdoors",
-    category: "wedding",
+    category: "story telling",
     width: 800,
     height: 600
   },

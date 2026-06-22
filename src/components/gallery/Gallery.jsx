@@ -5,7 +5,7 @@ import GalleryGrid from './GalleryGrid';
 import Lightbox from './Lightbox';
 import { portfolioImages } from '@/lib/data';
 
-const filters = ['Pre-Wedding', 'Portraits', 'Wedding', 'Film', 'Reels'];
+const filters = ['Pre-Wedding', 'Portraits', 'Story Telling', 'Film', 'Reels'];
 
 export default function Gallery({ limit = null }) {
   const [activeFilter, setActiveFilter] = useState('Pre-Wedding');
