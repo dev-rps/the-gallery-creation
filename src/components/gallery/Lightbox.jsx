@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Lightbox({
@@ -11,26 +11,33 @@ export default function Lightbox({
   onClose,
   onPrev,
   onNext,
-  setLightboxIndex
+  setLightboxIndex,
 }) {
-  const currentImage = images[currentIndex];
+  const [mounted, setMounted] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
-  // Keyboard navigation
+  // Mount guard (portal needs browser DOM)
+  useEffect(() => {
+    setMounted(true);
+    // Slight delay so CSS transition fires on first render
+    requestAnimationFrame(() => setVisible(true));
+    return () => setVisible(false);
+  }, []);
+
+  // Lock body scroll & keyboard nav
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
       if (e.key === 'ArrowLeft') onPrev();
       if (e.key === 'ArrowRight') onNext();
     };
-
-    window.addEventListener('keydown', handleKeyDown);
     document.body.style.overflow = 'hidden';
-
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [onClose, onPrev, onNext]);
 
@@ -38,109 +45,235 @@ export default function Lightbox({
   const handleTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
   const handleTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    if (distance > 50) onNext();
-    else if (distance < -50) onPrev();
+    const d = touchStart - touchEnd;
+    if (d > 50) onNext();
+    else if (d < -50) onPrev();
     setTouchStart(0);
     setTouchEnd(0);
   };
 
-  if (!currentImage) return null;
+  const currentImage = images[currentIndex];
+  if (!currentImage || !mounted) return null;
 
   const isYouTube = !!(currentImage.isVideo || currentImage.isReel) && !!currentImage.youtubeId;
-  const embedUrl = isYouTube
-    ? `https://www.youtube.com/embed/${currentImage.youtubeId}?autoplay=1&rel=0`
+
+  // youtube-nocookie.com = privacy-enhanced, lighter, faster
+  // &modestbranding=1 removes YouTube logo clutter
+  // &playsinline=1 prevents fullscreen on iOS auto-trigger
+  // &enablejsapi=0 skips the JS API overhead we don't need
+  const embedSrc = isYouTube
+    ? `https://www.youtube-nocookie.com/embed/${currentImage.youtubeId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=0`
     : null;
 
-  return (
-    <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm">
-        {/* Backdrop close */}
-        <div className="absolute inset-0 cursor-zoom-out" onClick={onClose} />
-
-        {/* Top bar: counter + close */}
-        <div className="absolute top-6 left-6 right-6 flex items-center justify-between text-cream z-20">
-          <span className="font-mono text-xs uppercase tracking-widest bg-charcoal/60 backdrop-blur-md py-1.5 px-3 rounded-sm border border-cream/5">
-            {currentIndex + 1} / {images.length}
-          </span>
-          <button
-            onClick={onClose}
-            className="w-10 h-10 rounded-full bg-charcoal/60 backdrop-blur-md flex items-center justify-center hover:bg-gold hover:text-charcoal hover:scale-105 transition-all duration-300 border border-cream/5"
-            aria-label="Close lightbox"
-          >
-            <X size={20} />
-          </button>
-        </div>
-
-        {/* Nav Left */}
+  const modal = (
+    <div
+      onClick={onClose}
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 9999,
+        backgroundColor: 'rgba(0,0,0,0.96)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        opacity: visible ? 1 : 0,
+        transition: 'opacity 0.2s ease',
+      }}
+    >
+      {/* ── Top bar ── */}
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          position: 'absolute',
+          top: 24,
+          left: 24,
+          right: 24,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          zIndex: 10,
+          color: '#F9F7F3',
+        }}
+      >
+        <span
+          style={{
+            fontFamily: 'monospace',
+            fontSize: '0.7rem',
+            textTransform: 'uppercase',
+            letterSpacing: '0.15em',
+            background: 'rgba(42,39,36,0.7)',
+            backdropFilter: 'blur(8px)',
+            padding: '6px 12px',
+            borderRadius: '2px',
+            border: '1px solid rgba(249,247,243,0.08)',
+          }}
+        >
+          {currentIndex + 1} / {images.length}
+        </span>
         <button
-          onClick={onPrev}
-          className="absolute left-6 w-12 h-12 rounded-full bg-charcoal/60 backdrop-blur-md flex items-center justify-center text-cream hover:bg-gold hover:text-charcoal hover:scale-105 transition-all duration-300 border border-cream/5 z-20 hidden md:flex"
-          aria-label="Previous"
+          onClick={onClose}
+          aria-label="Close"
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: '50%',
+            background: 'rgba(42,39,36,0.7)',
+            backdropFilter: 'blur(8px)',
+            border: '1px solid rgba(249,247,243,0.08)',
+            color: '#F9F7F3',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'background 0.2s, color 0.2s',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = '#C9A96E'; e.currentTarget.style.color = '#1a1a1a'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(42,39,36,0.7)'; e.currentTarget.style.color = '#F9F7F3'; }}
         >
-          <ChevronLeft size={24} />
+          <X size={20} />
         </button>
-
-        {/* Main content */}
-        <motion.div
-          key={currentImage.id}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.25, ease: "easeOut" }}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-          className="relative max-w-[90vw] max-h-[80vh] w-full h-full flex items-center justify-center z-10"
-        >
-          {isYouTube ? (
-            <div className="w-full max-w-[900px] aspect-video rounded-lg overflow-hidden shadow-2xl border border-gold/20">
-              <iframe
-                src={embedUrl}
-                title={currentImage.alt}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-                style={{ border: 'none' }}
-              />
-            </div>
-          ) : (
-            <div className="relative w-full h-full max-w-[1200px] max-h-[75vh] select-none">
-              <Image
-                src={currentImage.src}
-                alt={currentImage.alt}
-                fill
-                sizes="(max-width: 1200px) 100vw, 1200px"
-                priority
-                className="object-contain"
-              />
-            </div>
-          )}
-        </motion.div>
-
-        {/* Nav Right */}
-        <button
-          onClick={onNext}
-          className="absolute right-6 w-12 h-12 rounded-full bg-charcoal/60 backdrop-blur-md flex items-center justify-center text-cream hover:bg-gold hover:text-charcoal hover:scale-105 transition-all duration-300 border border-cream/5 z-20 hidden md:flex"
-          aria-label="Next"
-        >
-          <ChevronRight size={24} />
-        </button>
-
-        {/* Mobile dot indicators */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 md:hidden flex gap-1 z-25">
-          {images.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setLightboxIndex(idx)}
-              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                idx === currentIndex ? 'bg-gold w-4' : 'bg-cream/20'
-              }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
-        </div>
       </div>
-    </AnimatePresence>
+
+      {/* ── Nav Left ── */}
+      <button
+        onClick={(e) => { e.stopPropagation(); onPrev(); }}
+        aria-label="Previous"
+        style={{
+          position: 'absolute',
+          left: 24,
+          width: 48,
+          height: 48,
+          borderRadius: '50%',
+          background: 'rgba(42,39,36,0.7)',
+          backdropFilter: 'blur(8px)',
+          border: '1px solid rgba(249,247,243,0.08)',
+          color: '#F9F7F3',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 10,
+          transition: 'background 0.2s, color 0.2s',
+        }}
+        onMouseEnter={(e) => { e.currentTarget.style.background = '#C9A96E'; e.currentTarget.style.color = '#1a1a1a'; }}
+        onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(42,39,36,0.7)'; e.currentTarget.style.color = '#F9F7F3'; }}
+      >
+        <ChevronLeft size={24} />
+      </button>
+
+      {/* ── Main content ── */}
+      <div
+        key={currentImage.id}
+        onClick={(e) => e.stopPropagation()}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        style={{
+          width: '90vw',
+          maxWidth: isYouTube ? 960 : 1200,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 5,
+        }}
+      >
+        {isYouTube ? (
+          /* YouTube embed — aspect-ratio keeps it responsive */
+          <div
+            style={{
+              width: '100%',
+              aspectRatio: currentImage.isReel ? '9/16' : '16/9',
+              maxHeight: '80vh',
+              borderRadius: 12,
+              overflow: 'hidden',
+              boxShadow: '0 8px 60px rgba(0,0,0,0.6)',
+              border: '1px solid rgba(201,169,110,0.2)',
+              background: '#000',
+            }}
+          >
+            <iframe
+              src={embedSrc}
+              title={currentImage.alt}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              loading="eager"
+              style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
+            />
+          </div>
+        ) : (
+          /* Static image */
+          <div style={{ position: 'relative', width: '100%', maxHeight: '80vh', aspectRatio: `${currentImage.width}/${currentImage.height}` }}>
+            <Image
+              src={currentImage.src}
+              alt={currentImage.alt}
+              fill
+              sizes="(max-width: 1200px) 90vw, 1200px"
+              priority
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
+        )}
+      </div>
+
+      {/* ── Nav Right ── */}
+      <button
+        onClick={(e) => { e.stopPropagation(); onNext(); }}
+        aria-label="Next"
+        style={{
+          position: 'absolute',
+          right: 24,
+          width: 48,
+          height: 48,
+          borderRadius: '50%',
+          background: 'rgba(42,39,36,0.7)',
+          backdropFilter: 'blur(8px)',
+          border: '1px solid rgba(249,247,243,0.08)',
+          color: '#F9F7F3',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 10,
+          transition: 'background 0.2s, color 0.2s',
+        }}
+        onMouseEnter={(e) => { e.currentTarget.style.background = '#C9A96E'; e.currentTarget.style.color = '#1a1a1a'; }}
+        onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(42,39,36,0.7)'; e.currentTarget.style.color = '#F9F7F3'; }}
+      >
+        <ChevronRight size={24} />
+      </button>
+
+      {/* ── Mobile dot indicators ── */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 24,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          gap: 6,
+          zIndex: 10,
+        }}
+      >
+        {images.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={(e) => { e.stopPropagation(); setLightboxIndex(idx); }}
+            aria-label={`Go to ${idx + 1}`}
+            style={{
+              width: idx === currentIndex ? 16 : 6,
+              height: 6,
+              borderRadius: 9999,
+              background: idx === currentIndex ? '#C9A96E' : 'rgba(249,247,243,0.2)',
+              border: 'none',
+              cursor: 'pointer',
+              padding: 0,
+              transition: 'width 0.3s ease, background 0.3s ease',
+            }}
+          />
+        ))}
+      </div>
+    </div>
   );
+
+  return createPortal(modal, document.body);
 }
