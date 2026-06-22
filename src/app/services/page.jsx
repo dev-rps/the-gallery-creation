@@ -22,7 +22,7 @@ export default function ServicesPage() {
           </h1>
           <div className="w-16 h-[1px] bg-gold mx-auto mb-6" />
           <p className="text-sm md:text-base text-cream/70 leading-relaxed font-light">
-            Luxury photography packages tailored for life&apos;s most grand milestones. Every session is executed with bespoke editorial direction, high-definition styling, and elite post-production.
+            Luxury photography experiences designed to celebrate life&apos;s most meaningful moments. Each session is meticulously curated with bespoke editorial direction, premium styling, and world-class post-production to create timeless, sophisticated imagery.
           </p>
         </div>
 
@@ -38,6 +38,7 @@ export default function ServicesPage() {
               name={service.name}
               description={service.description}
               price={service.price}
+              priceNote={service.priceNote}
               deliverables={service.deliverables}
             />
           ))}
@@ -53,15 +54,15 @@ export default function ServicesPage() {
             Need a Bespoke Package?
           </h3>
           <p className="text-sm text-cream/70 leading-relaxed font-light max-w-xl mx-auto mb-8">
-            Every celebration is unique. If you need coverage across multiple cities, extra shooters, custom physical print deliverables, or customized timelines, we will build a custom quote just for you.
+            No two celebrations are the same. Whether you need multi-city coverage, additional photographers, cinematic films, or custom deliverables, we&apos;ll create a package tailored exclusively for you.
           </p>
           <a
-            href="https://forms.gle/YOUR_FORM_ID_HERE"
+            href="https://forms.gle/zsCAEjuWGraNmLU68"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 px-8 py-4 border border-[#C9A96E] hover:bg-[#C9A96E] hover:text-charcoal text-[#C9A96E] font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-sm"
           >
-            <span>Request Custom Quote</span>
+            <span>Get Your Custom Quote</span>
             <ExternalLink size={14} />
           </a>
         </div>

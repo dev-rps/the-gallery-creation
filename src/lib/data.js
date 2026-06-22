@@ -4,9 +4,9 @@ export const photographerInfo = {
   location: "Howrah, West Bengal, India",
   stats: [
     { target: 350, suffix: "+", label: "Weddings" },
-    { target: 10, suffix: " Years", label: "Experience" },
+    { target: 12, suffix: " Years", label: "Experience" },
     { target: 15, suffix: "", label: "Cities" },
-    { target: 600, suffix: "+", label: "Happy Couples" }
+    { target: 700, suffix: "+", label: "Happy Couples" }
   ],
   bio: "Raju Das & Kuushaal Debnaath are the award-winning principal founders behind The Gallery Creation & Shoot Insights, based in Howrah, West Bengal. With over 10 years of professional experience, they have traveled across 15+ cities, capturing the raw emotion, grandeur, and quiet intimacies of love. Their signature style blends editorial fine-art with candid photojournalism, crafting visuals that resonate for generations.",
   philosophy: "We believe that photography is not merely documenting an event; it is the art of capturing an emotion in its purest form. Timeless memories, treasured forever."
@@ -158,55 +158,60 @@ export const portfolioImages = [
 
 export const services = [
   {
-    id: "wedding-coverage",
-    name: "Wedding Coverage",
-    description: "Complete luxury documentation of your wedding day, capturing every detail, ritual, and emotion in cinematic style.",
-    price: "₹1,50,000",
+    id: "bengali-traditional-wedding",
+    name: "Bengali Traditional Wedding",
+    description: "Complete coverage of your Bengali traditional wedding — both sides, both days — with photography, cinematography, and premium albums.",
+    price: "₹74,999",
+    priceNote: "Starting From",
     deliverables: [
-      "12 Hours of coverage by Raju Das, Kuushaal Debnaath & team",
-      "500+ High-resolution edited digital photos",
-      "Signature hardbound luxury wedding album (40 pages)",
-      "Online private gallery with 1-year access",
-      "Delivery timeline: 6-8 weeks"
+      "02 Days Both Side Cover",
+      "Photography",
+      "Cinematography",
+      "Special Edited Photos",
+      "Cinematic Wedding Film",
+      "Teaser",
+      "Highlight",
+      "02 Nos Reels",
+      "01 Canvera Album [10 pages — 70 Photos] for Special Photos",
+      "02 Canvera Album [30 + 30 pages] for Group & Rituals Photos",
+      "Same Day Reels [iPhone]"
     ]
   },
   {
-    id: "pre-wedding-shoot",
-    name: "Pre-Wedding Shoot",
-    description: "An intimate, personalized photo session in stunning locations, telling the story of your love before the big day.",
-    price: "₹60,000",
+    id: "other-ethnic-wedding",
+    name: "Other Ethnic Wedding",
+    description: "Premium 3-day multi-ethnic wedding coverage on both sides, delivering cinematic films, albums, and same-day reels.",
+    price: "₹99,999",
+    priceNote: "Starting From",
     deliverables: [
-      "6 Hours of outdoor shooting",
-      "2-3 Costume changes",
-      "80+ High-resolution edited digital photos",
-      "1-Minute cinematic slideshow video",
-      "Delivery timeline: 3-4 weeks"
+      "03 Days Both Side Cover",
+      "Photography",
+      "Cinematography",
+      "Special Edited Photos",
+      "Cinematic Wedding Film",
+      "Teaser",
+      "Highlight",
+      "03 Nos Reels",
+      "01 Canvera Album [10 pages — 70 Photos] for Special Photos",
+      "02 Canvera Album [30 + 30 pages — 420 Photos] for Group & Rituals Photos",
+      "Same Day Reels [iPhone]"
     ]
   },
   {
-    id: "portrait-session",
-    name: "Portrait Session",
-    description: "Fine-art personal, couple, or family portraits that bring out your character and beauty in a sophisticated setting.",
-    price: "₹25,000",
+    id: "pre-wedding",
+    name: "Pre Wedding",
+    description: "A romantic pre-wedding shoot covering Kolkata and surroundings, with photography, film, reel, and a beautiful album.",
+    price: "₹24,999",
+    priceNote: "Starting From",
     deliverables: [
-      "2 Hours of session time (studio/outdoor)",
-      "20+ High-resolution edited digital photos",
-      "Professional styling advice",
-      "Digital delivery & print release",
-      "Delivery timeline: 2 weeks"
-    ]
-  },
-  {
-    id: "event-coverage",
-    name: "Event Coverage",
-    description: "Elite coverage for corporate events, galas, fashion shows, and milestones, delivering polished high-impact media.",
-    price: "₹80,000",
-    deliverables: [
-      "8 Hours of coverage",
-      "200+ High-resolution edited photos",
-      "Fast-turnaround preview within 48 hours",
-      "Full digital gallery delivery",
-      "Delivery timeline: 3 weeks"
+      "Kolkata Circle Cover",
+      "Photography",
+      "Cinematography",
+      "Special Edited Photos",
+      "Pre Wedding Film",
+      "Highlight",
+      "01 Nos Reels",
+      "01 Canvera Album [10 pages — 70 Photos] for Special Photos"
     ]
   }
 ];
@@ -216,7 +221,7 @@ export const testimonials = testimonialsData;
 
 export const timeline = [
   {
-    year: "2016",
+    year: "2014",
     title: "The Genesis",
     description: "Raju Das & Kuushaal Debnaath complete their photography studies and start taking freelance wedding projects in Kolkata and Howrah."
   },

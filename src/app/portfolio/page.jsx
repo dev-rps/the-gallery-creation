@@ -15,11 +15,11 @@ export default function PortfolioPage() {
             Portfolio
           </span>
           <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-wide mb-6">
-            Our Portfolio
+            Love Stories We&apos;ve Told
           </h1>
           <div className="w-16 h-[1px] bg-gold mx-auto mb-6" />
           <p className="text-sm md:text-base text-cream/70 leading-relaxed font-light">
-            A curated selection of love stories, personal narratives, and grand celebrations captured across 12 cities. Use the filters below to explore specific categories.
+            Each gallery is more than a collection of images—it&apos;s a journey of emotions, connections, and unforgettable moments waiting to be relived. Browse our weddings, pre-weddings, portraits, films, and reels to experience the stories we&apos;ve been privileged to capture.
           </p>
         </div>
 

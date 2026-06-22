@@ -68,13 +68,16 @@ export default function AboutPage() {
               </h3>
               <div className="space-y-6 text-cream/80 text-sm md:text-base font-light leading-relaxed">
                 <p>
-                  We believe that photography is more than just framing a shot; it&apos;s about holding onto a feeling. For the past 10 years, our cameras have been extensions of our hearts, helping us capture the quiet glances, grand celebrations, and emotional milestones that define our lives.
+                  We Don&apos;t Just Capture Weddings. We Preserve Feelings.
                 </p>
                 <p>
-                  Growing up in the culturally rich streets of Kolkata and Howrah, we were always drawn to how light dances across local structures and how festive rituals bring communities together in a burst of colors. This city taught us to find beauty in details, which eventually inspired the inception of The Gallery Creation.
+                  Every smile, every tear, every stolen glance tells a story worth remembering. At The Gallery Creation, we transform fleeting moments into timeless memories through authentic photography and cinematic storytelling.
                 </p>
                 <p>
-                  For us, every wedding is a completely blank canvas. We approach each couple not just as clients, but as collaborators in creating a visual heritage. Our style blends editorial aesthetics with candid photojournalism, giving you photographs that feel like cinema and print quality that lasts for generations.
+                  For over a decade, we&apos;ve had the privilege of documenting love stories across Kolkata, Howrah, and beyond. Our approach blends candid emotions, artistic vision, and meticulous attention to detail, ensuring every frame feels as genuine as the moment itself.
+                </p>
+                <p>
+                  Because years from now, your photographs shouldn&apos;t just remind you what happened—they should remind you exactly how it felt.
                 </p>
               </div>
             </motion.div>
@@ -94,13 +97,13 @@ export default function AboutPage() {
               </h3>
               <div className="space-y-6 text-cream/80 text-sm md:text-base font-light leading-relaxed">
                 <p>
-                  Shoot Insights is our premier cinematic branch. We capture behind-the-scenes magic, highlight reels, and detailed documentary video production. We believe in visual motion that takes your breath away and captures the dynamic energy of your milestones.
+                  Shoot Insights is our cinematic storytelling division, dedicated to creating wedding films and instant reels that capture the energy, emotions, and unforgettable moments of your celebration.
                 </p>
                 <p>
-                  Our video work focuses on the cinematic cadence of weddings and events. With custom sound design, color grading, and direction, we turn spontaneous laughter and high-energy dances into a film you can watch over and over.
+                  From heartfelt vows and joyful laughter to breathtaking drone shots and vibrant dance floors, we craft films that feel immersive, emotional, and uniquely yours.
                 </p>
                 <p>
-                  From drone shots of grand venues to close-ups of silent tears, our cinematic reels bring out the depth of the event. We tell your wedding story through a lens of premium film and documentary-style videography.
+                  More than a wedding video, we create a story you&apos;ll revisit for years and still feel every emotion all over again.
                 </p>
               </div>
             </motion.div>
@@ -141,9 +144,9 @@ export default function AboutPage() {
               </div>
               <div className="p-8 text-center bg-card-bg border-t border-gold/10">
                 <h3 className="font-serif text-xl font-bold text-cream tracking-wide">Raju Das</h3>
-                <p className="text-xs uppercase tracking-widest text-gold mt-1 font-semibold">Co-Founder &amp; Principal Photographer</p>
+                <p className="text-xs uppercase tracking-widest text-gold mt-1 font-semibold">Co-founder &amp; Director of Storytelling</p>
                 <p className="text-sm text-cream/70 mt-4 leading-relaxed font-light">
-                  Raju specializes in capturing the grandeur and editorial fine-art moments of weddings, using light and scale to create breathtaking compositions.
+                  Raju has an eye for transforming fleeting moments into timeless works of art. With a passion for light, composition, and emotion, he captures weddings with a blend of elegance and authenticity, creating photographs that remain meaningful for generations.
                 </p>
               </div>
             </div>
@@ -165,7 +168,7 @@ export default function AboutPage() {
                 <h3 className="font-serif text-xl font-bold text-cream tracking-wide">Kuushaal Debnaath</h3>
                 <p className="text-xs uppercase tracking-widest text-gold mt-1 font-semibold">Co-Founder &amp; Creative Director</p>
                 <p className="text-sm text-cream/70 mt-4 leading-relaxed font-light">
-                  Kuushaal focuses on candid storytelling and cinematic photojournalism, capturing the intimate, raw emotions and spontaneous love stories of your milestones.
+                  Kuushaal specializes in documenting genuine emotions and unscripted moments through a cinematic lens. His storytelling approach focuses on preserving the laughter, tears, and intimate connections that make every celebration uniquely unforgettable.
                 </p>
               </div>
             </div>

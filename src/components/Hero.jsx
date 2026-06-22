@@ -58,7 +58,7 @@ export default function Hero() {
             variants={itemVariants}
             className="font-serif text-4xl md:text-6xl lg:text-7xl text-[#F9F7F3] font-bold leading-tight max-w-4xl mb-6 tracking-wide text-balance"
           >
-            Every Love Story Deserves to Be <span className="text-[#C9A96E] italic font-normal">Timeless</span>
+            Every frame tells a story. Every story deserves <span className="text-[#C9A96E] italic font-normal">perfection.</span>
           </motion.h1>
 
           {/* Subheading */}
@@ -66,7 +66,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-[#F9F7F3] italic text-lg md:text-xl lg:text-2xl mb-3 block max-w-2xl tracking-wider leading-relaxed"
           >
-            &quot;Timeless memories, treasured forever.&quot;
+            &quot;No matter how many weddings we&apos;ve filmed, no two love stories have ever been the same.&quot;
           </motion.p>
           <motion.p
             variants={itemVariants}

@@ -5,13 +5,17 @@ import Link from 'next/link';
 import { Camera, Heart, User, Calendar } from 'lucide-react';
 
 const iconMap = {
+  'bengali-traditional-wedding': Camera,
+  'other-ethnic-wedding': Heart,
+  'pre-wedding': Calendar,
+  // legacy fallbacks
   'wedding-coverage': Camera,
   'pre-wedding-shoot': Heart,
   'portrait-session': User,
   'event-coverage': Calendar,
 };
 
-export default function ServiceCard({ id, name, description, price, deliverables = [] }) {
+export default function ServiceCard({ id, name, description, price, priceNote, deliverables = [] }) {
   const [isHovered, setIsHovered] = useState(false);
   const IconComponent = iconMap[id] || Camera;
 
@@ -51,9 +55,14 @@ export default function ServiceCard({ id, name, description, price, deliverables
           <div className="w-12 h-12 rounded-xl border border-[#C9A96E]/20 flex items-center justify-center text-[#C9A96E] group-hover:bg-[#C9A96E] group-hover:text-[#1a1a1a] transition-all duration-300">
             <IconComponent size={24} />
           </div>
-          <span className="bg-[#C9A96E]/15 border border-[#C9A96E]/40 text-[#C9A96E] rounded-full px-4 py-1 text-sm font-semibold inline-block">
-            {price}
-          </span>
+          <div className="flex flex-col items-end">
+            {priceNote && (
+              <span className="text-[10px] uppercase tracking-widest text-[#C9A96E]/70 mb-0.5 font-semibold">{priceNote}</span>
+            )}
+            <span className="bg-[#C9A96E]/15 border border-[#C9A96E]/40 text-[#C9A96E] rounded-full px-4 py-1 text-sm font-semibold inline-block">
+              {price}
+            </span>
+          </div>
         </div>
 
         {/* Card Title & Desc */}

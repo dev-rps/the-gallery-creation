@@ -162,7 +162,7 @@ export default function Home() {
               Photography Services
             </h2>
             <p className="text-sm text-cream/70 leading-relaxed font-light">
-              Crafting premium visual memories through editorial styling, top-tier cinematography, and elite composition.
+              Luxury photography experiences designed to celebrate life’s most meaningful moments. Each session is meticulously curated with bespoke editorial direction, premium styling, and world-class post-production to create timeless, sophisticated imagery.
             </p>
           </div>
 
@@ -174,6 +174,7 @@ export default function Home() {
                 name={service.name}
                 description={service.description}
                 price={service.price}
+                priceNote={service.priceNote}
               />
             ))}
           </div>
@@ -236,10 +237,10 @@ export default function Home() {
       <section className="py-24 bg-gradient-to-br from-card-bg to-charcoal border-y border-gold/20 relative z-10">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-bold tracking-wide text-cream mb-6">
-            Ready to Tell Your Story?
+            Ready to Relive Your Wedding Forever?
           </h2>
           <p className="text-cream/80 max-w-xl mx-auto text-sm md:text-base font-light mb-10 leading-relaxed">
-            Let&apos;s design a customized visual session that captures the authentic emotion and elegance of your big milestones. Contact us today.
+            The flowers will fade, the music will stop, and the celebrations will end—but your memories deserve to live on forever. Let&apos;s create a wedding story you&apos;ll cherish for generations.
           </p>
           <Link
             href="/contact"

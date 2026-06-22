@@ -17,14 +17,14 @@ export default function TestimonialsPage() {
         {/* Page Hero */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-gold uppercase tracking-[0.4em] text-xs font-semibold block mb-3">
-            Client Gratitude
+            Client Testimonials
           </span>
           <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-wide mb-6">
-            Love Stories
+            Cherished Memories, Honest Words
           </h1>
           <div className="w-16 h-[1px] bg-gold mx-auto mb-6" />
           <p className="text-sm md:text-base text-cream/70 leading-relaxed font-light">
-            Read the heartfelt stories of love and joy shared by couples we had the absolute privilege of documenting. Each quote represents a unique celebration that we turned into a visual masterpiece.
+            From the first consultation to the final delivery, we&apos;re honored to be part of our couples&apos; journey. Read their stories and see why families trust us to capture life&apos;s most important celebrations.
           </p>
         </div>
 

@@ -102,11 +102,11 @@ export default function ContactPage() {
             Get In Touch
           </span>
           <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-wide mb-6">
-            Book a Session
+            Let&apos;s Tell Your Story
           </h1>
           <div className="w-16 h-[1px] bg-gold mx-auto mb-6" />
           <p className="text-sm md:text-base text-cream/70 leading-relaxed font-light">
-            Ready to immortalize your milestones? Fill out the questionnaire below, or message us directly via WhatsApp to initiate your booking process.
+            Every celebration is unique, and we&apos;d love to hear yours. Share your wedding details, and we&apos;ll create a photography and filmmaking experience tailored to your vision.
           </p>
         </div>
 

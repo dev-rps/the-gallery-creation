@@ -24,7 +24,7 @@ export default function TestimonialsList({ initialTestimonials }) {
           className="px-8 py-3.5 bg-gradient-to-r from-[#C9A96E] to-[#B8965A] hover:scale-[1.02] hover:shadow-lg hover:shadow-gold/20 text-[#2A2724] font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-xl flex items-center space-x-2 shadow-md"
         >
           <Plus size={16} className="text-[#2A2724] stroke-[3px]" />
-          <span>Give a Review</span>
+          <span>Share Your Story</span>
         </button>
       </div>
 
