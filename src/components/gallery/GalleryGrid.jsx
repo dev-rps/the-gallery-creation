@@ -93,6 +93,7 @@ function GalleryItem({ image, index, onClick }) {
         fill
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         onLoad={() => setIsLoading(false)}
+        onError={() => setIsLoading(false)}
         className={`object-cover transition-all duration-500 group-hover:scale-[1.03] ${
           isLoading ? 'scale-95 opacity-0' : 'scale-100 opacity-100'
         }`}
@@ -150,6 +151,7 @@ function InstagramItem({ image, index, onClick }) {
         fill
         sizes="(max-width: 768px) 33vw, (max-width: 1200px) 25vw, 20vw"
         onLoad={() => setIsLoading(false)}
+        onError={() => setIsLoading(false)}
         className={`object-cover object-center transition-transform duration-400 ease group-hover:scale-[1.08] ${
           isLoading ? 'scale-95 opacity-0' : 'scale-100 opacity-100'
         }`}
