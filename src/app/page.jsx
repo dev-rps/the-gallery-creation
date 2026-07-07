@@ -21,13 +21,15 @@ export default function Home() {
   // Testimonials snapshot (first 3)
   const testimonialsSnapshot = testimonials.slice(0, 3);
 
-  // Filter standard photo images (exclude videos & reels)
-  const photos = portfolioImages.filter(img => !img.isVideo && !img.isReel);
+  // Filter standard photo images by category (exclude videos & reels)
+  const weddingPhotos = portfolioImages.filter(img => img.category === 'wedding');
+  const preWeddingPhotos = portfolioImages.filter(img => img.category === 'pre-wedding');
+  const portraitsPhotos = portfolioImages.filter(img => img.category === 'portraits');
 
-  // Distribute images for Row 1, Row 2, Row 3
-  const row1Base = photos.slice(0, 5);
-  const row2Base = [photos[5], photos[6], photos[7], photos[8], photos[0]];
-  const row3Base = [photos[9], photos[10], photos[11], photos[1], photos[2]];
+  // Distribute latest images from each category for Row 1, Row 2, Row 3
+  const row1Base = weddingPhotos.slice(0, 8);
+  const row2Base = preWeddingPhotos.slice(0, 8);
+  const row3Base = portraitsPhotos.slice(0, 8);
 
   // Duplicate rows for seamless loop
   const row1 = [...row1Base, ...row1Base];
