@@ -15,6 +15,7 @@ const filterCategoryMap = {
 export default function Gallery({ limit = null }) {
   const [activeFilter, setActiveFilter] = useState('Pre-Wedding');
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(18);
 
   // Filter logic — resolve label to actual category key
   const filteredImages = portfolioImages.filter((img) => {
@@ -22,8 +23,14 @@ export default function Gallery({ limit = null }) {
     return img.category.toLowerCase() === categoryKey.toLowerCase();
   });
 
-  // Optional limit for homepage preview (e.g. 6 items)
-  const displayedImages = limit ? filteredImages.slice(0, limit) : filteredImages;
+  // Optional limit for homepage preview (e.g. 6 items) or visibleCount pagination limit
+  const displayedImages = limit ? filteredImages.slice(0, limit) : filteredImages.slice(0, visibleCount);
+
+  const showLoadMore = !limit && filteredImages.length > visibleCount;
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 12);
+  };
 
   const handleImageClick = (index) => {
     setLightboxIndex(index);
@@ -53,6 +60,7 @@ export default function Gallery({ limit = null }) {
               onClick={() => {
                 setActiveFilter(filter);
                 setLightboxIndex(null); // Reset lightbox when filter changes
+                setVisibleCount(18); // Reset count on filter change
               }}
               className={`px-6 py-2.5 text-xs uppercase tracking-widest transition-all duration-300 rounded-sm ${
                 isActive
@@ -68,6 +76,18 @@ export default function Gallery({ limit = null }) {
 
       {/* Gallery Grid */}
       <GalleryGrid images={displayedImages} onImageClick={handleImageClick} activeCategory={activeFilter} />
+
+      {/* Load More Button */}
+      {showLoadMore && (
+        <div className="flex justify-center items-center mt-12">
+          <button
+            onClick={handleLoadMore}
+            className="px-8 py-3.5 bg-card-bg border border-cream/10 text-cream/75 hover:text-gold hover:border-gold/40 font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-xl shadow-md hover:scale-[1.01]"
+          >
+            Load More Images
+          </button>
+        </div>
+      )}
 
       {/* Lightbox Overlay */}
       {lightboxIndex !== null && lightboxIndex >= 0 && (

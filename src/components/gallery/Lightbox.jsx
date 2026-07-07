@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { getCloudinaryUrl } from '@/lib/cloudinary';
 
 export default function Lightbox({
   images,
@@ -209,7 +210,7 @@ export default function Lightbox({
         ) : (
           <div style={{ position: 'relative', width: '100%', maxHeight: '75vh', aspectRatio: `${currentImage.width}/${currentImage.height}` }}>
             <Image
-              src={currentImage.src}
+              src={getCloudinaryUrl(currentImage.src, 1600)}
               alt={currentImage.alt}
               fill
               sizes="(max-width: 1200px) 90vw, 1200px"
@@ -225,25 +226,27 @@ export default function Lightbox({
             style={{ display: 'flex', alignItems: 'center', gap: 16 }}
           >
             <NavButtons direction="prev" />
-            <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
-              {images.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={(e) => { e.stopPropagation(); setLightboxIndex(idx); }}
-                  aria-label={`Go to ${idx + 1}`}
-                  style={{
-                    width: idx === currentIndex ? 16 : 6,
-                    height: 6,
-                    borderRadius: 9999,
-                    background: idx === currentIndex ? '#C9A96E' : 'rgba(249,247,243,0.3)',
-                    border: 'none',
-                    cursor: 'pointer',
-                    padding: 0,
-                    transition: 'width 0.3s ease, background 0.3s ease',
-                  }}
-                />
-              ))}
-            </div>
+            {images.length <= 15 && (
+              <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+                {images.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={(e) => { e.stopPropagation(); setLightboxIndex(idx); }}
+                    aria-label={`Go to ${idx + 1}`}
+                    style={{
+                      width: idx === currentIndex ? 16 : 6,
+                      height: 6,
+                      borderRadius: 9999,
+                      background: idx === currentIndex ? '#C9A96E' : 'rgba(249,247,243,0.3)',
+                      border: 'none',
+                      cursor: 'pointer',
+                      padding: 0,
+                      transition: 'width 0.3s ease, background 0.3s ease',
+                    }}
+                  />
+                ))}
+              </div>
+            )}
             <NavButtons direction="next" />
           </div>
         )}
@@ -268,7 +271,7 @@ export default function Lightbox({
             zIndex: 10,
           }}
         >
-          {images.map((_, idx) => (
+          {images.length <= 15 && images.map((_, idx) => (
             <button
               key={idx}
               onClick={(e) => { e.stopPropagation(); setLightboxIndex(idx); }}

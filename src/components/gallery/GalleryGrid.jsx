@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Eye, Play, Film } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getCloudinaryUrl } from '@/lib/cloudinary';
 
 export default function GalleryGrid({ images, onImageClick, activeCategory = 'Pre-Wedding' }) {
   const isSpecialCategory = activeCategory === 'Film' || activeCategory === 'Reels';
@@ -88,7 +89,7 @@ function GalleryItem({ image, index, onClick }) {
 
       {/* Next.js Optimized Image */}
       <Image
-        src={image.src}
+        src={getCloudinaryUrl(image.src, 600)}
         alt={image.alt}
         fill
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -146,7 +147,7 @@ function InstagramItem({ image, index, onClick }) {
 
       {/* Next.js Optimized Image */}
       <Image
-        src={image.src}
+        src={getCloudinaryUrl(image.src, 600)}
         alt={image.alt}
         fill
         sizes="(max-width: 768px) 33vw, (max-width: 1200px) 25vw, 20vw"

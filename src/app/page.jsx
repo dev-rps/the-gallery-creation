@@ -5,6 +5,7 @@ import AnimatedCounter from '@/components/AnimatedCounter';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import { services, testimonials, photographerInfo, portfolioImages } from '@/lib/data';
+import { getCloudinaryUrl } from '@/lib/cloudinary';
 
 export const metadata = {
   title: 'The Gallery Creation & Shoot Insights | Premium Wedding & Event Photography',
@@ -81,7 +82,7 @@ export default function Home() {
                 {row1.map((image, idx) => (
                   <div key={`row1-${image.id}-${idx}`} className="floating-image-card">
                     <Image
-                      src={image.src}
+                      src={getCloudinaryUrl(image.src, 400)}
                       alt={image.alt}
                       fill
                       loading="eager"
@@ -103,7 +104,7 @@ export default function Home() {
                 {row2.map((image, idx) => (
                   <div key={`row2-${image.id}-${idx}`} className="floating-image-card">
                     <Image
-                      src={image.src}
+                      src={getCloudinaryUrl(image.src, 400)}
                       alt={image.alt}
                       fill
                       loading="eager"
@@ -125,7 +126,7 @@ export default function Home() {
                 {row3.map((image, idx) => (
                   <div key={`row3-${image.id}-${idx}`} className="floating-image-card">
                     <Image
-                      src={image.src}
+                      src={getCloudinaryUrl(image.src, 400)}
                       alt={image.alt}
                       fill
                       loading="eager"
