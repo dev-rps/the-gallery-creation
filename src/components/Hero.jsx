@@ -64,15 +64,15 @@ export default function Hero() {
           {/* Subheading */}
           <motion.p
             variants={itemVariants}
-            className="text-[#F9F7F3] italic text-lg md:text-xl lg:text-2xl mb-3 block max-w-2xl tracking-wider leading-relaxed"
+            className="font-serif text-[#F9F7F3] italic text-lg md:text-xl lg:text-2xl mb-3 block max-w-2xl tracking-wider leading-relaxed"
           >
-            &quot;No matter how many weddings we&apos;ve filmed, no two love stories have ever been the same.&quot;
+            &quot;Timeless memories, Treasured forever.&quot;
           </motion.p>
           <motion.p
             variants={itemVariants}
             className="text-[#F9F7F3]/80 max-w-2xl text-sm md:text-lg lg:text-xl font-light mb-10 tracking-wider leading-relaxed"
           >
-            Capturing the raw emotion, grandeur, and silent intimacies of your most precious milestones.
+            No matter how many weddings we&apos;ve filmed, no two love stories have ever been the same.
           </motion.p>
 
           {/* CTA Buttons */}

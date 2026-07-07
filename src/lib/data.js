@@ -6,10 +6,10 @@ export const photographerInfo = {
     { target: 350, suffix: "+", label: "Weddings" },
     { target: 12, suffix: " Years", label: "Experience" },
     { target: 15, suffix: "", label: "Cities" },
-    { target: 700, suffix: "+", label: "Happy Couples" }
+    { target: 700, suffix: "+", label: "Love Stories" }
   ],
   bio: "Raju Das & Kuushaal Debnaath are the award-winning principal founders behind The Gallery Creation & Shoot Insights, based in Howrah, West Bengal. With over 10 years of professional experience, they have traveled across 15+ cities, capturing the raw emotion, grandeur, and quiet intimacies of love. Their signature style blends editorial fine-art with candid photojournalism, crafting visuals that resonate for generations.",
-  philosophy: "We believe that photography is not merely documenting an event; it is the art of capturing an emotion in its purest form. Timeless memories, treasured forever."
+  philosophy: "We believe that photography is not merely documenting an event; it is the art of capturing an emotion in its purest form. Timeless memories, Treasured forever."
 };
 
 export const navLinks = [

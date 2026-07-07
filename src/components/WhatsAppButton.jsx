@@ -102,7 +102,7 @@ export default function WhatsAppButton() {
             )}
           </AnimatePresence>
           <a
-            href={`tel:+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919163961246'}`}
+            href={`tel:+${process.env.NEXT_PUBLIC_CALL_NUMBER || '918240677269'}`}
             aria-label="Call us"
           >
             <motion.div

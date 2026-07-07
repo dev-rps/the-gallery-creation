@@ -33,6 +33,9 @@ export default function ServiceCard({ id, name, description, price, priceNote, d
     transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
   };
 
+  const hasRupee = price && price.startsWith('₹');
+  const priceNumber = hasRupee ? price.slice(1) : price;
+
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}
@@ -57,11 +60,23 @@ export default function ServiceCard({ id, name, description, price, priceNote, d
           </div>
           <div className="flex flex-col items-end">
             {priceNote && (
-              <span className="text-[10px] uppercase tracking-widest text-[#C9A96E]/70 mb-0.5 font-semibold">{priceNote}</span>
+              <span 
+                className="text-[10px] uppercase tracking-widest mb-0.5 font-semibold"
+                style={{ color: 'rgba(212, 184, 122, 0.7)' }}
+              >
+                {priceNote}
+              </span>
             )}
-            <span className="bg-[#C9A96E]/15 border border-[#C9A96E]/40 text-[#C9A96E] rounded-full px-4 py-1 text-sm font-semibold inline-block">
-              {price}
-            </span>
+            {hasRupee ? (
+              <span className="font-serif text-[#D4B87A] text-2xl md:text-3xl font-medium tracking-normal select-none">
+                <span className="text-[#D4B87A] text-xs align-super font-normal mr-0.5">₹</span>
+                {priceNumber}
+              </span>
+            ) : (
+              <span className="font-serif text-[#D4B87A] text-xl md:text-2xl font-medium tracking-normal select-none">
+                {price}
+              </span>
+            )}
           </div>
         </div>
 

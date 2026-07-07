@@ -63,13 +63,13 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               className="pl-6 border-l border-[#C9A96E]"
             >
-              <h3 className="font-serif text-2xl font-bold text-cream mb-6 tracking-wide">
+              <h3 className="font-serif text-2xl font-bold text-cream mb-2 tracking-wide">
                 The Gallery Creation
               </h3>
+              <p className="font-serif text-[#C9A96E] italic text-base md:text-lg mb-6">
+                We Don&apos;t Just Capture Weddings. We Preserve Feelings.
+              </p>
               <div className="space-y-6 text-cream/80 text-sm md:text-base font-light leading-relaxed">
-                <p>
-                  We Don&apos;t Just Capture Weddings. We Preserve Feelings.
-                </p>
                 <p>
                   Every smile, every tear, every stolen glance tells a story worth remembering. At The Gallery Creation, we transform fleeting moments into timeless memories through authentic photography and cinematic storytelling.
                 </p>
@@ -92,9 +92,12 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               className="pl-6 border-l border-[#C9A96E]"
             >
-              <h3 className="font-serif text-2xl font-bold text-cream mb-6 tracking-wide">
+              <h3 className="font-serif text-2xl font-bold text-cream mb-2 tracking-wide">
                 Shoot Insights
               </h3>
+              <p className="font-serif text-[#C9A96E] italic text-base md:text-lg mb-6">
+                Relive the Magic. Frame by Frame.
+              </p>
               <div className="space-y-6 text-cream/80 text-sm md:text-base font-light leading-relaxed">
                 <p>
                   Shoot Insights is our cinematic storytelling division, dedicated to creating wedding films and instant reels that capture the energy, emotions, and unforgettable moments of your celebration.

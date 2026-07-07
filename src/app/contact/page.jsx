@@ -46,7 +46,7 @@ export default function ContactPage() {
 
     const keyToUse = web3formsKey && web3formsKey !== 'your_key_here' 
       ? web3formsKey 
-      : '76135ce8-bffc-4008-ae51-2c4c0a666f5e';
+      : 'e80df3ae-394c-4e90-914b-26515df46515';
 
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
@@ -90,7 +90,12 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="w-full bg-transparent text-cream py-16 md:py-24 relative overflow-hidden">
+    <div 
+      className="w-full text-cream py-16 md:py-24 relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(180deg, #362921 0%, #1E1612 100%)'
+      }}
+    >
       {/* Background Watermark */}
       <div className="absolute left-[20px] top-[15%] font-serif font-black italic text-[120px] md:text-[180px] text-cream/[0.02] pointer-events-none select-none z-0">
         hello
@@ -98,14 +103,14 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="text-gold uppercase tracking-[0.4em] text-xs font-semibold block mb-3">
+          <span className="text-[#C9A96E] uppercase tracking-[0.4em] text-xs font-semibold block mb-3">
             Get In Touch
           </span>
-          <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-wide mb-6">
-            Let&apos;s Tell Your Story
+          <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-wide mb-6 text-[#F9F7F3]">
+            Let&apos;s Tell Your <span className="text-[#C9A96E] italic font-normal">Story</span>
           </h1>
-          <div className="w-16 h-[1px] bg-gold mx-auto mb-6" />
-          <p className="text-sm md:text-base text-cream/70 leading-relaxed font-light">
+          <div className="w-16 h-[1px] bg-gold/30 mx-auto mb-6" />
+          <p className="text-sm md:text-base leading-relaxed font-light text-[#FAF6F0]/80">
             Every celebration is unique, and we&apos;d love to hear yours. Share your wedding details, and we&apos;ll create a photography and filmmaking experience tailored to your vision.
           </p>
         </div>
@@ -114,8 +119,25 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Form Wrapper (NO <form> TAGS) */}
           {/* Left Column: Form Wrapper */}
-          <div className="lg:col-span-7 bg-[#FAF6F0]/85 backdrop-blur-md p-8 md:p-12 rounded-2xl border border-[#C9A96E]/15 shadow-xl relative z-10">
-            <h2 className="font-serif text-2xl font-semibold mb-8 text-gold tracking-wide">
+          <div 
+            className="lg:col-span-7 p-8 md:p-12 relative z-10 overflow-hidden"
+            style={{
+              background: 'rgba(42, 39, 36, 0.65)',
+              backdropFilter: 'blur(24px) saturate(150%)',
+              WebkitBackdropFilter: 'blur(24px) saturate(150%)',
+              border: '1px solid rgba(201, 169, 110, 0.20)',
+              borderRadius: '20px',
+              boxShadow: '0 8px 40px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.06)'
+            }}
+          >
+            {/* Top Gold Accent Line */}
+            <div
+              className="absolute top-0 left-[10%] w-[80%] h-[1px] pointer-events-none"
+              style={{
+                background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+              }}
+            />
+            <h2 className="font-serif text-2xl font-semibold mb-8 text-[#F9F7F3] tracking-wide">
               Inquiry Form
             </h2>
 
@@ -137,7 +159,9 @@ export default function ContactPage() {
             <form onSubmit={handleSubmitInquiry} className="space-y-6">
               {/* Name */}
               <div>
-                <label className="text-xs uppercase tracking-widest text-cream/60 block mb-2 font-semibold">
+                <label 
+                  className="text-xs uppercase tracking-widest block mb-2 font-semibold text-gold-light"
+                >
                   Name *
                 </label>
                 <input
@@ -146,7 +170,7 @@ export default function ContactPage() {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g. Priyanjali Sen"
-                  className="w-full bg-[#FDFBF7]/60 border border-[#C9A96E]/20 focus:border-[#C9A96E] focus:ring-1 focus:ring-[#C9A96E] py-3 px-4 rounded-xl text-cream placeholder-cream/35 text-sm transition-all duration-200 outline-none"
+                  className="w-full bg-white/[0.06] border border-[#C9A96E]/20 focus:border-[#C9A96E]/60 focus:ring-[3px] focus:ring-[#C9A96E]/10 py-3 px-4 rounded-xl text-[#F9F7F3] placeholder-[#F9F7F3]/60 text-sm transition-all duration-200 outline-none"
                   disabled={status === 'loading'}
                   required
                 />
@@ -155,7 +179,9 @@ export default function ContactPage() {
               {/* Email & Phone Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="text-xs uppercase tracking-widest text-cream/60 block mb-2 font-semibold">
+                  <label 
+                    className="text-xs uppercase tracking-widest block mb-2 font-semibold text-gold-light"
+                  >
                     Email *
                   </label>
                   <input
@@ -164,13 +190,15 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="e.g. name@domain.com"
-                    className="w-full bg-[#FDFBF7]/60 border border-[#C9A96E]/20 focus:border-[#C9A96E] focus:ring-1 focus:ring-[#C9A96E] py-3 px-4 rounded-xl text-cream placeholder-cream/35 text-sm transition-all duration-200 outline-none"
+                    className="w-full bg-white/[0.06] border border-[#C9A96E]/20 focus:border-[#C9A96E]/60 focus:ring-[3px] focus:ring-[#C9A96E]/10 py-3 px-4 rounded-xl text-[#F9F7F3] placeholder-[#F9F7F3]/60 text-sm transition-all duration-200 outline-none"
                     disabled={status === 'loading'}
                     required
                   />
                 </div>
                 <div>
-                  <label className="text-xs uppercase tracking-widest text-cream/60 block mb-2 font-semibold">
+                  <label 
+                    className="text-xs uppercase tracking-widest block mb-2 font-semibold text-gold-light"
+                  >
                     Phone *
                   </label>
                   <input
@@ -179,7 +207,7 @@ export default function ContactPage() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="e.g. +91 98765 43210"
-                    className="w-full bg-[#FDFBF7]/60 border border-[#C9A96E]/20 focus:border-[#C9A96E] focus:ring-1 focus:ring-[#C9A96E] py-3 px-4 rounded-xl text-cream placeholder-cream/35 text-sm transition-all duration-200 outline-none"
+                    className="w-full bg-white/[0.06] border border-[#C9A96E]/20 focus:border-[#C9A96E]/60 focus:ring-[3px] focus:ring-[#C9A96E]/10 py-3 px-4 rounded-xl text-[#F9F7F3] placeholder-[#F9F7F3]/60 text-sm transition-all duration-200 outline-none"
                     disabled={status === 'loading'}
                     required
                   />
@@ -188,7 +216,9 @@ export default function ContactPage() {
 
               {/* Event Date */}
               <div>
-                <label className="text-xs uppercase tracking-widest text-cream/60 block mb-2 font-semibold">
+                <label 
+                  className="text-xs uppercase tracking-widest block mb-2 font-semibold text-gold-light"
+                >
                   Event Date
                 </label>
                 <input
@@ -196,14 +226,17 @@ export default function ContactPage() {
                   name="eventDate"
                   value={formData.eventDate}
                   onChange={handleInputChange}
-                  className="w-full bg-[#FDFBF7]/60 border border-[#C9A96E]/20 focus:border-[#C9A96E] focus:ring-1 focus:ring-[#C9A96E] py-3 px-4 rounded-xl text-cream placeholder-cream/35 text-sm transition-all duration-200 outline-none"
+                  style={{ colorScheme: 'dark' }}
+                  className="w-full bg-white/[0.06] border border-[#C9A96E]/20 focus:border-[#C9A96E]/60 focus:ring-[3px] focus:ring-[#C9A96E]/10 py-3 px-4 rounded-xl text-[#F9F7F3] placeholder-[#F9F7F3]/60 text-sm transition-all duration-200 outline-none"
                   disabled={status === 'loading'}
                 />
               </div>
 
               {/* Message */}
               <div>
-                <label className="text-xs uppercase tracking-widest text-cream/60 block mb-2 font-semibold">
+                <label 
+                  className="text-xs uppercase tracking-widest block mb-2 font-semibold text-gold-light"
+                >
                   Tell us about your event *
                 </label>
                 <textarea
@@ -212,7 +245,7 @@ export default function ContactPage() {
                   onChange={handleInputChange}
                   rows={5}
                   placeholder="Share details like event style, venues, timings, or specific questions..."
-                  className="w-full bg-[#FDFBF7]/60 border border-[#C9A96E]/20 focus:border-[#C9A96E] focus:ring-1 focus:ring-[#C9A96E] py-3 px-4 rounded-xl text-cream placeholder-cream/35 text-sm transition-all duration-200 outline-none resize-none"
+                  className="w-full bg-white/[0.06] border border-[#C9A96E]/20 focus:border-[#C9A96E]/60 focus:ring-[3px] focus:ring-[#C9A96E]/10 py-3 px-4 rounded-xl text-[#F9F7F3] placeholder-[#F9F7F3]/60 text-sm transition-all duration-200 outline-none resize-none"
                   disabled={status === 'loading'}
                   required
                 />
@@ -240,7 +273,9 @@ export default function ContactPage() {
 
             {/* Direct WhatsApp Link Button Below Form */}
             <div className="mt-8 border-t border-cream/5 pt-8 text-center">
-              <p className="text-xs text-cream/50 uppercase tracking-widest mb-4">
+              <p 
+                className="text-xs uppercase tracking-widest mb-4 font-semibold text-gold-light"
+              >
                 Want a faster response?
               </p>
               <a
@@ -258,26 +293,43 @@ export default function ContactPage() {
           {/* Right Column: Contact Details & Google Maps */}
           <div className="lg:col-span-5 space-y-8 relative z-10">
             {/* Contact Details Card */}
-            <div className="bg-[#FAF6F0]/85 backdrop-blur-md p-8 rounded-2xl border border-[#C9A96E]/15 shadow-xl">
-              <h2 className="font-serif text-xl font-semibold mb-6 text-gold tracking-wide leading-tight">
+            <div 
+              className="p-8 relative overflow-hidden shadow-xl"
+              style={{
+                background: 'rgba(42, 39, 36, 0.65)',
+                backdropFilter: 'blur(24px) saturate(150%)',
+                WebkitBackdropFilter: 'blur(24px) saturate(150%)',
+                border: '1px solid rgba(201, 169, 110, 0.20)',
+                borderRadius: '20px',
+                boxShadow: '0 8px 40px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.06)'
+              }}
+            >
+              {/* Top Gold Accent Line */}
+              <div
+                className="absolute top-0 left-[10%] w-[80%] h-[1px] pointer-events-none"
+                style={{
+                  background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+                }}
+              />
+              <h2 className="font-serif text-xl font-semibold mb-6 text-[#F9F7F3] tracking-wide leading-tight">
                 The Gallery Creation &amp; Shoot Insights
               </h2>
-              <ul className="space-y-6 text-sm text-cream/80">
+              <ul className="space-y-6 text-sm" style={{ color: 'rgba(249, 247, 243, 0.75)' }}>
                 <li className="flex items-start space-x-4">
-                  <MapPin size={20} className="text-gold shrink-0 mt-0.5" />
+                  <MapPin size={20} className="text-[#C9A96E] shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-cream mb-1">Our Studio Address</h4>
-                    <p className="text-xs text-cream/70 font-light leading-relaxed">
+                    <h4 className="font-semibold text-[#F9F7F3] mb-1">Our Studio Address</h4>
+                    <p className="text-xs font-light leading-relaxed" style={{ color: 'rgba(249, 247, 243, 0.75)' }}>
                       76/28, JOGENDRA NATH MUKHERJEE ROAD,<br/>
                       Ghusuri, Howrah, West Bengal - 711107
                     </p>
                   </div>
                 </li>
                 <li className="flex items-start space-x-4">
-                  <Phone size={20} className="text-gold shrink-0 mt-0.5" />
+                  <Phone size={20} className="text-[#C9A96E] shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-cream mb-1">Call / WhatsApp</h4>
-                    <div className="flex flex-col text-xs text-cream/70 font-light space-y-1">
+                    <h4 className="font-semibold text-[#F9F7F3] mb-1">Call / WhatsApp</h4>
+                    <div className="flex flex-col text-xs font-light space-y-1" style={{ color: 'rgba(249, 247, 243, 0.75)' }}>
                       <a href="https://wa.me/919163961246" className="hover:text-gold transition-colors block">
                         +91 9163961246
                       </a>
@@ -290,7 +342,7 @@ export default function ContactPage() {
                  <li className="flex items-start space-x-4">
                   <Mail size={20} className="text-[#C9A96E] shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-semibold text-cream mb-1">Inquiries Email</h4>
+                    <h4 className="font-semibold text-[#F9F7F3] mb-1">Inquiries Email</h4>
                     <a
                       href={mailtoUrl}
                       className="inline-flex items-center space-x-2 border border-[#C9A96E] text-[#C9A96E] hover:bg-[#C9A96E] hover:text-[#1a1a1a] px-4 py-2 text-xs uppercase tracking-widest font-semibold transition-all duration-300 rounded-sm mt-2 focus:outline-none"
@@ -304,14 +356,31 @@ export default function ContactPage() {
             </div>
 
             {/* Google Maps Placeholder Card */}
-            <div className="bg-[#FAF6F0]/85 backdrop-blur-md border border-[#C9A96E]/15 rounded-2xl overflow-hidden h-[300px] relative flex flex-col justify-end shadow-xl">
+            <div 
+              className="border rounded-2xl overflow-hidden h-[300px] relative flex flex-col justify-end shadow-xl"
+              style={{
+                background: 'rgba(42, 39, 36, 0.65)',
+                backdropFilter: 'blur(24px) saturate(150%)',
+                WebkitBackdropFilter: 'blur(24px) saturate(150%)',
+                border: '1px solid rgba(201, 169, 110, 0.20)',
+                borderRadius: '20px',
+                boxShadow: '0 8px 40px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.06)'
+              }}
+            >
+              {/* Top Gold Accent Line */}
+              <div
+                className="absolute top-0 left-[10%] w-[80%] h-[1px] pointer-events-none z-10"
+                style={{
+                  background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+                }}
+              />
               {/* Mock map style */}
-              <div className="absolute inset-0 bg-section-bg flex flex-col items-center justify-center p-6 text-center">
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-0">
                 <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
-                  <MapPin size={24} />
+                  <MapPin size={24} className="text-[#C9A96E]" />
                 </div>
-                <h4 className="font-serif text-cream font-bold tracking-wide mb-1">Howrah Studio</h4>
-                <p className="text-xs text-cream/60 font-light max-w-xs mb-2">
+                <h4 className="font-serif text-[#F9F7F3] font-bold tracking-wide mb-1">Howrah Studio</h4>
+                <p className="text-xs font-light max-w-xs mb-2" style={{ color: 'rgba(249, 247, 243, 0.75)' }}>
                   76/28, JOGENDRA NATH MUKHERJEE ROAD, Ghusuri, Howrah - 711107
                 </p>
                 <span className="text-[10px] text-gold uppercase tracking-[0.2em] font-semibold border border-gold/20 py-1 px-3 rounded-sm bg-gold/5">

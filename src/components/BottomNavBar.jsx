@@ -23,6 +23,11 @@ export default function BottomNavBar() {
     whatsappNumber = '919163961246';
   }
 
+  let callNumber = process.env.NEXT_PUBLIC_CALL_NUMBER || '918240677269';
+  if (!callNumber || callNumber === '910000000000' || callNumber.includes('000000') || callNumber.includes('XXXX')) {
+    callNumber = '918240677269';
+  }
+
   const notchPath = "M 32,12 L 142,12 C 152,12 160,0 180,0 C 200,0 208,12 218,12 L 328,12 A 32,32 0 0 1 360,44 A 32,32 0 0 1 328,76 L 32,76 A 32,32 0 0 1 0,44 A 32,32 0 0 1 32,12 Z";
 
   const triggerVideoModal = () => {
@@ -71,7 +76,7 @@ export default function BottomNavBar() {
 
       {/* Left button (Call) */}
       <a
-        href={`tel:+${whatsappNumber}`}
+        href={`tel:+${callNumber}`}
         className="flex flex-col items-center justify-center w-11 h-11 rounded-full text-[#F9F7F3] hover:text-[#C9A96E] active:text-[#C9A96E] transition-colors duration-200"
       >
         <motion.div
