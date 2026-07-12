@@ -61,13 +61,35 @@ export default function Home() {
       {/* 3. Portfolio Preview Section */}
       <section className="py-24 bg-transparent overflow-hidden relative z-10">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col items-baseline mb-16">
-            <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold block mb-2">
-              Our Work
-            </span>
-            <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-wide">
-              Captured Moments
-            </h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="flex flex-col items-baseline">
+              <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold block mb-2">
+                Our Work
+              </span>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-wide">
+                Captured Moments
+              </h2>
+            </div>
+            {/* Logos in portfolio preview */}
+            <div className="flex flex-row items-center gap-4 md:gap-6 bg-cream/[0.02] border border-cream/5 rounded-sm p-4">
+              <div className="relative w-28 h-10 md:w-32 md:h-12">
+                <Image
+                  src="/the-gallery-creation.png"
+                  alt="The Gallery Creation Logo"
+                  fill
+                  className="object-contain opacity-80"
+                />
+              </div>
+              <div className="h-6 w-[1px] bg-gold/20" />
+              <div className="relative w-28 h-10 md:w-32 md:h-12">
+                <Image
+                  src="/shoot-insights.png"
+                  alt="Shoot Insights Logo"
+                  fill
+                  className="object-contain opacity-80"
+                />
+              </div>
+            </div>
           </div>
 
           {/* 3-Row Floating Gallery Wrapper */}
@@ -205,32 +227,69 @@ export default function Home() {
               Testimonials
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-wide mb-6">
-              Love Stories
+              Verified Love Stories
             </h2>
             <p className="text-sm text-cream/70 leading-relaxed font-light">
-              Don&apos;t just take our word for it. Read the notes of gratitude and joy sent to us by couples we had the honour of documenting.
+              We build customer trust through transparency. Read the stories and ratings left by our amazing couples directly on verified platforms.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonialsSnapshot.map((testimonial, index) => (
-              <TestimonialCard
-                key={testimonial.id}
-                name={testimonial.name}
-                location={testimonial.location}
-                stars={testimonial.stars}
-                text={testimonial.text}
-                index={index}
-              />
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {/* Google Reviews Trust box */}
+            <div className="bg-card-bg/40 border border-gold/10 p-8 rounded-sm flex flex-col justify-between items-center text-center shadow-lg">
+              <span className="text-[10px] uppercase font-semibold text-gold tracking-widest mb-3">Google Maps</span>
+              <h3 className="font-serif text-xl font-bold text-cream mb-2">5.0 ★ Rated</h3>
+              <p className="text-xs text-cream/60 font-light mb-6">Read certified feedback and outstanding ratings left by our clients.</p>
+              <a
+                href="https://maps.app.goo.gl/72RfANH9arShYVKk7?g_st=ac"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs text-gold font-semibold uppercase tracking-wider border-b border-gold/30 hover:border-gold pb-0.5 transition-all duration-300"
+              >
+                <span>Read Google Reviews</span>
+                <span className="text-[10px]">↗</span>
+              </a>
+            </div>
+
+            {/* Facebook Recommend Trust box */}
+            <div className="bg-card-bg/40 border border-gold/10 p-8 rounded-sm flex flex-col justify-between items-center text-center shadow-lg">
+              <span className="text-[10px] uppercase font-semibold text-gold tracking-widest mb-3">Facebook</span>
+              <h3 className="font-serif text-xl font-bold text-cream mb-2">100% Recommended</h3>
+              <p className="text-xs text-cream/60 font-light mb-6">Explore the testimonials and notes of gratitude shared on our profile page.</p>
+              <a
+                href="https://www.facebook.com/profile.php?id=100067777243992"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs text-gold font-semibold uppercase tracking-wider border-b border-gold/30 hover:border-gold pb-0.5 transition-all duration-300"
+              >
+                <span>Read Facebook Reviews</span>
+                <span className="text-[10px]">↗</span>
+              </a>
+            </div>
+
+            {/* Instagram Highlight Trust box */}
+            <div className="bg-card-bg/40 border border-gold/10 p-8 rounded-sm flex flex-col justify-between items-center text-center shadow-lg">
+              <span className="text-[10px] uppercase font-semibold text-gold tracking-widest mb-3">Instagram</span>
+              <h3 className="font-serif text-xl font-bold text-cream mb-2">Couple Highlights</h3>
+              <p className="text-xs text-cream/60 font-light mb-6">Watch wedding cinematic reels, live updates, and couples highlights.</p>
+              <a
+                href="https://www.instagram.com/thegallerycreation?igsh=bGozeWt1eTA1aXRw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs text-gold font-semibold uppercase tracking-wider border-b border-gold/30 hover:border-gold pb-0.5 transition-all duration-300"
+              >
+                <span>Follow Couple Stories</span>
+                <span className="text-[10px]">↗</span>
+              </a>
+            </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link
               href="/testimonials"
-              className="text-xs uppercase tracking-widest text-gold border-b border-gold/30 hover:border-gold pb-1 transition-all duration-300 font-semibold"
+              className="text-xs uppercase tracking-[0.2em] text-gold border-b border-gold/30 hover:border-gold pb-1 transition-all duration-300 font-semibold"
             >
-              Read More Love Stories
+              Explore Verified Review Center
             </Link>
           </div>
         </div>

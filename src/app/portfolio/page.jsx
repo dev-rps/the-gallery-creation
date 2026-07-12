@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Gallery from '@/components/gallery/Gallery';
 
 export const metadata = {
@@ -9,6 +10,27 @@ export default function PortfolioPage() {
   return (
     <div className="w-full bg-charcoal text-cream py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
+        {/* Logos Header */}
+        <div className="flex flex-row justify-center items-center gap-6 md:gap-10 mb-10">
+          <div className="relative w-32 h-14 md:w-40 md:h-18">
+            <Image
+              src="/the-gallery-creation.png"
+              alt="The Gallery Creation Logo"
+              fill
+              className="object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+            />
+          </div>
+          <div className="h-8 w-[1px] bg-gold/25" />
+          <div className="relative w-32 h-14 md:w-40 md:h-18">
+            <Image
+              src="/shoot-insights.png"
+              alt="Shoot Insights Logo"
+              fill
+              className="object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+            />
+          </div>
+        </div>
+
         {/* Page Hero Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-gold uppercase tracking-[0.4em] text-xs font-semibold block mb-3">

@@ -37,16 +37,32 @@ export default function AboutPage() {
         <div className="lg:col-span-5 flex flex-col bg-transparent border-r border-gold/10 relative z-10">
           {/* Logo 1 (top) */}
           <div className="flex-1 flex flex-col items-center justify-center p-12 border-b border-[#C9A96E]/30 min-h-[35vh]">
-            <CameraIcon />
-            <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-widest text-[#C9A96E] text-center mt-4">
+            <div className="relative w-48 h-20 md:w-56 md:h-24 mb-4">
+              <Image
+                src="/the-gallery-creation.png"
+                alt="The Gallery Creation Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <h2 className="font-serif text-xl md:text-2xl font-bold tracking-widest text-[#C9A96E] text-center mt-2">
               THE GALLERY CREATION
             </h2>
           </div>
           
           {/* Logo 2 (bottom) */}
           <div className="flex-1 flex flex-col items-center justify-center p-12 min-h-[35vh]">
-            <FilmIcon />
-            <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-widest text-[#C9A96E] text-center mt-4">
+            <div className="relative w-48 h-20 md:w-56 md:h-24 mb-4">
+              <Image
+                src="/shoot-insights.png"
+                alt="Shoot Insights Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <h2 className="font-serif text-xl md:text-2xl font-bold tracking-widest text-[#C9A96E] text-center mt-2">
               SHOOT INSIGHTS
             </h2>
           </div>
@@ -131,12 +147,12 @@ export default function AboutPage() {
             <div className="w-16 h-[1px] bg-gold mx-auto mt-4" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto items-stretch">
             {/* Founder 1: Raju Das */}
-            <div className="bg-card-bg border border-cream/5 rounded-sm overflow-hidden flex flex-col group shadow-xl">
+            <div className="bg-card-bg border border-cream/5 rounded-sm overflow-hidden flex flex-col group shadow-xl h-full">
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-section-bg">
                 <Image
-                  src="/raju.jpg"
+                  src="/raju.jpeg"
                   alt="Raju Das - Co-Founder"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -145,17 +161,17 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <div className="p-8 text-center bg-card-bg border-t border-gold/10">
+              <div className="p-8 text-center bg-card-bg border-t border-gold/10 flex-grow flex flex-col justify-start">
                 <h3 className="font-serif text-xl font-bold text-cream tracking-wide">Raju Das</h3>
                 <p className="text-xs uppercase tracking-widest text-gold mt-1 font-semibold">Co-founder &amp; Director of Storytelling</p>
-                <p className="text-sm text-cream/70 mt-4 leading-relaxed font-light">
+                <p className="text-sm text-cream/70 mt-4 leading-relaxed font-light flex-grow">
                   Raju has an eye for transforming fleeting moments into timeless works of art. With a passion for light, composition, and emotion, he captures weddings with a blend of elegance and authenticity, creating photographs that remain meaningful for generations.
                 </p>
               </div>
             </div>
 
             {/* Founder 2: Kuushaal Debnaath */}
-            <div className="bg-card-bg border border-cream/5 rounded-sm overflow-hidden flex flex-col group shadow-xl">
+            <div className="bg-card-bg border border-cream/5 rounded-sm overflow-hidden flex flex-col group shadow-xl h-full">
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-section-bg">
                 <Image
                   src="/kuushal.jpg"
@@ -167,10 +183,10 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <div className="p-8 text-center bg-card-bg border-t border-gold/10">
+              <div className="p-8 text-center bg-card-bg border-t border-gold/10 flex-grow flex flex-col justify-start">
                 <h3 className="font-serif text-xl font-bold text-cream tracking-wide">Kuushaal Debnaath</h3>
                 <p className="text-xs uppercase tracking-widest text-gold mt-1 font-semibold">Co-Founder &amp; Creative Director</p>
-                <p className="text-sm text-cream/70 mt-4 leading-relaxed font-light">
+                <p className="text-sm text-cream/70 mt-4 leading-relaxed font-light flex-grow">
                   Kuushaal specializes in documenting genuine emotions and unscripted moments through a cinematic lens. His storytelling approach focuses on preserving the laughter, tears, and intimate connections that make every celebration uniquely unforgettable.
                 </p>
               </div>
@@ -224,6 +240,42 @@ export default function AboutPage() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Credentials & Registration Section */}
+      <section className="py-24 bg-card-bg/30 border-t border-gold/10 relative overflow-hidden">
+        {/* Background Watermark */}
+        <div className="absolute right-10 bottom-10 font-serif font-black italic text-[120px] md:text-[180px] text-cream/[0.02] pointer-events-none select-none z-0">
+          certified
+        </div>
+        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+          <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold block mb-2">
+            Official Verification
+          </span>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-wide mb-6">
+            Government Registered Studio
+          </h2>
+          <p className="text-sm md:text-base text-cream/75 max-w-xl mx-auto leading-relaxed font-light mb-8">
+            The Gallery Creation is officially registered as a micro-enterprise under the Ministry of Micro, Small & Medium Enterprises (MSME), Government of India. Our dedication to quality, security, and exceptional service is backed by legal corporate compliance.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a
+              href="/Udyam.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-gold hover:bg-[#b59459] text-charcoal font-semibold tracking-widest text-xs uppercase transition-all duration-300 rounded-sm hover:shadow-lg hover:shadow-gold/15"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg>
+              <span>View Udyam Certificate</span>
+            </a>
           </div>
         </div>
       </section>

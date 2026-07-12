@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { navLinks, photographerInfo } from '@/lib/data';
@@ -16,45 +17,40 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-[48px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 relative z-10">
         
         {/* Column 1 — Brand */}
-        <div className="flex flex-col space-y-4">
-          <Link href="/" className="flex flex-col justify-center items-start gap-[3px] w-fit" style={{ overflow: 'visible' }}>
-            <span
-              style={{
-                fontFamily: 'var(--font-playwrite)',
-                fontStyle: 'italic',
-                fontWeight: 400,
-                fontSize: '1.5rem',
-                letterSpacing: '0.04em',
-                lineHeight: 1.5,
-                paddingBottom: '6px',
-                display: 'block',
-                background: 'linear-gradient(135deg, #C9A96E 0%, #F5E090 30%, #EDD470 50%, #F5E090 70%, #C9A96E 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                overflow: 'visible',
-              }}
-              className="text-2xl font-serif"
-            >
-              The Gallery Creation
-            </span>
-            <span
-              className="text-[10.5px] uppercase font-semibold tracking-[0.3em] text-[#C9A96E]"
-              style={{
-                fontFamily: 'var(--font-jakarta)',
-                marginTop: '-2px',
-                paddingLeft: '2px',
-                display: 'block',
-                lineHeight: 1,
-              }}
-            >
-              &amp; Shoot Insights
-            </span>
+        <div className="flex flex-col space-y-6">
+          <Link href="/" className="flex flex-col gap-4 w-fit">
+            <div className="flex flex-row items-center gap-3">
+              <div className="relative w-28 h-10">
+                <Image
+                  src="/the-gallery-creation.png"
+                  alt="The Gallery Creation Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="h-6 w-[1px] bg-[#C9A96E]/30" />
+              <div className="relative w-28 h-10">
+                <Image
+                  src="/shoot-insights.png"
+                  alt="Shoot Insights Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] uppercase font-semibold tracking-[0.2em] text-[#C9A96E]">
+                The Gallery Creation
+              </span>
+              <span className="text-[9px] uppercase font-medium tracking-[0.25em] text-[#F9F7F3]/60 mt-0.5">
+                &amp; Shoot Insights
+              </span>
+            </div>
           </Link>
-          <p className="text-sm text-[#F9F7F3]/60 leading-relaxed max-w-xs line-clamp-2">
+          <p className="text-xs text-[#F9F7F3]/60 leading-relaxed max-w-xs">
             Capturing luxury weddings and fine-art portraits with timeless sophistication.
           </p>
-          <div className="text-[#C9A96E] text-sm mt-2">✦</div>
+          <div className="text-[#C9A96E] text-sm">✦</div>
         </div>
 
         {/* Column 2 — Quick Links */}
@@ -81,7 +77,14 @@ export default function Footer() {
           <ul className="space-y-4 font-sans text-xs font-light tracking-[0.08em] text-[#F9F7F3]/70 uppercase">
             <li className="flex items-center space-x-3">
               <MapPin size={16} className="text-[#C9A96E] shrink-0" />
-              <span>{photographerInfo.location}</span>
+              <a
+                href="https://maps.app.goo.gl/72RfANH9arShYVKk7?g_st=ac"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors"
+              >
+                {photographerInfo.location}
+              </a>
             </li>
             <li className="flex items-start space-x-3">
               <Phone size={16} className="text-[#C9A96E] shrink-0 mt-0.5" />
@@ -105,10 +108,10 @@ export default function Footer() {
 
         {/* Column 4 — Social */}
         <div className="flex flex-col space-y-4">
-          <h3 className="font-serif text-[15px] font-normal tracking-[0.15em] text-[#C9A96E] italic mb-5 border-b border-[#C9A96E]/20 pb-1.5 w-fit">Follow</h3>
+          <h3 className="font-serif text-[15px] font-normal tracking-[0.15em] text-[#C9A96E] italic mb-5 border-b border-[#C9A96E]/20 pb-1.5 w-fit">Follow & Rate</h3>
           <div className="flex flex-col gap-3">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/thegallerycreation?igsh=bGozeWt1eTA1aXRw"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center space-x-2 rounded-xl px-4 py-2.5 text-[#F9F7F3] transition-all duration-300 hover:scale-[1.02] hover:opacity-90 text-xs tracking-[0.12em] font-light uppercase"
@@ -122,7 +125,7 @@ export default function Footer() {
               <span>Instagram</span>
             </a>
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/profile.php?id=100067777243992"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center space-x-2 rounded-xl px-4 py-2.5 text-[#F9F7F3] transition-all duration-300 hover:scale-[1.02] hover:opacity-90 text-xs tracking-[0.12em] font-light uppercase bg-[#1877F2]"
@@ -131,6 +134,18 @@ export default function Footer() {
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
               </svg>
               <span>Facebook</span>
+            </a>
+            <a
+              href="https://maps.app.goo.gl/72RfANH9arShYVKk7?g_st=ac"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center space-x-2 rounded-xl px-4 py-2.5 text-[#2A2724] bg-[#C9A96E] hover:bg-[#b59459] transition-all duration-300 hover:scale-[1.02] hover:opacity-90 text-xs tracking-[0.12em] font-semibold uppercase"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>Google Reviews</span>
             </a>
           </div>
         </div>
@@ -141,9 +156,18 @@ export default function Footer() {
         <div className="w-full h-[1px]" style={{
           background: 'linear-gradient(90deg, transparent 0%, #C9A96E 30%, #C9A96E 70%, transparent 100%)'
         }} />
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 py-6 font-sans text-[10px] tracking-[0.12em] font-light text-[#F9F7F3]/40 uppercase">
-          <p>© {new Date().getFullYear()} The Gallery Creation & Shoot Insights. All Rights Reserved.</p>
-          <p>Crafted with ❤️ in Kolkata</p>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 py-8 font-sans text-[10px] tracking-[0.12em] font-light text-[#F9F7F3]/40 uppercase text-center md:text-left">
+          <div className="flex flex-col gap-2">
+            <p>© {new Date().getFullYear()} The Gallery Creation & Shoot Insights. All Rights Reserved.</p>
+            <p className="flex flex-wrap justify-center md:justify-start gap-2 items-center text-[#C9A96E] text-[9px] tracking-[0.1em]">
+              <span>Govt. Registered MSME Enterprise</span>
+              <span className="opacity-40">•</span>
+              <a href="/Udyam.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FAF6F0] transition-colors font-medium">
+                Udyam Registration Certificate
+              </a>
+            </p>
+          </div>
+          <p className="md:text-right">Crafted with ❤️ in Kolkata &amp; Howrah</p>
         </div>
       </div>
 
