@@ -61,8 +61,8 @@ export default function Home() {
       {/* 3. Portfolio Preview Section */}
       <section className="py-24 bg-transparent overflow-hidden relative z-10">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div className="flex flex-col items-baseline">
+          <div className="flex flex-col items-center md:flex-row md:items-end justify-between mb-16 gap-6 text-center md:text-left">
+            <div className="flex flex-col items-center md:items-baseline">
               <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold block mb-2">
                 Our Work
               </span>
@@ -71,7 +71,7 @@ export default function Home() {
               </h2>
             </div>
             {/* Logos in portfolio preview */}
-            <div className="flex flex-row items-center gap-4 md:gap-6 bg-cream/[0.02] border border-cream/5 rounded-sm p-4">
+            <div className="flex flex-row items-center justify-center gap-4 md:gap-6 bg-cream/[0.02] border border-cream/5 rounded-sm p-4 w-fit">
               <div className="relative w-28 h-10 md:w-32 md:h-12">
                 <Image
                   src="/the-gallery-creation.png"

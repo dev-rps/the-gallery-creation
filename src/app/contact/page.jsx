@@ -319,10 +319,16 @@ export default function ContactPage() {
                   <MapPin size={20} className="text-[#C9A96E] shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-semibold text-[#F9F7F3] mb-1">Our Studio Address</h4>
-                    <p className="text-xs font-light leading-relaxed" style={{ color: 'rgba(249, 247, 243, 0.75)' }}>
+                    <a
+                      href="https://maps.app.goo.gl/72RfANH9arShYVKk7?g_st=ac"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-light leading-relaxed hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors"
+                      style={{ color: 'rgba(249, 247, 243, 0.75)' }}
+                    >
                       76/28, JOGENDRA NATH MUKHERJEE ROAD,<br/>
                       Ghusuri, Howrah, West Bengal - 711107
-                    </p>
+                    </a>
                   </div>
                 </li>
                 <li className="flex items-start space-x-4">
@@ -355,9 +361,9 @@ export default function ContactPage() {
               </ul>
             </div>
 
-            {/* Google Maps Placeholder Card */}
+            {/* Google Maps Interactive Card */}
             <div 
-              className="border rounded-2xl overflow-hidden h-[300px] relative flex flex-col justify-end shadow-xl"
+              className="border rounded-2xl overflow-hidden h-[340px] relative flex flex-col justify-end shadow-xl group"
               style={{
                 background: 'rgba(42, 39, 36, 0.65)',
                 backdropFilter: 'blur(24px) saturate(150%)',
@@ -374,22 +380,35 @@ export default function ContactPage() {
                   background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)',
                 }}
               />
-              {/* Mock map style */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-0">
-                <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
-                  <MapPin size={24} className="text-[#C9A96E]" />
-                </div>
-                <h4 className="font-serif text-[#F9F7F3] font-bold tracking-wide mb-1">Howrah Studio</h4>
-                <p className="text-xs font-light max-w-xs mb-2" style={{ color: 'rgba(249, 247, 243, 0.75)' }}>
-                  76/28, JOGENDRA NATH MUKHERJEE ROAD, Ghusuri, Howrah - 711107
-                </p>
-                <span className="text-[10px] text-gold uppercase tracking-[0.2em] font-semibold border border-gold/20 py-1 px-3 rounded-sm bg-gold/5">
-                  Physical Consults by Appointment
-                </span>
-              </div>
+              
+              {/* Google Map Live Embed */}
+              <iframe
+                src="https://maps.google.com/maps?q=76/28,%20JOGENDRA%20NATH%20MUKHERJEE%20ROAD,%20Ghusuri,%20Howrah,%20West%20Bengal%20711107&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'grayscale(0.5) contrast(1.1) invert(0.9) hue-rotate(180deg)' }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="The Gallery Creation Studio Location Map"
+                className="absolute inset-0 w-full h-full opacity-70 group-hover:opacity-90 transition-opacity duration-300 z-0"
+              />
 
-              {/* Decorative Map Layout Lines overlay */}
-              <div className="absolute inset-0 opacity-10 pointer-events-none border-t border-b border-cream" style={{ backgroundImage: 'linear-gradient(45deg, #FFF 25%, transparent 25%), linear-gradient(-45deg, #FFF 25%, transparent 25%)', backgroundSize: '40px 40px' }} />
+              {/* Glassmorphic Map Detail Overlay */}
+              <div className="relative z-10 p-4 m-3 rounded-xl bg-[#1E1612]/90 border border-gold/10 backdrop-blur-md flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 shadow-lg">
+                <div className="flex flex-col">
+                  <h4 className="font-serif text-[13px] text-[#F9F7F3] font-bold tracking-wide">Studio Location</h4>
+                  <p className="text-[11px] text-[#F9F7F3]/75 font-light">76/28, J.N. Mukherjee Road, Ghusuri, Howrah</p>
+                </div>
+                <a 
+                  href="https://maps.app.goo.gl/72RfANH9arShYVKk7?g_st=ac"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 text-center text-[10px] text-gold uppercase tracking-[0.15em] font-semibold border border-gold/30 hover:border-gold hover:bg-gold/10 py-1.5 px-3.5 rounded-lg transition-all duration-300 bg-[#C9A96E]/5"
+                >
+                  Open in Google Maps
+                </a>
+              </div>
             </div>
           </div>
         </div>

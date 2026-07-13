@@ -5,7 +5,7 @@ import { navLinks, photographerInfo } from '@/lib/data';
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden w-full text-[#F9F7F3] pt-[64px] pb-[32px] bg-[#1a1612]">
+    <footer className="relative overflow-hidden w-full text-[#F9F7F3] pt-[80px] pb-[120px] md:pt-[64px] md:pb-[32px] bg-[#1a1612]">
       {/* Top decorative element */}
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="w-full h-[1px] mb-[60px]" style={{
@@ -17,10 +17,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-[48px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 relative z-10">
         
         {/* Column 1 — Brand */}
-        <div className="flex flex-col space-y-6">
-          <Link href="/" className="flex flex-col gap-4 w-fit">
-            <div className="flex flex-row items-center gap-3">
-              <div className="relative w-28 h-10">
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-6">
+          <Link href="/" className="flex flex-col items-center sm:items-start gap-4 w-fit">
+            <div className="flex flex-row items-center justify-center gap-3">
+              <div className="relative w-22 h-8 sm:w-28 sm:h-10">
                 <Image
                   src="/the-gallery-creation.png"
                   alt="The Gallery Creation Logo"
@@ -28,8 +28,8 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <div className="h-6 w-[1px] bg-[#C9A96E]/30" />
-              <div className="relative w-28 h-10">
+              <div className="h-5 sm:h-6 w-[1px] bg-[#C9A96E]/30" />
+              <div className="relative w-22 h-8 sm:w-28 sm:h-10">
                 <Image
                   src="/shoot-insights.png"
                   alt="Shoot Insights Logo"
@@ -38,7 +38,7 @@ export default function Footer() {
                 />
               </div>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center sm:items-start">
               <span className="text-[10px] uppercase font-semibold tracking-[0.2em] text-[#C9A96E]">
                 The Gallery Creation
               </span>
@@ -47,21 +47,21 @@ export default function Footer() {
               </span>
             </div>
           </Link>
-          <p className="text-xs text-[#F9F7F3]/60 leading-relaxed max-w-xs">
+          <p className="text-xs text-[#F9F7F3]/60 leading-relaxed max-w-xs mx-auto sm:mx-0">
             Capturing luxury weddings and fine-art portraits with timeless sophistication.
           </p>
           <div className="text-[#C9A96E] text-sm">✦</div>
         </div>
 
         {/* Column 2 — Quick Links */}
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col items-center sm:items-start space-y-4">
           <h3 className="font-serif text-[15px] font-normal tracking-[0.15em] text-[#C9A96E] italic mb-5 border-b border-[#C9A96E]/20 pb-1.5 w-fit">Explore</h3>
-          <ul className="space-y-2">
+          <ul className="space-y-2 text-center sm:text-left">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className="group flex items-center gap-1 text-[#F9F7F3]/70 hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors duration-200 py-1 font-sans text-xs tracking-[0.12em] font-light uppercase"
+                  className="group flex items-center justify-center sm:justify-start gap-1 text-[#F9F7F3]/70 hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors duration-200 py-1 font-sans text-xs tracking-[0.12em] font-light uppercase"
                 >
                   <span>{link.name}</span>
                   <span className="transform -translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">→</span>
@@ -72,23 +72,23 @@ export default function Footer() {
         </div>
 
         {/* Column 3 — Contact */}
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col items-center sm:items-start space-y-4">
           <h3 className="font-serif text-[15px] font-normal tracking-[0.15em] text-[#C9A96E] italic mb-5 border-b border-[#C9A96E]/20 pb-1.5 w-fit">Connect</h3>
-          <ul className="space-y-4 font-sans text-xs font-light tracking-[0.08em] text-[#F9F7F3]/70 uppercase">
-            <li className="flex items-center space-x-3">
+          <ul className="space-y-4 font-sans text-xs font-light tracking-[0.08em] text-[#F9F7F3]/70 uppercase flex flex-col items-center sm:items-start w-full">
+            <li className="flex items-center justify-center sm:justify-start space-x-3">
               <MapPin size={16} className="text-[#C9A96E] shrink-0" />
               <a
                 href="https://maps.app.goo.gl/72RfANH9arShYVKk7?g_st=ac"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors"
+                className="hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors text-center sm:text-left"
               >
                 {photographerInfo.location}
               </a>
             </li>
-            <li className="flex items-start space-x-3">
+            <li className="flex items-start justify-center sm:justify-start space-x-3">
               <Phone size={16} className="text-[#C9A96E] shrink-0 mt-0.5" />
-              <div className="flex flex-col">
+              <div className="flex flex-col items-center sm:items-start">
                 <a href="tel:+919163961246" className="hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors">
                   +91 9163961246
                 </a>
@@ -97,9 +97,9 @@ export default function Footer() {
                 </a>
               </div>
             </li>
-            <li className="flex items-center space-x-3">
+            <li className="flex items-center justify-center sm:justify-start space-x-3">
               <Mail size={16} className="text-[#C9A96E] shrink-0" />
-              <a href="mailto:thegallerycreation@gmail.com" className="hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors lowercase">
+              <a href="mailto:thegallerycreation@gmail.com" className="hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors lowercase text-center sm:text-left">
                 thegallerycreation@gmail.com
               </a>
             </li>
@@ -107,9 +107,9 @@ export default function Footer() {
         </div>
 
         {/* Column 4 — Social */}
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col items-center sm:items-start space-y-4">
           <h3 className="font-serif text-[15px] font-normal tracking-[0.15em] text-[#C9A96E] italic mb-5 border-b border-[#C9A96E]/20 pb-1.5 w-fit">Follow & Rate</h3>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 w-full max-w-[240px] sm:max-w-none">
             <a
               href="https://www.instagram.com/thegallerycreation?igsh=bGozeWt1eTA1aXRw"
               target="_blank"
