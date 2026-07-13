@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-6">
           <Link href="/" className="flex flex-col items-center sm:items-start gap-4 w-fit">
             <div className="flex flex-row items-center justify-center gap-3">
-              <div className="relative w-22 h-8 sm:w-28 sm:h-10">
+              <div className="relative w-20 h-7 sm:w-28 sm:h-10">
                 <Image
                   src="/the-gallery-creation.png"
                   alt="The Gallery Creation Logo"
@@ -29,7 +29,7 @@ export default function Footer() {
                 />
               </div>
               <div className="h-5 sm:h-6 w-[1px] bg-[#C9A96E]/30" />
-              <div className="relative w-22 h-8 sm:w-28 sm:h-10">
+              <div className="relative w-20 h-7 sm:w-28 sm:h-10">
                 <Image
                   src="/shoot-insights.png"
                   alt="Shoot Insights Logo"
@@ -61,10 +61,10 @@ export default function Footer() {
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className="group flex items-center justify-center sm:justify-start gap-1 text-[#F9F7F3]/70 hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors duration-200 py-1 font-sans text-xs tracking-[0.12em] font-light uppercase"
+                  className="group relative flex items-center justify-center sm:justify-start text-[#F9F7F3]/70 hover:text-[#C9A96E] hover:underline decoration-[#C9A96E]/40 underline-offset-4 transition-colors duration-200 py-1 font-sans text-xs tracking-[0.12em] font-light uppercase"
                 >
                   <span>{link.name}</span>
-                  <span className="transform -translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">→</span>
+                  <span className="absolute -right-5 sm:relative sm:right-auto transform -translate-x-1 sm:translate-x-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">→</span>
                 </Link>
               </li>
             ))}
