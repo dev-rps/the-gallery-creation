@@ -66,8 +66,8 @@ function drumReducer(state, action) {
 // Overlay variants
 // ─────────────────────────────────────────────────────────────────────────────
 const overlayVariants = {
-  open:   { clipPath: 'circle(150% at calc(100% - 40px) 40px)', transition: { duration: 0.45, ease: [0.76, 0, 0.24, 1] } },
-  closed: { clipPath: 'circle(0%   at calc(100% - 40px) 40px)', transition: { duration: 0.35, ease: [0.24, 1, 0.76, 1] } },
+  open:   { opacity: 1, y: 0, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } },
+  closed: { opacity: 0, y: -16, transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] } },
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -304,9 +304,10 @@ export default function Navbar() {
             className="fixed inset-0 flex flex-col md:hidden pt-20"
             style={{
               zIndex: 9998,
-              background: 'linear-gradient(rgba(10,10,10,0.96),rgba(10,10,10,0.96)), url(/hero-bg.jpg)',
-              backgroundSize: 'cover', backgroundPosition: 'center',
-              backgroundAttachment: 'fixed', willChange: 'clip-path',
+              background: 'rgba(10,10,10,0.98)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              willChange: 'transform, opacity',
             }}
           >
             {/* Top separator */}
@@ -406,7 +407,8 @@ export default function Navbar() {
                           pointerEvents: visible ? 'auto' : 'none',
                         }}
                       >
-                        <button
+                        <Link
+                          href={item.href}
                           style={{
                             background: 'none', border: 'none', outline: 'none',
                             cursor: 'pointer',
@@ -417,8 +419,8 @@ export default function Navbar() {
                             transition: 'opacity 0.22s ease, transform 0.22s ease',
                           }}
                           onClick={() => {
-                            if (realI === drum.index) { router.push(item.href); closeMenu(); }
-                            else { dispatchDrum({ type: 'SET', index: realI }); }
+                            dispatchDrum({ type: 'SET', index: realI });
+                            closeMenu();
                           }}
                         >
                           <span style={{
@@ -431,7 +433,7 @@ export default function Navbar() {
                           }}>
                             {item.name}
                           </span>
-                        </button>
+                        </Link>
                       </div>
                     );
                   })}

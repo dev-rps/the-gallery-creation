@@ -91,77 +91,79 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* 3-Row Floating Gallery Wrapper */}
-          <div className="floating-gallery-wrapper flex flex-col gap-4 mb-16">
-            {/* Row 1 (scrollLeft 35s) */}
-            <div className="overflow-hidden w-full">
-              <div 
-                className="floating-row-track track-left-slow"
-                onMouseEnter={undefined}
-                onMouseLeave={undefined}
-              >
-                {row1.map((image, idx) => (
-                  <div key={`row1-${image.id}-${idx}`} className="floating-image-card">
-                    <Image
-                      src={getCloudinaryUrl(image.src, 400)}
-                      alt={image.alt}
-                      fill
-                      loading="eager"
-                      sizes="320px"
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Row 2 (scrollRight 40s) */}
-            <div className="overflow-hidden w-full">
-              <div 
-                className="floating-row-track track-right"
-                onMouseEnter={undefined}
-                onMouseLeave={undefined}
-              >
-                {row2.map((image, idx) => (
-                  <div key={`row2-${image.id}-${idx}`} className="floating-image-card">
-                    <Image
-                      src={getCloudinaryUrl(image.src, 400)}
-                      alt={image.alt}
-                      fill
-                      loading="eager"
-                      sizes="320px"
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Row 3 (scrollLeft 30s) */}
-            <div className="overflow-hidden w-full">
-              <div 
-                className="floating-row-track track-left-fast"
-                onMouseEnter={undefined}
-                onMouseLeave={undefined}
-              >
-                {row3.map((image, idx) => (
-                  <div key={`row3-${image.id}-${idx}`} className="floating-image-card">
-                    <Image
-                      src={getCloudinaryUrl(image.src, 400)}
-                      alt={image.alt}
-                      fill
-                      loading="eager"
-                      sizes="320px"
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
+        {/* 3-Row Floating Gallery Wrapper */}
+        <div className="floating-gallery-wrapper flex flex-col gap-4 mb-16">
+          {/* Row 1 (scrollLeft 35s) */}
+          <div className="overflow-hidden w-full">
+            <div 
+              className="floating-row-track track-left-slow"
+              onMouseEnter={undefined}
+              onMouseLeave={undefined}
+            >
+              {row1.map((image, idx) => (
+                <div key={`row1-${image.id}-${idx}`} className="floating-image-card">
+                  <Image
+                    src={getCloudinaryUrl(image.src, 400)}
+                    alt={image.alt}
+                    fill
+                    loading="eager"
+                    sizes="320px"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          {/* Row 2 (scrollRight 40s) */}
+          <div className="overflow-hidden w-full">
+            <div 
+              className="floating-row-track track-right"
+              onMouseEnter={undefined}
+              onMouseLeave={undefined}
+            >
+              {row2.map((image, idx) => (
+                <div key={`row2-${image.id}-${idx}`} className="floating-image-card">
+                  <Image
+                    src={getCloudinaryUrl(image.src, 400)}
+                    alt={image.alt}
+                    fill
+                    loading="eager"
+                    sizes="320px"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 3 (scrollLeft 30s) */}
+          <div className="overflow-hidden w-full">
+            <div 
+              className="floating-row-track track-left-fast"
+              onMouseEnter={undefined}
+              onMouseLeave={undefined}
+            >
+              {row3.map((image, idx) => (
+                <div key={`row3-${image.id}-${idx}`} className="floating-image-card">
+                  <Image
+                    src={getCloudinaryUrl(image.src, 400)}
+                    alt={image.alt}
+                    fill
+                    loading="eager"
+                    sizes="320px"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center">
             <Link
               href="/portfolio"
               className="inline-block text-xs uppercase tracking-widest text-gold border-b border-gold/30 hover:border-gold pb-1 transition-all duration-300 font-semibold"

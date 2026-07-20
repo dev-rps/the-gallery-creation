@@ -1,6 +1,6 @@
 import AnimatedCounter from '@/components/AnimatedCounter';
 import { photographerInfo } from '@/lib/data';
-import { Play, Star, ExternalLink } from 'lucide-react';
+import { Star, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
 export const metadata = {
@@ -104,52 +104,7 @@ export default function TestimonialsPage() {
 
         </div>
 
-        {/* Video Testimonials Showcase Mockup */}
-        <div className="mb-28">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-gold uppercase tracking-[0.3em] text-xs font-semibold block mb-2">
-              Cinema
-            </span>
-            <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-wide">
-              Video Testimonials
-            </h2>
-            <p className="text-xs text-cream/50 uppercase tracking-widest mt-2">
-              Watch couples relive their wedding days
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Video Placeholder 1 */}
-            <div className="group relative aspect-video bg-card-bg border border-cream/5 flex items-center justify-center rounded-sm overflow-hidden shadow-xl cursor-pointer">
-              {/* Fake backdrop with nice dark gradient */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-charcoal via-charcoal/80 to-gold/10" />
-              {/* Info Overlay */}
-              <div className="absolute bottom-4 left-4 z-10">
-                <p className="font-serif text-sm font-semibold text-cream">Rohan &amp; Sneha&apos;s Highlight</p>
-                <p className="text-[10px] uppercase tracking-wider text-gold">Umaid Bhawan Palace, Jodhpur</p>
-              </div>
-              {/* Play Button Overlay */}
-              <div className="relative z-10 w-14 h-14 rounded-full border border-gold/40 flex items-center justify-center bg-charcoal/60 text-gold group-hover:bg-gold group-hover:text-charcoal group-hover:scale-110 transition-all duration-300 shadow-md">
-                <Play size={20} className="fill-current ml-1" />
-              </div>
-            </div>
-
-            {/* Video Placeholder 2 */}
-            <div className="group relative aspect-video bg-card-bg border border-cream/5 flex items-center justify-center rounded-sm overflow-hidden shadow-xl cursor-pointer">
-              {/* Fake backdrop with nice dark gradient */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-charcoal via-charcoal/80 to-gold/10" />
-              {/* Info Overlay */}
-              <div className="absolute bottom-4 left-4 z-10">
-                <p className="font-serif text-sm font-semibold text-cream">Kabir &amp; Divya&apos;s Journey</p>
-                <p className="text-[10px] uppercase tracking-wider text-gold">JW Marriott, Kolkata</p>
-              </div>
-              {/* Play Button Overlay */}
-              <div className="relative z-10 w-14 h-14 rounded-full border border-gold/40 flex items-center justify-center bg-charcoal/60 text-gold group-hover:bg-gold group-hover:text-charcoal group-hover:scale-110 transition-all duration-300 shadow-md">
-                <Play size={20} className="fill-current ml-1" />
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Stats Row Repeated */}
         <div className="border-t border-gold/10 pt-16">

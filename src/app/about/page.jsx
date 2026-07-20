@@ -170,12 +170,12 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Founder 2: Kuushaal Debnaath */}
+            {/* Founder 2: Swarna Mukherjee Debnath */}
             <div className="bg-card-bg border border-cream/5 rounded-sm overflow-hidden flex flex-col group shadow-xl h-full">
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-section-bg">
                 <Image
-                  src="/kuushal.jpg"
-                  alt="Kuushaal Debnaath - Co-Founder"
+                  src="/swarnamukherjee.jpeg"
+                  alt="Swarna Mukherjee Debnath - Creative Post-Production Director"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
@@ -184,10 +184,10 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               <div className="p-8 text-center bg-card-bg border-t border-gold/10 flex-grow flex flex-col justify-start">
-                <h3 className="font-serif text-xl font-bold text-cream tracking-wide">Kuushaal Debnaath</h3>
-                <p className="text-xs uppercase tracking-widest text-gold mt-1 font-semibold">Co-Founder &amp; Creative Director</p>
+                <h3 className="font-serif text-xl font-bold text-cream tracking-wide">SWARNA MUKHERJEE DEBNATH</h3>
+                <p className="text-xs uppercase tracking-widest text-gold mt-1 font-semibold">Creative Post-Production Director</p>
                 <p className="text-sm text-cream/70 mt-4 leading-relaxed font-light flex-grow">
-                  Kuushaal specializes in documenting genuine emotions and unscripted moments through a cinematic lens. His storytelling approach focuses on preserving the laughter, tears, and intimate connections that make every celebration uniquely unforgettable.
+                  Oversees the creative vision and execution of all photo and video editing projects. Ensures every wedding film and album reflects exceptional storytelling, emotion, and visual excellence. Leads the post-production team with precision, maintaining quality, consistency, and timely delivery. Dedicated to transforming cherished moments into timeless cinematic memories.
                 </p>
               </div>
             </div>
