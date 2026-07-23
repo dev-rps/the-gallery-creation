@@ -43,11 +43,11 @@ export const metadata = {
   description: 'Premium wedding and event photography by Raju Das, Kuushaal Debnaath & Swarna Mukherjee Debnath. Capturing timeless, emotional stories and fine-art moments in Kolkata and across India.',
   keywords: ['Wedding Photography', 'Premium Wedding Photographer', 'Kolkata Wedding Photographer', 'Raju Das', 'Kuushaal Debnaath', 'Swarna Mukherjee Debnath', 'The Gallery Creation', 'Shoot Insights', 'Pre-Wedding Shoot'],
   authors: [{ name: 'Raju Das, Kuushaal Debnaath & Swarna Mukherjee Debnath' }],
-  metadataBase: new URL('https://thegallerycreation.in'),
+  metadataBase: new URL('https://thegallerycreation.com'),
   openGraph: {
     title: 'The Gallery Creation & Shoot Insights | Premium Wedding & Event Photography',
     description: 'Premium wedding and event photography by Raju Das, Kuushaal Debnaath & Swarna Mukherjee Debnath. Capturing timeless, emotional stories and fine-art moments.',
-    url: 'https://thegallerycreation.in',
+    url: 'https://thegallerycreation.com',
     siteName: 'The Gallery Creation & Shoot Insights',
     locale: 'en_IN',
     type: 'website',
@@ -74,13 +74,13 @@ export default function RootLayout({ children }) {
               "@type": "LocalBusiness",
               "name": "The Gallery Creation & Shoot Insights",
               "image": [
-                "https://thegallerycreation.in/the-gallery-creation.png",
-                "https://thegallerycreation.in/brand-logo.jpg",
-                "https://thegallerycreation.in/shoot-insights.png"
+                "https://thegallerycreation.com/the-gallery-creation.png",
+                "https://thegallerycreation.com/brand-logo.jpg",
+                "https://thegallerycreation.com/shoot-insights.png"
               ],
               "description": "Premium wedding and event photography studio in Kolkata by Raju Das & Kuushaal Debnaath",
-              "@id": "https://thegallerycreation.in",
-              "url": "https://thegallerycreation.in",
+              "@id": "https://thegallerycreation.com",
+              "url": "https://thegallerycreation.com",
               "telephone": "+919163961246",
               "priceRange": "$$$$",
               "address": {
