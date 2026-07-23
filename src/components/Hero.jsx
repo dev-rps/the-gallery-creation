@@ -30,7 +30,7 @@ export default function Hero() {
       {/* Background Image with CSS Parallax */}
       <div
         style={{
-          backgroundImage: "url('/hero-bg.jpg')",
+          backgroundImage: "url('/heropic.jpg')",
         }}
         className="absolute inset-0 w-full h-full bg-cover bg-[60%_center] md:bg-center bg-scroll md:bg-fixed"
       >

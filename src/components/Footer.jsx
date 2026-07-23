@@ -19,22 +19,22 @@ export default function Footer() {
         {/* Column 1 — Brand */}
         <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-6">
           <Link href="/" className="flex flex-col items-center sm:items-start gap-4 w-fit">
-            <div className="flex flex-row items-center justify-center gap-3">
-              <div className="relative aspect-[3/2] w-20 sm:w-24 overflow-visible">
+            <div className="flex flex-row items-center justify-center sm:justify-start gap-3">
+              <div className="relative aspect-[3/2] w-20 sm:w-20 overflow-visible">
                 <Image
                   src="/the-gallery-creation.png"
                   alt="The Gallery Creation Logo"
                   fill
-                  className="object-contain scale-130"
+                  className="object-contain scale-130 sm:scale-100 transition-transform duration-300"
                 />
               </div>
-              <div className="h-6 sm:h-8 w-[1px] bg-[#C9A96E]/30" />
-              <div className="relative aspect-[3/2] w-20 sm:w-24 overflow-visible">
+              <div className="h-6 sm:h-6 w-[1px] bg-[#C9A96E]/30" />
+              <div className="relative aspect-[3/2] w-20 sm:w-20 overflow-visible">
                 <Image
                   src="/shoot-insights.png"
                   alt="Shoot Insights Logo"
                   fill
-                  className="object-contain scale-130"
+                  className="object-contain scale-130 sm:scale-100 transition-transform duration-300"
                 />
               </div>
             </div>

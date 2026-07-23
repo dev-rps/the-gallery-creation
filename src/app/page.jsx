@@ -62,22 +62,22 @@ export default function Home() {
               </h2>
             </div>
             {/* Logos in portfolio preview */}
-            <div className="flex flex-row items-center justify-center gap-5 bg-cream/[0.02] border border-cream/5 rounded-sm px-8 py-4 w-fit">
-              <div className="relative aspect-[3/2] w-32 sm:w-40 md:w-48 overflow-visible">
+            <div className="flex flex-row items-center justify-center gap-5 w-fit">
+              <div className="relative aspect-[3/2] w-32 sm:w-40 md:w-36 overflow-visible">
                 <Image
                   src="/the-gallery-creation.png"
                   alt="The Gallery Creation Logo"
                   fill
-                  className="object-contain opacity-90 scale-130 hover:opacity-100 hover:scale-135 transition-all duration-300"
+                  className="object-contain opacity-90 scale-130 hover:opacity-100 hover:scale-135 md:scale-100 md:hover:scale-105 transition-all duration-300"
                 />
               </div>
-              <div className="h-8 sm:h-10 w-[1px] bg-gold/20" />
-              <div className="relative aspect-[3/2] w-32 sm:w-40 md:w-48 overflow-visible">
+              <div className="h-8 sm:h-10 md:h-8 w-[1px] bg-gold/20" />
+              <div className="relative aspect-[3/2] w-32 sm:w-40 md:w-36 overflow-visible">
                 <Image
                   src="/shoot-insights.png"
                   alt="Shoot Insights Logo"
                   fill
-                  className="object-contain opacity-90 scale-130 hover:opacity-100 hover:scale-135 transition-all duration-300"
+                  className="object-contain opacity-90 scale-130 hover:opacity-100 hover:scale-135 md:scale-100 md:hover:scale-105 transition-all duration-300"
                 />
               </div>
             </div>
