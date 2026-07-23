@@ -315,27 +315,6 @@ export default function Navbar() {
             <div style={{ height: '1px', margin: '14px 24px 0',
               background: 'linear-gradient(90deg,transparent,rgba(201,169,110,0.35),transparent)' }} />
 
-            {/* Brand Logo — centered, glowing */}
-            <motion.div
-              className="flex flex-col items-center pt-6 pb-2"
-              initial={{ opacity: 0, scale: 0.85 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.15, duration: 0.45, ease: [0.16,1,0.3,1] }}
-            >
-              <div className="relative" style={{
-                filter: 'drop-shadow(0 0 22px rgba(201,30,30,0.55)) drop-shadow(0 0 8px rgba(201,169,110,0.18))',
-              }}>
-                <Image
-                  src="/brand-logo.jpg"
-                  alt="The Gallery Creation & Shoot Insights"
-                  width={160}
-                  height={160}
-                  className="object-contain rounded-sm"
-                  style={{ background: 'transparent', mixBlendMode: 'screen' }}
-                  priority
-                />
-              </div>
-            </motion.div>
 
             {/* ── Infinite Drum Carousel ──────────────────────────────────
                 HOW IT WORKS
