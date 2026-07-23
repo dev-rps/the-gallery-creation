@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
+import GalleryScroller from '@/components/GalleryScroller';
 import { services, testimonials, photographerInfo, portfolioImages } from '@/lib/data';
 import { getCloudinaryUrl } from '@/lib/cloudinary';
 
@@ -26,16 +27,6 @@ export default function Home() {
   const weddingPhotos = portfolioImages.filter(img => img.category === 'wedding');
   const preWeddingPhotos = portfolioImages.filter(img => img.category === 'pre-wedding');
   const portraitsPhotos = portfolioImages.filter(img => img.category === 'portraits');
-
-  // Distribute latest images from each category for Row 1, Row 2, Row 3
-  const row1Base = weddingPhotos.slice(0, 8);
-  const row2Base = preWeddingPhotos.slice(0, 8);
-  const row3Base = portraitsPhotos.slice(0, 8);
-
-  // Duplicate rows for seamless loop
-  const row1 = [...row1Base, ...row1Base];
-  const row2 = [...row2Base, ...row2Base];
-  const row3 = [...row3Base, ...row3Base];
 
   return (
     <div className="w-full bg-charcoal text-cream overflow-x-hidden">
@@ -93,74 +84,12 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 3-Row Floating Gallery Wrapper */}
-        <div className="floating-gallery-wrapper flex flex-col gap-4 mb-16">
-          {/* Row 1 (scrollLeft 35s) */}
-          <div className="overflow-hidden w-full">
-            <div 
-              className="floating-row-track track-left-slow"
-              onMouseEnter={undefined}
-              onMouseLeave={undefined}
-            >
-              {row1.map((image, idx) => (
-                <div key={`row1-${image.id}-${idx}`} className="floating-image-card">
-                  <Image
-                    src={getCloudinaryUrl(image.src, 400)}
-                    alt={image.alt}
-                    fill
-                    loading="eager"
-                    sizes="320px"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Row 2 (scrollRight 40s) */}
-          <div className="overflow-hidden w-full">
-            <div 
-              className="floating-row-track track-right"
-              onMouseEnter={undefined}
-              onMouseLeave={undefined}
-            >
-              {row2.map((image, idx) => (
-                <div key={`row2-${image.id}-${idx}`} className="floating-image-card">
-                  <Image
-                    src={getCloudinaryUrl(image.src, 400)}
-                    alt={image.alt}
-                    fill
-                    loading="eager"
-                    sizes="320px"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Row 3 (scrollLeft 30s) */}
-          <div className="overflow-hidden w-full">
-            <div 
-              className="floating-row-track track-left-fast"
-              onMouseEnter={undefined}
-              onMouseLeave={undefined}
-            >
-              {row3.map((image, idx) => (
-                <div key={`row3-${image.id}-${idx}`} className="floating-image-card">
-                  <Image
-                    src={getCloudinaryUrl(image.src, 400)}
-                    alt={image.alt}
-                    fill
-                    loading="eager"
-                    sizes="320px"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        {/* 3-Row Floating Gallery — shuffles on load & every 20s */}
+        <GalleryScroller
+          weddingPhotos={weddingPhotos}
+          preWeddingPhotos={preWeddingPhotos}
+          portraitsPhotos={portraitsPhotos}
+        />
 
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
