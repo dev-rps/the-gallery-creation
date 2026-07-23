@@ -47,7 +47,7 @@ export default function Hero() {
           className="flex flex-col items-center"
         >
           {/* Top Title & Heading Block (Shifted up on mobile to clear the photo background subject) */}
-          <div className="flex flex-col items-center relative -top-12 md:top-0 mb-8 md:mb-0">
+          <div className="flex flex-col items-center relative -top-24 md:-top-10 mb-8 md:mb-0">
             <motion.span
               variants={itemVariants}
               className="text-[#C9A96E] uppercase tracking-[0.3em] text-xs md:text-sm mb-2 md:mb-4 font-semibold text-center"
