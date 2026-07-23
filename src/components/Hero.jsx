@@ -46,25 +46,28 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-center"
         >
-          <motion.span
-            variants={itemVariants}
-            className="text-[#C9A96E] uppercase tracking-[0.3em] text-xs md:text-sm mb-4 font-semibold"
-          >
-            The Gallery Creation &amp; Shoot Insights
-          </motion.span>
+          {/* Top Title & Heading Block (Shifted up on mobile to clear the photo background subject) */}
+          <div className="flex flex-col items-center relative -top-12 md:top-0 mb-8 md:mb-0">
+            <motion.span
+              variants={itemVariants}
+              className="text-[#C9A96E] uppercase tracking-[0.3em] text-xs md:text-sm mb-2 md:mb-4 font-semibold text-center"
+            >
+              The Gallery Creation &amp; Shoot Insights
+            </motion.span>
 
-          {/* Main heading */}
-          <motion.h1
-            variants={itemVariants}
-            className="font-serif text-4xl md:text-6xl lg:text-7xl text-[#F9F7F3] font-bold leading-tight max-w-4xl mb-6 tracking-wide text-balance"
-          >
-            Every frame tells a story. Every story deserves <span className="text-[#C9A96E] italic font-normal">perfection.</span>
-          </motion.h1>
+            {/* Main heading */}
+            <motion.h1
+              variants={itemVariants}
+              className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-[#F9F7F3] font-bold leading-tight max-w-4xl mb-2 md:mb-6 tracking-wide text-balance text-center"
+            >
+              Every frame tells a story. Every story deserves <span className="text-[#C9A96E] italic font-normal">perfection.</span>
+            </motion.h1>
+          </div>
 
-          {/* Subheading */}
+          {/* Subheading (Kept lower down with clear gap above it on mobile) */}
           <motion.p
             variants={itemVariants}
-            className="font-serif text-[#F9F7F3] italic text-lg md:text-xl lg:text-2xl mb-3 block max-w-2xl tracking-wider leading-relaxed"
+            className="font-serif text-[#F9F7F3] italic text-lg md:text-xl lg:text-2xl mt-4 md:mt-0 mb-3 block max-w-2xl tracking-wider leading-relaxed"
           >
             &quot;Timeless memories, Treasured forever.&quot;
           </motion.p>
