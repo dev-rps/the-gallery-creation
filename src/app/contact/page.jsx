@@ -71,7 +71,7 @@ export default function ContactPage() {
 
       if (data.success) {
         setStatus('success');
-        setResponseMessage('Your booking inquiry has been received! Raju or Kuushaal will connect with you within 24 hours.');
+        setResponseMessage('Your booking inquiry has been received! Raju or Swarna will connect with you within 24 hours.');
         setFormData({
           name: '',
           email: '',

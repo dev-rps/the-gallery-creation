@@ -53,7 +53,7 @@ export default function TestimonialsList({ initialTestimonials }) {
             Share Your Experience
           </h4>
           <p className="text-xs text-[#2A2724]/60 font-light leading-relaxed max-w-[220px]">
-            Were you captured by Raju & Kuushaal? Share your beautiful memories and help others choose their storytellers.
+            Were you captured by Raju & Swarna? Share your beautiful memories and help others choose their storytellers.
           </p>
         </div>
       </div>

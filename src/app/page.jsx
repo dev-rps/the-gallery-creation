@@ -9,7 +9,7 @@ import { getCloudinaryUrl } from '@/lib/cloudinary';
 
 export const metadata = {
   title: 'The Gallery Creation & Shoot Insights | Premium Wedding & Event Photography',
-  description: 'Welcome to The Gallery Creation & Shoot Insights. Captured by Raju Das & Kuushaal Debnaath, we specialize in high-end, luxury wedding photography and fine-art portraits.',
+  description: 'Welcome to The Gallery Creation & Shoot Insights. Captured by Raju Das & Swarna Mukherjee Debnath, we specialize in high-end, luxury wedding photography and fine-art portraits.',
 };
 
 export default function Home() {
@@ -71,22 +71,22 @@ export default function Home() {
               </h2>
             </div>
             {/* Logos in portfolio preview */}
-            <div className="flex flex-row items-center justify-center gap-4 md:gap-6 bg-cream/[0.02] border border-cream/5 rounded-sm p-4 w-fit">
-              <div className="relative w-28 h-10 md:w-32 md:h-12">
+            <div className="flex flex-row items-center justify-center gap-4 bg-cream/[0.02] border border-cream/5 rounded-sm p-3.5 sm:p-4 w-fit">
+              <div className="relative aspect-[3/2] w-24 sm:w-28 md:w-32 overflow-visible">
                 <Image
                   src="/the-gallery-creation.png"
                   alt="The Gallery Creation Logo"
                   fill
-                  className="object-contain opacity-80"
+                  className="object-contain opacity-90 scale-125 hover:opacity-100 hover:scale-130 transition-all duration-300"
                 />
               </div>
-              <div className="h-6 w-[1px] bg-gold/20" />
-              <div className="relative w-28 h-10 md:w-32 md:h-12">
+              <div className="h-6 sm:h-8 w-[1px] bg-gold/20" />
+              <div className="relative aspect-[3/2] w-24 sm:w-28 md:w-32 overflow-visible">
                 <Image
                   src="/shoot-insights.png"
                   alt="Shoot Insights Logo"
                   fill
-                  className="object-contain opacity-80"
+                  className="object-contain opacity-90 scale-125 hover:opacity-100 hover:scale-130 transition-all duration-300"
                 />
               </div>
             </div>

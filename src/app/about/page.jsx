@@ -36,33 +36,33 @@ export default function AboutPage() {
         {/* Left Side: Two logos stacked vertically */}
         <div className="lg:col-span-5 flex flex-col bg-transparent border-r border-gold/10 relative z-10">
           {/* Logo 1 (top) */}
-          <div className="flex-1 flex flex-col items-center justify-center p-12 border-b border-[#C9A96E]/30 min-h-[35vh]">
-            <div className="relative w-48 h-20 md:w-56 md:h-24 mb-4">
+          <div className="flex-1 flex flex-col items-center justify-center p-8 border-b border-[#C9A96E]/30">
+            <div className="relative aspect-[3/2] w-64 sm:w-72 md:w-80 overflow-visible mb-2">
               <Image
                 src="/the-gallery-creation.png"
                 alt="The Gallery Creation Logo"
                 fill
-                className="object-contain"
+                className="object-contain scale-125 transition-transform duration-500"
                 priority
               />
             </div>
-            <h2 className="font-serif text-xl md:text-2xl font-bold tracking-widest text-[#C9A96E] text-center mt-2">
+            <h2 className="font-serif text-lg md:text-xl font-bold tracking-widest text-[#C9A96E] text-center">
               THE GALLERY CREATION
             </h2>
           </div>
           
           {/* Logo 2 (bottom) */}
-          <div className="flex-1 flex flex-col items-center justify-center p-12 min-h-[35vh]">
-            <div className="relative w-48 h-20 md:w-56 md:h-24 mb-4">
+          <div className="flex-1 flex flex-col items-center justify-center p-8">
+            <div className="relative aspect-[3/2] w-64 sm:w-72 md:w-80 overflow-visible mb-2">
               <Image
                 src="/shoot-insights.png"
                 alt="Shoot Insights Logo"
                 fill
-                className="object-contain"
+                className="object-contain scale-125 transition-transform duration-500"
                 priority
               />
             </div>
-            <h2 className="font-serif text-xl md:text-2xl font-bold tracking-widest text-[#C9A96E] text-center mt-2">
+            <h2 className="font-serif text-lg md:text-xl font-bold tracking-widest text-[#C9A96E] text-center">
               SHOOT INSIGHTS
             </h2>
           </div>
@@ -185,7 +185,7 @@ export default function AboutPage() {
               </div>
               <div className="p-8 text-center bg-card-bg border-t border-gold/10 flex-grow flex flex-col justify-start">
                 <h3 className="font-serif text-xl font-bold text-cream tracking-wide">Swarna Mukherjee Debnath</h3>
-                <p className="text-xs uppercase tracking-widest text-gold mt-1 font-semibold">Creative Post-Production Director</p>
+                <p className="text-xs uppercase tracking-widest text-gold mt-1 font-semibold">Co-founder &amp; Creative Post-Production Director</p>
                 <p className="text-sm text-cream/70 mt-4 leading-relaxed font-light flex-grow">
                   Oversees the creative vision and execution of all photo and video editing projects. Ensures every wedding film and album reflects exceptional storytelling, emotion, and visual excellence. Leads the post-production team with precision, maintaining quality, consistency, and timely delivery. Dedicated to transforming cherished moments into timeless cinematic memories.
                 </p>

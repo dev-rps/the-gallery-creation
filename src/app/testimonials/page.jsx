@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export const metadata = {
   title: 'Client Love Stories',
-  description: 'Read detailed client reviews and testimonials from weddings and events captured by Raju Das & Kuushaal Debnaath.',
+  description: 'Read detailed client reviews and testimonials from weddings and events captured by Raju Das & Swarna Mukherjee Debnath.',
 };
 
 export default function TestimonialsPage() {

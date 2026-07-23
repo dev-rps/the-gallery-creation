@@ -206,12 +206,12 @@ export default function Navbar() {
           HEADER
       ══════════════════════════════════════════════════════════════ */}
       <header
-        className={`fixed top-0 left-0 w-full h-20 flex items-center ${scrolled ? 'backdrop-blur-md' : ''}`}
+        className={`fixed top-0 left-0 w-full h-20 flex items-center ${scrolled ? 'backdrop-blur-lg' : ''}`}
         style={{
           zIndex: isOpen ? 99999 : 40,
           transition: 'background-color 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s cubic-bezier(0.16,1,0.3,1)',
-          background: isOpen ? 'transparent' : scrolled ? 'rgba(20,18,16,0.85)' : 'transparent',
-          boxShadow: (!isOpen && scrolled) ? '0 1px 0 rgba(201,169,110,0.15)' : 'none',
+          background: isOpen ? 'transparent' : scrolled ? 'rgba(34,30,26,0.78)' : 'transparent',
+          boxShadow: (!isOpen && scrolled) ? '0 1px 0 rgba(201,169,110,0.18)' : 'none',
         }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between w-full h-full">
@@ -222,8 +222,8 @@ export default function Navbar() {
             <div className="relative" style={{ overflow: 'visible', display: 'block' }}>
               <span style={{
                 fontFamily: 'var(--font-playwrite)', fontStyle: 'italic', fontWeight: 400,
-                fontSize: 'clamp(1.1rem,3vw,1.6rem)', letterSpacing: '0.04em', lineHeight: 1.5,
-                paddingBottom: '8px', display: 'block', overflow: 'visible',
+                fontSize: 'clamp(1.25rem,3.5vw,1.85rem)', letterSpacing: '0.04em', lineHeight: 1.4,
+                paddingBottom: '6px', display: 'block', overflow: 'visible',
                 background: 'linear-gradient(135deg,#5C3A10 0%,#9B6210 35%,#C47B0A 50%,#9B6210 65%,#5C3A10 100%)',
                 WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
                 opacity: isGoldMode ? 0 : 1, transition: 'opacity 0.3s ease', willChange: 'opacity',
@@ -231,14 +231,14 @@ export default function Navbar() {
               <span style={{
                 position: 'absolute', top: 0, left: 0, width: '100%', overflow: 'visible',
                 fontFamily: 'var(--font-playwrite)', fontStyle: 'italic', fontWeight: 400,
-                fontSize: 'clamp(1.1rem,3vw,1.6rem)', letterSpacing: '0.04em', lineHeight: 1.5,
-                paddingBottom: '8px', display: 'block', pointerEvents: 'none',
+                fontSize: 'clamp(1.25rem,3.5vw,1.85rem)', letterSpacing: '0.04em', lineHeight: 1.4,
+                paddingBottom: '6px', display: 'block', pointerEvents: 'none',
                 background: 'linear-gradient(135deg,#C9A96E 0%,#F5E090 30%,#EDD470 50%,#F5E090 70%,#C9A96E 100%)',
                 WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
                 opacity: isGoldMode ? 1 : 0, transition: 'opacity 0.3s ease', willChange: 'opacity',
               }}>The Gallery Creation</span>
             </div>
-            <span className="text-[10.5px] uppercase font-semibold tracking-[0.3em]" style={{
+            <span className="text-[12px] uppercase font-semibold tracking-[0.32em]" style={{
               fontFamily: 'var(--font-jakarta)', color: '#C9A96E',
               marginTop: '-2px', paddingLeft: '2px', display: 'block', lineHeight: 1,
             }}>&amp; Shoot Insights</span>

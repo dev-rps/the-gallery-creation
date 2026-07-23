@@ -3,7 +3,7 @@ import Gallery from '@/components/gallery/Gallery';
 
 export const metadata = {
   title: 'Our Portfolio',
-  description: 'Explore the full portfolio of premium wedding, pre-wedding, event, and portrait photography by Raju Das & Kuushaal Debnaath.',
+  description: 'Explore the full portfolio of premium wedding, pre-wedding, event, and portrait photography by Raju Das & Swarna Mukherjee Debnath.',
 };
 
 export default function PortfolioPage() {
@@ -11,22 +11,22 @@ export default function PortfolioPage() {
     <div className="w-full bg-charcoal text-cream py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
         {/* Logos Header */}
-        <div className="flex flex-row justify-center items-center gap-6 md:gap-10 mb-10">
-          <div className="relative w-32 h-14 md:w-40 md:h-18">
+        <div className="flex flex-row justify-center items-center gap-4 sm:gap-6 mb-10">
+          <div className="relative aspect-[3/2] w-28 sm:w-36 md:w-44 overflow-visible">
             <Image
               src="/the-gallery-creation.png"
               alt="The Gallery Creation Logo"
               fill
-              className="object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+              className="object-contain opacity-90 scale-125 hover:opacity-100 transition-all duration-300"
             />
           </div>
-          <div className="h-8 w-[1px] bg-gold/25" />
-          <div className="relative w-32 h-14 md:w-40 md:h-18">
+          <div className="h-8 sm:h-10 w-[1px] bg-gold/25" />
+          <div className="relative aspect-[3/2] w-28 sm:w-36 md:w-44 overflow-visible">
             <Image
               src="/shoot-insights.png"
               alt="Shoot Insights Logo"
               fill
-              className="object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+              className="object-contain opacity-90 scale-125 hover:opacity-100 transition-all duration-300"
             />
           </div>
         </div>
