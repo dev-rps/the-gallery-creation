@@ -30,9 +30,9 @@ export default function Hero() {
       {/* Background Image with CSS Parallax */}
       <div
         style={{
-          backgroundImage: "url('/heropic.jpg')",
+          backgroundImage: "url('/newheropic.jpeg')",
         }}
-        className="absolute inset-0 w-full h-full bg-cover bg-[60%_center] md:bg-center bg-scroll md:bg-fixed"
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-scroll md:bg-fixed"
       >
         {/* Dark Overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/60" />
